@@ -128,7 +128,7 @@ body {
     color: var(--darker-bg);
 }
 
-.badge.homelab {
+.badge.testing {
     background-color: var(--light-blue);
     color: var(--darker-bg);
 }
