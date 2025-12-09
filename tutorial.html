@@ -136,11 +136,14 @@ brew install git
 brew install --cask vagrant
 brew install --cask virtualbox</code></pre>
                     </div>
+                    <p class="note"><i class="fas fa-info-circle"></i> <a href="https://brew.sh" target="_blank">Homebrew</a> is a package manager for macOS</p>
                     <p class="note"><i class="fas fa-info-circle"></i> You may need to allow VirtualBox in System Preferences → Security & Privacy</p>
                 </div>
 
                 <div id="linux" class="tab-content">
-                    <h4>Linux Installation (Ubuntu/Debian)</h4>
+                    <h4>Linux Installation</h4>
+                    
+                    <h5>Ubuntu/Debian</h5>
                     <div class="code-block">
                         <pre><code># Update package list
 sudo apt update
@@ -156,6 +159,19 @@ wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/sha
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install -y vagrant</code></pre>
                     </div>
+                    
+                    <h5>Fedora</h5>
+                    <div class="code-block">
+                        <pre><code># Install Git
+sudo dnf install -y git
+
+# Install VirtualBox
+sudo dnf install -y VirtualBox
+
+# Install Vagrant
+sudo dnf install -y vagrant</code></pre>
+                    </div>
+                    <p class="note"><i class="fas fa-info-circle"></i> On Fedora, you may need to enable the RPM Fusion repository for VirtualBox</p>
                 </div>
 
                 <div id="windows" class="tab-content">

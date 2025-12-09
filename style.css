@@ -805,6 +805,13 @@ footer {
     margin-bottom: 15px;
 }
 
+.tutorial-section h5 {
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .info-box {
     background-color: var(--dark-bg);
     border-left: 4px solid var(--accent);
