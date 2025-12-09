@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Ahab Tutorial - Complete Guide for Beginners</title>
+    <meta name="description" content="Complete tutorial for Ahab infrastructure automation. Learn to deploy services with simple commands. Perfect for schools, non-profits, and students.">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="tutorial-nav">
+            <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <div class="nav-links">
+                <a href="#what-is-ahab">What is Ahab?</a>
+                <a href="#prerequisites">Prerequisites</a>
+                <a href="#installation">Installation</a>
+                <a href="#first-deployment">First Deployment</a>
+                <a href="#understanding">Understanding</a>
+                <a href="#next-steps">Next Steps</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="tutorial-hero">
+            <h1>Complete Ahab Tutorial</h1>
+            <p class="subtitle">From zero to deployed service in 30 minutes</p>
+            <div class="tutorial-meta">
+                <span><i class="fas fa-clock"></i> 30 minutes</span>
+                <span><i class="fas fa-signal"></i> Beginner friendly</span>
+                <span><i class="fas fa-graduation-cap"></i> Learn by doing</span>
+            </div>
+        </section>
+
+        <!-- What is Ahab -->
+        <section id="what-is-ahab" class="tutorial-section">
+            <h2>What is Ahab?</h2>
+            
+            <div class="info-box">
+                <p><strong>Ahab</strong> (Automated Host Administration & Build) is infrastructure automation software that makes deploying and managing services simple.</p>
+            </div>
+
+            <h3>Why Should You Care?</h3>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-terminal"></i>
+                    <h4>Simple Commands</h4>
+                    <p>Deploy a web server with one command: <code>make install apache</code></p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Learn Real Skills</h4>
+                    <p>Same tools used by Netflix, Spotify, and NASA</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Safe to Experiment</h4>
+                    <p>Everything runs in virtual machines - can't break your computer</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h4>Free for Education</h4>
+                    <p>Free for schools, non-profits, and students</p>
+                </div>
+            </div>
+
+            <h3>What You'll Learn</h3>
+            <ul class="learning-objectives">
+                <li><i class="fas fa-check"></i> How to install and configure Ahab</li>
+                <li><i class="fas fa-check"></i> How to deploy your first service (Apache web server)</li>
+                <li><i class="fas fa-check"></i> How to verify everything is working</li>
+                <li><i class="fas fa-check"></i> How to troubleshoot common issues</li>
+                <li><i class="fas fa-check"></i> How to deploy additional services</li>
+            </ul>
+        </section>
+
+        <!-- Prerequisites -->
+        <section id="prerequisites" class="tutorial-section">
+            <h2>Prerequisites</h2>
+
+            <h3>What You Need</h3>
+            <div class="prereq-grid">
+                <div class="prereq-card">
+                    <i class="fas fa-laptop"></i>
+                    <h4>Computer</h4>
+                    <p>Mac, Linux, or Windows with at least 8GB RAM</p>
+                </div>
+                <div class="prereq-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Basic Terminal Skills</h4>
+                    <p>Comfortable typing commands (we'll teach you)</p>
+                </div>
+                <div class="prereq-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>30 Minutes</h4>
+                    <p>Time to complete this tutorial</p>
+                </div>
+                <div class="prereq-card">
+                    <i class="fas fa-wifi"></i>
+                    <h4>Internet Connection</h4>
+                    <p>To download software and images</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Alpha Software Warning:</strong> Ahab is currently in alpha testing. It's great for learning and experimentation, but not ready for production use in schools yet. We're transparent about this!
+            </div>
+        </section>
+
+        <!-- Installation -->
+        <section id="installation" class="tutorial-section">
+            <h2>Installation</h2>
+
+            <h3>Step 1: Install Prerequisites</h3>
+            <p>Ahab needs three tools: Git, Vagrant, and VirtualBox.</p>
+
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('mac')">macOS</button>
+                    <button class="tab-button" onclick="showTab('linux')">Linux</button>
+                    <button class="tab-button" onclick="showTab('windows')">Windows</button>
+                </div>
+
+                <div id="mac" class="tab-content active">
+                    <h4>macOS Installation</h4>
+                    <div class="code-block">
+                        <pre><code># Install Homebrew (if not already installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install required tools
+brew install git
+brew install --cask vagrant
+brew install --cask virtualbox</code></pre>
+                    </div>
+                    <p class="note"><i class="fas fa-info-circle"></i> You may need to allow VirtualBox in System Preferences → Security & Privacy</p>
+                </div>
+
+                <div id="linux" class="tab-content">
+                    <h4>Linux Installation (Ubuntu/Debian)</h4>
+                    <div class="code-block">
+                        <pre><code># Update package list
+sudo apt update
+
+# Install Git
+sudo apt install -y git
+
+# Install VirtualBox
+sudo apt install -y virtualbox
+
+# Install Vagrant
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install -y vagrant</code></pre>
+                    </div>
+                </div>
+
+                <div id="windows" class="tab-content">
+                    <h4>Windows Installation</h4>
+                    <ol>
+                        <li>Download and install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a></li>
+                        <li>Download and install <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a></li>
+                        <li>Download and install <a href="https://www.vagrantup.com/downloads" target="_blank">Vagrant</a></li>
+                        <li>Restart your computer after installation</li>
+                    </ol>
+                    <p class="note"><i class="fas fa-info-circle"></i> Use Git Bash or PowerShell for commands</p>
+                </div>
+            </div>
+
+            <h3>Step 2: Verify Installation</h3>
+            <p>Open a terminal and verify everything is installed:</p>
+            <div class="code-block">
+                <pre><code># Check Git
+git --version
+# Should show: git version 2.x.x
+
+# Check Vagrant
+vagrant --version
+# Should show: Vagrant 2.x.x
+
+# Check VirtualBox
+VBoxManage --version
+# Should show: 7.x.x or 6.x.x</code></pre>
+            </div>
+
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>Success!</strong> If all three commands show version numbers, you're ready to continue.
+            </div>
+
+            <h3>Step 3: Clone Ahab Repository</h3>
+            <div class="code-block">
+                <pre><code># Clone the repository
+git clone https://github.com/waltdundore/ahab.git
+
+# Enter the directory
+cd ahab
+
+# Verify you're in the right place
+ls -la
+# You should see: Makefile, README.md, playbooks/, etc.</code></pre>
+            </div>
+        </section>
+
+        <!-- First Deployment -->
+        <section id="first-deployment" class="tutorial-section">
+            <h2>Your First Deployment</h2>
+
+            <h3>Step 1: Create Workstation VM</h3>
+            <p>This creates a virtual machine with all the tools you need:</p>
+            <div class="code-block">
+                <pre><code>make install</code></pre>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>What's happening?</strong> This command:
+                <ul>
+                    <li>Downloads a Fedora Linux image (~500MB)</li>
+                    <li>Creates a virtual machine</li>
+                    <li>Installs Git, Ansible, and Docker</li>
+                    <li>Takes 5-10 minutes on first run</li>
+                </ul>
+            </div>
+
+            <div class="progress-indicator">
+                <p><i class="fas fa-spinner fa-spin"></i> <strong>First run takes 5-10 minutes.</strong> Perfect time for a coffee break!</p>
+            </div>
+
+            <h3>Step 2: Verify Installation</h3>
+            <p>Make sure everything worked:</p>
+            <div class="code-block">
+                <pre><code>make test</code></pre>
+            </div>
+
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>All tests passing?</strong> Great! You're ready to deploy services.
+            </div>
+
+            <h3>Step 3: Deploy Apache Web Server</h3>
+            <p>Now let's deploy your first service:</p>
+            <div class="code-block">
+                <pre><code>make install apache</code></pre>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>What's happening?</strong> This command:
+                <ul>
+                    <li>Ensures the workstation VM is running</li>
+                    <li>Deploys Apache web server in a Docker container</li>
+                    <li>Configures port forwarding (VM port 80 → your computer port 8080)</li>
+                    <li>Takes 2-3 minutes</li>
+                </ul>
+            </div>
+
+            <h3>Step 4: Test Your Web Server</h3>
+            <p>Open your web browser and visit:</p>
+            <div class="url-box">
+                <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>
+            </div>
+
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>See the Ahab welcome page?</strong> Congratulations! You just deployed your first service!
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4><i class="fas fa-wrench"></i> Troubleshooting</h4>
+                <details>
+                    <summary>Can't connect to localhost:8080?</summary>
+                    <ul>
+                        <li>Check if VM is running: <code>vagrant status</code></li>
+                        <li>Check if Apache is running: <code>make ssh</code> then <code>docker ps</code></li>
+                        <li>Try a different port if 8080 is in use</li>
+                        <li>Check firewall settings</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>VM won't start?</summary>
+                    <ul>
+                        <li>Ensure VirtualBox is running</li>
+                        <li>Check if virtualization is enabled in BIOS</li>
+                        <li>Try: <code>make clean</code> then <code>make install</code></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Installation hangs or times out?</summary>
+                    <ul>
+                        <li>Check your internet connection</li>
+                        <li>Vagrant downloads can be slow - be patient</li>
+                        <li>If it hangs for more than 15 minutes, press Ctrl+C and try again</li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+
+        <!-- Understanding -->
+        <section id="understanding" class="tutorial-section">
+            <h2>Understanding What You Built</h2>
+
+            <h3>Architecture Overview</h3>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <div class="arch-box">
+                        <i class="fas fa-laptop"></i>
+                        <h4>Your Computer</h4>
+                        <p>Mac, Linux, or Windows</p>
+                    </div>
+                </div>
+                <div class="arch-arrow-down">↓</div>
+                <div class="arch-layer">
+                    <div class="arch-box">
+                        <i class="fas fa-cube"></i>
+                        <h4>VirtualBox</h4>
+                        <p>Runs virtual machines</p>
+                    </div>
+                </div>
+                <div class="arch-arrow-down">↓</div>
+                <div class="arch-layer">
+                    <div class="arch-box">
+                        <i class="fas fa-server"></i>
+                        <h4>Fedora VM</h4>
+                        <p>Linux workstation with Docker</p>
+                    </div>
+                </div>
+                <div class="arch-arrow-down">↓</div>
+                <div class="arch-layer">
+                    <div class="arch-box">
+                        <i class="fab fa-docker"></i>
+                        <h4>Docker Container</h4>
+                        <p>Apache web server</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Key Concepts</h3>
+            
+            <div class="concept-card">
+                <h4><i class="fas fa-cube"></i> Virtual Machine (VM)</h4>
+                <p>A computer inside your computer. It's completely isolated - you can't break anything on your real computer.</p>
+                <p><strong>Think of it like:</strong> A sandbox where you can experiment safely.</p>
+            </div>
+
+            <div class="concept-card">
+                <h4><i class="fab fa-docker"></i> Docker Container</h4>
+                <p>A lightweight, portable package that contains everything needed to run an application.</p>
+                <p><strong>Think of it like:</strong> A shipping container for software - works the same everywhere.</p>
+            </div>
+
+            <div class="concept-card">
+                <h4><i class="fas fa-cogs"></i> Ansible</h4>
+                <p>Automation tool that configures systems. It reads instructions (playbooks) and makes them happen.</p>
+                <p><strong>Think of it like:</strong> A recipe that a robot follows to set up your infrastructure.</p>
+            </div>
+
+            <div class="concept-card">
+                <h4><i class="fas fa-hammer"></i> Make</h4>
+                <p>A build tool that runs commands. <code>make install</code> is easier to remember than long complex commands.</p>
+                <p><strong>Think of it like:</strong> A remote control with simple buttons for complex operations.</p>
+            </div>
+
+            <h3>Useful Commands</h3>
+            <div class="command-reference">
+                <div class="command-item">
+                    <code>make help</code>
+                    <p>Show all available commands</p>
+                </div>
+                <div class="command-item">
+                    <code>make ssh</code>
+                    <p>Connect to the VM (like remote desktop for terminal)</p>
+                </div>
+                <div class="command-item">
+                    <code>make test</code>
+                    <p>Run tests to verify everything works</p>
+                </div>
+                <div class="command-item">
+                    <code>make clean</code>
+                    <p>Destroy the VM (start fresh)</p>
+                </div>
+                <div class="command-item">
+                    <code>vagrant status</code>
+                    <p>Check if VM is running</p>
+                </div>
+                <div class="command-item">
+                    <code>docker ps</code>
+                    <p>(Inside VM) List running containers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section id="next-steps" class="tutorial-section">
+            <h2>Next Steps</h2>
+
+            <h3>Deploy More Services</h3>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h4>MySQL Database</h4>
+                    <code>make install mysql</code>
+                    <p>Coming soon</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h4>PHP Runtime</h4>
+                    <code>make install php</code>
+                    <p>For PHP applications</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-server"></i>
+                    <h4>Nginx</h4>
+                    <code>make install nginx</code>
+                    <p>Alternative web server</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-plus"></i>
+                    <h4>Your Service</h4>
+                    <code>make install yourservice</code>
+                    <p>Create your own modules</p>
+                </div>
+            </div>
+
+            <h3>Learn More</h3>
+            <div class="learning-path">
+                <div class="learning-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Explore the Documentation</h4>
+                        <ul>
+                            <li><a href="https://github.com/waltdundore/ahab/blob/prod/README.md" target="_blank">README.md</a> - Complete guide</li>
+                            <li><a href="https://github.com/waltdundore/ahab/blob/prod/ABOUT.md" target="_blank">ABOUT.md</a> - Project philosophy</li>
+                            <li><a href="https://github.com/waltdundore/ahab/blob/prod/DEVELOPMENT_RULES.md" target="_blank">DEVELOPMENT_RULES.md</a> - How we build</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="learning-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Experiment Safely</h4>
+                        <ul>
+                            <li>SSH into the VM: <code>make ssh</code></li>
+                            <li>Explore Docker: <code>docker ps</code>, <code>docker logs</code></li>
+                            <li>Break things! You can always <code>make clean</code> and start over</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="learning-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Learn the Tools</h4>
+                        <ul>
+                            <li><a href="https://docs.ansible.com/" target="_blank">Ansible Documentation</a></li>
+                            <li><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></li>
+                            <li><a href="https://www.vagrantup.com/docs" target="_blank">Vagrant Documentation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="learning-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Contribute</h4>
+                        <ul>
+                            <li>Report bugs on <a href="https://github.com/waltdundore/ahab/issues" target="_blank">GitHub Issues</a></li>
+                            <li>Suggest features</li>
+                            <li>Create your own modules</li>
+                            <li>Improve documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>For Teachers & Schools</h3>
+            <div class="educator-box">
+                <h4><i class="fas fa-chalkboard-teacher"></i> Using Ahab in the Classroom</h4>
+                <p>Ahab is aligned with Georgia Computer Science Standards and teaches real-world DevOps skills.</p>
+                <ul>
+                    <li><strong>Standards Alignment:</strong> IT-CSP, IT-NSS, IT-ITS, IT-PGAS</li>
+                    <li><strong>Real Tools:</strong> Same as used by Netflix, Spotify, NASA</li>
+                    <li><strong>Safe Learning:</strong> Virtual machines mean students can't break anything</li>
+                    <li><strong>Free for Education:</strong> CC BY-NC-SA 4.0 license</li>
+                </ul>
+                <p><a href="https://github.com/waltdundore/ahab/blob/prod/EXECUTIVE_SUMMARY.md" target="_blank">Read the Executive Summary</a> for school administrators.</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="tutorial-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-tutorial">
+                <details>
+                    <summary>How much does this cost?</summary>
+                    <p>Ahab is <strong>free for schools, non-profits, and students</strong> under the CC BY-NC-SA 4.0 license. For-profit entities need to negotiate commercial terms.</p>
+                </details>
+
+                <details>
+                    <summary>Is this safe for students to use?</summary>
+                    <p>Yes! Everything runs in virtual machines, which are completely isolated from your real computer. Students can experiment, break things, and learn without any risk to the host system.</p>
+                </details>
+
+                <details>
+                    <summary>What if I get stuck?</summary>
+                    <p>Check the <a href="https://github.com/waltdundore/ahab/blob/prod/TROUBLESHOOTING.md" target="_blank">Troubleshooting Guide</a> or open an issue on <a href="https://github.com/waltdundore/ahab/issues" target="_blank">GitHub</a>. We're here to help!</p>
+                </details>
+
+                <details>
+                    <summary>Can I use this in production?</summary>
+                    <p>Not yet. Ahab is currently in <strong>alpha testing</strong>. It's great for learning and experimentation, but we're not ready for production use in schools yet. We're transparent about this and working toward production readiness.</p>
+                </details>
+
+                <details>
+                    <summary>What computer specs do I need?</summary>
+                    <p>Minimum: 8GB RAM, 20GB free disk space, modern CPU with virtualization support. Recommended: 16GB RAM for running multiple services.</p>
+                </details>
+
+                <details>
+                    <summary>Can I customize or modify Ahab?</summary>
+                    <p>Yes! Under the CC BY-NC-SA 4.0 license, you can modify it for your needs. If you share your modifications, they must use the same license.</p>
+                </details>
+
+                <details>
+                    <summary>Why is it called Ahab?</summary>
+                    <p><strong>A</strong>utomated <strong>H</strong>ost <strong>A</strong>dministration & <strong>B</strong>uild. Also, we're chasing the white whale of perfect infrastructure automation!</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Get Help -->
+        <section class="tutorial-section cta-section">
+            <h2>Need Help?</h2>
+            <div class="help-grid">
+                <a href="https://github.com/waltdundore/ahab" target="_blank" class="help-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub Repository</h3>
+                    <p>Browse code and documentation</p>
+                </a>
+                <a href="https://github.com/waltdundore/ahab/issues" target="_blank" class="help-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Report Issues</h3>
+                    <p>Found a bug? Let us know</p>
+                </a>
+                <a href="https://github.com/waltdundore/ahab/discussions" target="_blank" class="help-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Discussions</h3>
+                    <p>Ask questions and share ideas</p>
+                </a>
+                <a href="index.html" class="help-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Back to Home</h3>
+                    <p>Return to main page</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ahab Software, LLC</h3>
+                    <p>Infrastructure Automation for Education</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="index.html">Home</a>
+                    <a href="tutorial.html">Tutorial</a>
+                    <a href="https://github.com/waltdundore/ahab" target="_blank">Documentation</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ahab Software, LLC. Licensed under CC BY-NC-SA 4.0 for educational use.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
