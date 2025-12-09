@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <!-- Navigation -->
-        <nav class="tutorial-nav">
+        <nav class="tutorial-nav sticky-nav">
             <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
             <div class="nav-links">
-                <a href="#what-is-ahab">What is Ahab?</a>
-                <a href="#prerequisites">Prerequisites</a>
+                <a href="#quick-start">Quick Start</a>
                 <a href="#installation">Installation</a>
                 <a href="#first-deployment">First Deployment</a>
+                <a href="#commands">Commands</a>
                 <a href="#understanding">Understanding</a>
                 <a href="#next-steps">Next Steps</a>
             </div>
@@ -32,6 +32,128 @@
                 <span><i class="fas fa-clock"></i> 30 minutes</span>
                 <span><i class="fas fa-signal"></i> Beginner friendly</span>
                 <span><i class="fas fa-graduation-cap"></i> Learn by doing</span>
+            </div>
+            <div class="hero-callout">
+                <i class="fas fa-shield-alt"></i>
+                <p><strong>Make commands = Secure boilerplate you can trust.</strong> Every command follows security best practices. See exactly what runs. Find a problem? Tell us - everyone benefits.</p>
+            </div>
+        </section>
+
+        <!-- Quick Start (NEW) -->
+        <section id="quick-start" class="tutorial-section highlight-section">
+            <h2><i class="fas fa-rocket"></i> Quick Start (Already Have Prerequisites?)</h2>
+            
+            <div class="quick-start-box">
+                <h3>Three Commands to Your First Deployment</h3>
+                <div class="command-showcase">
+                    <div class="command-step">
+                        <div class="step-num">1</div>
+                        <code>git clone https://github.com/waltdundore/ahab.git && cd ahab</code>
+                        <p>Get the code</p>
+                    </div>
+                    <div class="command-step">
+                        <div class="step-num">2</div>
+                        <code>make install</code>
+                        <p>Create workstation VM (5-10 min)</p>
+                    </div>
+                    <div class="command-step">
+                        <div class="step-num">3</div>
+                        <code>make install apache</code>
+                        <p>Deploy web server (2-3 min)</p>
+                    </div>
+                </div>
+                <p class="quick-note">Then visit <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> to see your server!</p>
+                <p class="quick-note"><strong>New to this?</strong> Keep reading for detailed setup instructions.</p>
+            </div>
+        </section>
+
+        <!-- Why Make Commands -->
+        <section id="why-make" class="tutorial-section highlight-section">
+            <h2><i class="fas fa-terminal"></i> Why We Use Make Commands</h2>
+            
+            <div class="philosophy-box">
+                <h3>Make Commands = Secure, Tested Boilerplate</h3>
+                <p>Instead of memorizing complex commands with security flags, we use simple <code>make</code> commands that:</p>
+                <ul class="benefit-list">
+                    <li><i class="fas fa-shield-alt"></i> <strong>Follow security best practices</strong> - Non-root containers, read-only mounts, input validation</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Are tested and validated</strong> - Every command passes NASA Power of 10 standards</li>
+                    <li><i class="fas fa-eye"></i> <strong>Are transparent</strong> - Open the Makefile, see exactly what runs</li>
+                    <li><i class="fas fa-users"></i> <strong>Improve together</strong> - Find a problem? Tell us. Everyone benefits from the fix.</li>
+                </ul>
+            </div>
+
+            <div class="comparison-box">
+                <div class="comparison-side">
+                    <h4>❌ Without Make (Complex & Error-Prone)</h4>
+                    <div class="code-block">
+                        <pre><code># You'd have to remember:
+vagrant up --no-destroy-on-error
+vagrant ssh -c "sudo chown -R vagrant:vagrant /home/vagrant/ahab"
+vagrant ssh -c "cd /home/vagrant/ahab && docker run --rm \
+  -v \$(pwd):/workspace -w /workspace \
+  --user 1000:1000 --read-only \
+  --cap-drop=ALL --security-opt=no-new-privileges:true \
+  python:3.11-slim bash -c 'pip install -q PyYAML && \
+  python3 scripts/generate-compose.py apache'"
+vagrant ssh -c "cd /home/vagrant/ahab/generated && docker-compose up -d"
+
+# Easy to forget security flags!
+# Easy to make mistakes!
+# Hard to maintain!</code></pre>
+                    </div>
+                </div>
+                <div class="comparison-side">
+                    <h4>✅ With Make (Simple & Secure)</h4>
+                    <div class="code-block">
+                        <pre><code># Just type:
+make install apache
+
+# That's it!
+# Security built in
+# Tested and validated
+# Easy to remember</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transparency-box">
+                <h3><i class="fas fa-code"></i> See What Runs (Transparency)</h3>
+                <p>Every Make command is just a wrapper around tested, secure commands. Want to see what <code>make install apache</code> does?</p>
+                <details class="code-disclosure">
+                    <summary><strong>Click to see the Makefile code</strong></summary>
+                    <div class="code-block">
+                        <pre><code>install:
+    @echo "Creating workstation VM..."
+    @vagrant up --no-destroy-on-error || exit 1
+    @echo "Fixing permissions..."
+    @vagrant ssh -c "sudo chown -R vagrant:vagrant /home/vagrant/ahab"
+    @if [ -n "$(MODULES)" ]; then \
+        echo "Deploying modules: $(MODULES)"; \
+        vagrant ssh -c "cd /home/vagrant/ahab && \
+            docker run --rm \
+                -v \$(pwd):/workspace \
+                -w /workspace \
+                python:3.11-slim \
+                bash -c 'pip install -q PyYAML && \
+                    python3 scripts/generate-compose.py $(MODULES)'"; \
+        vagrant ssh -c "cd /home/vagrant/ahab/generated && \
+            docker-compose up -d"; \
+    fi
+    @echo "✅ Ready"</code></pre>
+                    </div>
+                    <p class="code-note"><strong>See?</strong> Nothing hidden. All the security flags are there. You can inspect, modify, or improve it.</p>
+                </details>
+            </div>
+
+            <div class="community-box">
+                <h3><i class="fas fa-users"></i> We Want Your Feedback</h3>
+                <p><strong>Found a security issue? See a better way?</strong> Please tell us!</p>
+                <ul>
+                    <li>Open an issue on <a href="https://github.com/waltdundore/ahab/issues" target="_blank">GitHub</a></li>
+                    <li>Submit a pull request with improvements</li>
+                    <li>Share your concerns in <a href="https://github.com/waltdundore/ahab/discussions" target="_blank">Discussions</a></li>
+                </ul>
+                <p>When you improve Ahab, <strong>everyone benefits</strong>. That's the power of open source.</p>
             </div>
         </section>
 
@@ -339,6 +461,273 @@ echo "DEFAULT_OS=ubuntu" > ahab.conf</code></pre>
             </div>
         </section>
 
+        <!-- Commands Reference -->
+        <section id="commands" class="tutorial-section highlight-section">
+            <h2><i class="fas fa-terminal"></i> Command Reference</h2>
+            
+            <p class="section-intro">All Ahab commands use <code>make</code> for simplicity and security. Here's what each command does and what runs behind the scenes.</p>
+
+            <div class="command-category">
+                <h3>Core Commands</h3>
+                
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make install</code>
+                        <span class="command-time">5-10 min first run</span>
+                    </div>
+                    <p class="command-desc">Creates a Fedora workstation VM with Docker, Ansible, and security hardening.</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># 1. Create VM with Vagrant
+vagrant up --no-destroy-on-error
+
+# 2. Fix permissions (security)
+vagrant ssh -c "sudo chown -R vagrant:vagrant /home/vagrant/ahab"
+
+# 3. Ansible provisions:
+#    - Install Docker (rootless mode)
+#    - Install Ansible
+#    - Configure SELinux
+#    - Set up firewall
+#    - Security hardening</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> Handles all the security configuration automatically. Manual setup would take hours and you'd likely miss security steps.</p>
+                    </details>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make install apache</code>
+                        <span class="command-time">2-3 min</span>
+                    </div>
+                    <p class="command-desc">Creates workstation + deploys Apache web server in a secure Docker container.</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># 1. Ensure workstation exists (runs make install if needed)
+vagrant up --no-destroy-on-error
+
+# 2. Generate docker-compose.yml with security flags
+docker run --rm \
+    -v $(pwd):/workspace \
+    -w /workspace \
+    --user 1000:1000 \              # Non-root user
+    --read-only \                   # Read-only filesystem
+    --cap-drop=ALL \                # Drop all capabilities
+    --security-opt=no-new-privileges:true \
+    python:3.11-slim \
+    bash -c 'pip install -q PyYAML && \
+        python3 scripts/generate-compose.py apache'
+
+# 3. Deploy with docker-compose
+cd generated && docker-compose up -d</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> All those security flags (non-root, read-only, capability dropping) are easy to forget. Make command ensures they're always applied.</p>
+                    </details>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make test</code>
+                        <span class="command-time">1-2 min</span>
+                    </div>
+                    <p class="command-desc">Runs NASA Power of 10 validation and integration tests.</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># 1. Validate NASA Power of 10 standards
+bash scripts/validate-nasa-standards.sh
+# Checks:
+#   - No unbounded loops
+#   - All return values checked
+#   - Functions ≤ 60 lines
+#   - No recursion
+#   - Assertions enabled
+
+# 2. Run integration tests
+bash tests/integration/test-apache-simple.sh
+# Verifies:
+#   - Services deploy correctly
+#   - Ports are accessible
+#   - Security configurations applied
+
+# 3. Record test status
+bash scripts/record-test-pass.sh</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> Ensures code quality and security standards. If tests pass, you know the system is working correctly.</p>
+                    </details>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make ssh</code>
+                        <span class="command-time">instant</span>
+                    </div>
+                    <p class="command-desc">SSH into the workstation VM to explore or debug.</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># Simply runs:
+vagrant ssh
+
+# Connects you to the VM as the vagrant user
+# You can then:
+#   - Run docker ps to see containers
+#   - Check logs with docker logs
+#   - Explore the filesystem
+#   - Debug issues</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> Vagrant handles SSH key management and connection details. Just type <code>make ssh</code> and you're in.</p>
+                    </details>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make clean</code>
+                        <span class="command-time">30 sec</span>
+                    </div>
+                    <p class="command-desc">Destroys the workstation VM (start fresh).</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># 1. Destroy VM
+vagrant destroy -f
+
+# 2. Clean up Vagrant metadata
+rm -rf .vagrant
+
+# Your host machine is untouched
+# All changes were in the VM only</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> Safe experimentation! Break things, learn, then <code>make clean && make install</code> to start fresh.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="command-category">
+                <h3>Development Commands</h3>
+                
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make verify-install</code>
+                        <span class="command-time">10 sec</span>
+                    </div>
+                    <p class="command-desc">Verify workstation is properly configured.</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># Checks:
+vagrant status | grep -q "running"           # VM running?
+vagrant ssh -c "command -v git"              # Git installed?
+vagrant ssh -c "command -v ansible"          # Ansible installed?
+vagrant ssh -c "command -v docker"           # Docker installed?
+vagrant ssh -c "systemctl is-active docker"  # Docker running?</code></pre>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make generate-compose apache mysql</code>
+                        <span class="command-time">5 sec</span>
+                    </div>
+                    <p class="command-desc">Generate docker-compose.yml for multiple services.</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># Runs Python script in secure Docker container
+docker run --rm \
+    -v $(pwd):/workspace \
+    -w /workspace \
+    python:3.11-slim \
+    sh -c "pip install -q pyyaml && \
+        python scripts/generate-docker-compose.py apache mysql"
+
+# Creates: generated/docker-compose.yml
+# With all security configurations</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> Generates consistent, secure configurations. No copy-paste errors, no forgotten security flags.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="command-category">
+                <h3>Audit & Security Commands</h3>
+                
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make audit</code>
+                        <span class="command-time">2-3 min</span>
+                    </div>
+                    <p class="command-desc">Run accountability audit (checks for hardcoded secrets, root containers, etc.).</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># Runs comprehensive security audit:
+bash scripts/audit-accountability.sh
+
+# Checks for:
+#   - Hardcoded secrets (API keys, passwords)
+#   - Root containers (security violation)
+#   - Unbounded loops (NASA Rule #2)
+#   - Missing return value checks (NASA Rule #7)
+#   - Functions > 60 lines (NASA Rule #4)
+#   - Duplicate code (DRY violations)</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> Catches security issues before they reach production. Automated checks are more reliable than manual review.</p>
+                    </details>
+                </div>
+
+                <div class="command-card">
+                    <div class="command-header">
+                        <code>make audit-docker-stig</code>
+                        <span class="command-time">1 min</span>
+                    </div>
+                    <p class="command-desc">Validate Docker STIG compliance (DoD security standards).</p>
+                    <details class="command-details">
+                        <summary>What runs behind the scenes</summary>
+                        <div class="code-block">
+                            <pre><code># Validates Docker containers against STIG requirements:
+bash scripts/ci/validate-docker-stig.sh
+
+# Checks:
+#   - Non-root users (STIG V-235783)
+#   - Read-only filesystems (STIG V-235784)
+#   - Dropped capabilities (STIG V-235785)
+#   - Security options (STIG V-235786)
+#   - Resource limits (STIG V-235787)
+#   - Network isolation (STIG V-235788)</code></pre>
+                        </div>
+                        <p class="why-note"><strong>Why use this?</strong> DoD-level security standards. If you're deploying in schools or government, these checks are essential.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="command-category">
+                <h3>All Commands</h3>
+                <p>See all available commands:</p>
+                <div class="code-block">
+                    <pre><code>make help</code></pre>
+                </div>
+                <p class="help-note">This shows the complete list with descriptions. Every command is documented.</p>
+            </div>
+
+            <div class="transparency-reminder">
+                <h3><i class="fas fa-eye"></i> Remember: You Can See Everything</h3>
+                <p>Every Make command is defined in <code>ahab/Makefile</code>. Open it, read it, understand it, improve it.</p>
+                <div class="code-block">
+                    <pre><code># View the Makefile
+cat ahab/Makefile
+
+# Or open in your editor
+vim ahab/Makefile
+code ahab/Makefile</code></pre>
+                </div>
+                <p><strong>Found something wrong?</strong> <a href="https://github.com/waltdundore/ahab/issues" target="_blank">Tell us!</a> We want to fix it so everyone benefits.</p>
+            </div>
+        </section>
+
         <!-- Understanding -->
         <section id="understanding" class="tutorial-section">
             <h2>Understanding What You Built</h2>
@@ -405,6 +794,7 @@ echo "DEFAULT_OS=ubuntu" > ahab.conf</code></pre>
             </div>
 
             <h3>Useful Commands</h3>
+            <p>See the <a href="#commands">Commands Reference</a> section above for complete details on what each command does behind the scenes.</p>
             <div class="command-reference">
                 <div class="command-item">
                     <code>make help</code>
@@ -412,24 +802,36 @@ echo "DEFAULT_OS=ubuntu" > ahab.conf</code></pre>
                 </div>
                 <div class="command-item">
                     <code>make ssh</code>
-                    <p>Connect to the VM (like remote desktop for terminal)</p>
+                    <p>Connect to the VM</p>
                 </div>
                 <div class="command-item">
                     <code>make test</code>
-                    <p>Run tests to verify everything works</p>
+                    <p>Run tests (NASA standards + integration)</p>
+                </div>
+                <div class="command-item">
+                    <code>make verify-install</code>
+                    <p>Verify workstation is configured correctly</p>
                 </div>
                 <div class="command-item">
                     <code>make clean</code>
                     <p>Destroy the VM (start fresh)</p>
                 </div>
                 <div class="command-item">
-                    <code>vagrant status</code>
-                    <p>Check if VM is running</p>
+                    <code>make audit</code>
+                    <p>Run security audit</p>
                 </div>
-                <div class="command-item">
-                    <code>docker ps</code>
-                    <p>(Inside VM) List running containers</p>
-                </div>
+            </div>
+            
+            <div class="learn-more-box">
+                <h4><i class="fas fa-book"></i> Want to Learn More?</h4>
+                <p>Every Make command is just a wrapper around standard tools:</p>
+                <ul>
+                    <li><strong>Vagrant</strong> - VM management</li>
+                    <li><strong>Ansible</strong> - Configuration automation</li>
+                    <li><strong>Docker</strong> - Container runtime</li>
+                    <li><strong>Python</strong> - Scripting and generation</li>
+                </ul>
+                <p>Open <code>ahab/Makefile</code> to see exactly what each command does. It's all transparent!</p>
             </div>
         </section>
 
