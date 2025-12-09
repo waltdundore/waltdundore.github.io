@@ -257,6 +257,30 @@ ls -la
                 <strong>All tests passing?</strong> Great! You're ready to deploy services.
             </div>
 
+            <h3>Step 2.5: Choose Your Operating System (Optional)</h3>
+            <p>Ahab supports three Linux distributions. Fedora is the default, but you can choose:</p>
+            <div class="code-block">
+                <pre><code># Option 1: Use default (Fedora 43)
+# No action needed - just proceed to Step 3
+
+# Option 2: Choose Debian 13
+echo "DEFAULT_OS=debian" > ahab.conf
+
+# Option 3: Choose Ubuntu 24.04 LTS
+echo "DEFAULT_OS=ubuntu" > ahab.conf</code></pre>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Which OS should I choose?</strong>
+                <ul>
+                    <li><strong>Fedora 43</strong> (default) - Latest features, DNF package manager, SELinux security</li>
+                    <li><strong>Debian 13</strong> - Rock-solid stability, APT package manager, AppArmor security</li>
+                    <li><strong>Ubuntu 24.04 LTS</strong> - Long-term support, APT package manager, AppArmor security</li>
+                </ul>
+                <p>All three work great! Choose based on what you want to learn or what your school uses.</p>
+            </div>
+
             <h3>Step 3: Deploy Apache Web Server</h3>
             <p>Now let's deploy your first service:</p>
             <div class="code-block">
@@ -267,7 +291,7 @@ ls -la
                 <i class="fas fa-info-circle"></i>
                 <strong>What's happening?</strong> This command:
                 <ul>
-                    <li>Ensures the workstation VM is running</li>
+                    <li>Ensures the workstation VM is running (with your chosen OS)</li>
                     <li>Deploys Apache web server in a Docker container</li>
                     <li>Configures port forwarding (VM port 80 → your computer port 8080)</li>
                     <li>Takes 2-3 minutes</li>

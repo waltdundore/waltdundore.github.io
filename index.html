@@ -78,8 +78,8 @@
                 </div>
                 <div class="use-case">
                     <i class="fas fa-desktop"></i>
-                    <h3>Workstations</h3>
-                    <p>Development environments with Docker & Ansible</p>
+                    <h3>Multiple Operating Systems</h3>
+                    <p>Choose Fedora 43, Debian 13, or Ubuntu 24.04</p>
                     <code>make install</code>
                 </div>
                 <div class="use-case">
@@ -129,9 +129,13 @@ cd ahab</code></pre>
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Deploy</h3>
+                        <h3>Choose Your OS & Deploy</h3>
                         <div class="code-block">
-                            <pre><code># Create workstation VM
+                            <pre><code># Option 1: Use default (Fedora 43)
+make install
+
+# Option 2: Choose your OS
+echo "DEFAULT_OS=debian" > ahab.conf  # or ubuntu
 make install
 
 # Deploy Apache web server
@@ -139,6 +143,9 @@ make install apache
 
 # Access at http://localhost:8080</code></pre>
                         </div>
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
+                            <i class="fas fa-info-circle"></i> Supports Fedora 43 (default), Debian 13, and Ubuntu 24.04 LTS
+                        </p>
                     </div>
                 </div>
             </div>
@@ -215,7 +222,7 @@ make install apache
                 <div class="transparency-item">
                     <i class="fas fa-flask"></i>
                     <h3>Active Development</h3>
-                    <p>We test in development environments before production. We're building toward production use for schools and documenting the journey.</p>
+                    <p>We test in development environments before production. Multi-OS support complete. GUI operational. 268 tests passing. Building toward production use for schools.</p>
                 </div>
                 <div class="transparency-item">
                     <i class="fas fa-bug"></i>
@@ -287,46 +294,66 @@ make install apache
             </div>
         </section>
 
-        <!-- Upcoming Features -->
+        <!-- Recent Milestones -->
         <section class="upcoming-features">
-            <h2>Coming Soon</h2>
-            <p class="section-intro">We're actively developing features to make Ahab even easier to use. Here's what's on the roadmap:</p>
+            <h2>Recent Milestones</h2>
+            <p class="section-intro">We're making steady progress. Here's what we've recently completed:</p>
             
             <div class="features-grid">
                 <div class="feature-card priority-high">
                     <div class="feature-header">
-                        <i class="fas fa-desktop"></i>
-                        <span class="priority-badge">High Priority</span>
+                        <i class="fas fa-check-circle"></i>
+                        <span class="priority-badge">✅ Complete</span>
                     </div>
-                    <h3>Web-Based Configuration</h3>
-                    <p>Point-and-click interface for selecting and deploying services. No command line required.</p>
+                    <h3>Multi-OS Support</h3>
+                    <p>Deploy workstations with your choice of operating system.</p>
                     <ul class="feature-list">
-                        <li>Visual module browser with descriptions</li>
-                        <li>Dashboard showing deployed services</li>
-                        <li>Real-time service health monitoring</li>
-                        <li>Log streaming for debugging</li>
+                        <li>Fedora 43 (default)</li>
+                        <li>Debian 13 (Trixie)</li>
+                        <li>Ubuntu 24.04 LTS (Noble)</li>
+                        <li>Comprehensive testing across all OSes</li>
                     </ul>
                 </div>
 
                 <div class="feature-card priority-high">
                     <div class="feature-header">
-                        <i class="fab fa-microsoft"></i>
-                        <span class="priority-badge">High Priority</span>
+                        <i class="fas fa-check-circle"></i>
+                        <span class="priority-badge">✅ Complete</span>
                     </div>
-                    <h3>VS Code Extension</h3>
-                    <p>Native IDE integration for developers who live in Visual Studio Code.</p>
+                    <h3>Web-Based GUI</h3>
+                    <p>Point-and-click interface for managing workstations and services.</p>
                     <ul class="feature-list">
-                        <li>One-click module installation</li>
-                        <li>Service status monitoring</li>
-                        <li>Integrated log viewer</li>
-                        <li>Docker Compose preview</li>
+                        <li>OS selection interface</li>
+                        <li>Workstation management dashboard</li>
+                        <li>Service deployment controls</li>
+                        <li>Real-time status monitoring</li>
                     </ul>
                 </div>
 
                 <div class="feature-card priority-medium">
                     <div class="feature-header">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="priority-badge">✅ Complete</span>
+                    </div>
+                    <h3>Automated Testing</h3>
+                    <p>Comprehensive test suite validates all functionality.</p>
+                    <ul class="feature-list">
+                        <li>268 tests passing (100% pass rate)</li>
+                        <li>Multi-OS integration tests</li>
+                        <li>Security validation</li>
+                        <li>Property-based testing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 60px;">Coming Soon</h2>
+            <p class="section-intro">We're actively developing features to make Ahab even easier to use:</p>
+            
+            <div class="features-grid">
+                <div class="feature-card priority-medium">
+                    <div class="feature-header">
                         <i class="fas fa-database"></i>
-                        <span class="priority-badge medium">More Modules</span>
+                        <span class="priority-badge medium">In Progress</span>
                     </div>
                     <h3>Additional Services</h3>
                     <p>Expanding our module library with commonly requested services.</p>
@@ -338,25 +365,10 @@ make install apache
                     </ul>
                 </div>
 
-                <div class="feature-card priority-medium">
-                    <div class="feature-header">
-                        <i class="fas fa-list"></i>
-                        <span class="priority-badge medium">Easier Setup</span>
-                    </div>
-                    <h3>Interactive Menu</h3>
-                    <p>Guided setup wizard for first-time users.</p>
-                    <ul class="feature-list">
-                        <li>Step-by-step service selection</li>
-                        <li>Dependency resolution</li>
-                        <li>Configuration validation</li>
-                        <li>Helpful error messages</li>
-                    </ul>
-                </div>
-
                 <div class="feature-card priority-low">
                     <div class="feature-header">
                         <i class="fas fa-raspberry-pi"></i>
-                        <span class="priority-badge low">Platform Support</span>
+                        <span class="priority-badge low">Planned</span>
                     </div>
                     <h3>Raspberry Pi Testing</h3>
                     <p>Validated deployment on ARM architecture for low-cost hardware.</p>
@@ -371,9 +383,9 @@ make install apache
                 <div class="feature-card priority-low">
                     <div class="feature-header">
                         <i class="fas fa-book-reader"></i>
-                        <span class="priority-badge low">Documentation</span>
+                        <span class="priority-badge low">Ongoing</span>
                     </div>
-                    <h3>Enhanced Onboarding</h3>
+                    <h3>Enhanced Documentation</h3>
                     <p>Better documentation and troubleshooting guides.</p>
                     <ul class="feature-list">
                         <li>Video tutorials</li>
