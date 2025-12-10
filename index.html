@@ -3,366 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Learn Infrastructure Automation - Ahab</title>
-    <meta name="description" content="Learn infrastructure automation by actually doing it. Deploy web servers and databases with simple commands. Free for students and schools.">
-    <meta name="keywords" content="learn devops, infrastructure automation, docker tutorial, ansible tutorial, k-12 computer science, hands-on learning, portfolio projects">
+    <title>Deploy Apache in 15 Minutes - Ahab</title>
+    <meta name="description" content="Deploy Apache web server in 15 minutes. One command. Secure by default. Free for students.">
 </head>
 <body>
-    <!-- Skip to main content link (accessibility) -->
     <a href="#main" class="skip-link">Skip to main content</a>
     
     <div class="container">
-        <!-- Navigation Context -->
         <nav class="breadcrumb">
             <span>Home</span>
         </nav>
         
-        <!-- Hero Section -->
         <main id="main">
-        <main id="main">
+            <!-- Hero: What you came for -->
+            <main id="main">
         <main id="main">
         <section class="hero">
-            <div class="logo-container">
-                <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
-            </div>
-            <h1 class="tagline">Learn Infrastructure Automation</h1>
-            <p class="subtitle">Deploy services with simple commands. Understand how modern infrastructure works.</p>
-            <div class="hero-cta">
-                <a href="tutorial.html" class="btn btn-primary">Start Learning</a>
-                <a href="#what-you-learn" class="btn btn-secondary">What You'll Learn</a>
-                <a href="#quickstart" class="btn btn-secondary">Quick Start</a>
-            </div>
-            <div class="status-badge">
-                <span class="badge learning">Safe Learning Environment</span>
-                <span class="badge free">Free for Students</span>
-                <span class="badge hands-on">Hands-On Practice</span>
-            </div>
-        </section>
-
-        <!-- What You'll Learn -->
-        <section class="what-you-learn" id="what-you-learn">
-            <h2>What You'll Learn</h2>
-            <p class="section-intro">Learn Docker, Ansible, and Linux administration through hands-on practice.</p>
-            
-            <div class="learning-grid">
-                <div class="learning-item">
-                    <i class="fas fa-terminal"></i>
-                    <h3>Command Line</h3>
-                    <p>Get comfortable with Linux commands and shell scripting</p>
-                    <div class="skill-tags">
-                        <span>Bash</span>
-                        <span>Linux</span>
-                        <span>System Admin</span>
-                    </div>
+                <div class="logo-container">
+                    <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
                 </div>
-                <div class="learning-item">
-                    <i class="fab fa-docker"></i>
-                    <h3>Docker Containers</h3>
-                    <p>Package and deploy applications in isolated containers</p>
-                    <div class="skill-tags">
-                        <span>Docker</span>
-                        <span>Containers</span>
-                        <span>Deployment</span>
-                    </div>
-                </div>
-                <div class="learning-item">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Infrastructure as Code</h3>
-                    <p>Ansible automation, configuration management, DevOps</p>
-                    <div class="skill-tags">
-                        <span>Ansible</span>
-                        <span>DevOps</span>
-                        <span>Automation</span>
-                    </div>
-                </div>
-                <div class="learning-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Security Best Practices</h3>
-                    <p>Firewalls, secure configurations, cybersecurity fundamentals</p>
-                    <div class="skill-tags">
-                        <span>Security</span>
-                        <span>Firewalls</span>
-                        <span>Hardening</span>
-                    </div>
-                </div>
-                <div class="learning-item">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Network Administration</h3>
-                    <p>Virtual networks, port forwarding, service connectivity</p>
-                    <div class="skill-tags">
-                        <span>Networking</span>
-                        <span>VMs</span>
-                        <span>Ports</span>
-                    </div>
-                </div>
-                <div class="learning-item">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>Version Control</h3>
-                    <p>Git workflows, collaboration, software development practices</p>
-                    <div class="skill-tags">
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>Collaboration</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="learning-outcome">
-                <h3>Practice with Real Projects</h3>
-                <p>Deploy actual services and understand how they work together.</p>
-                <div class="portfolio-examples">
-                    <span>Web Server Setup</span>
-                    <span>Database Configuration</span>
-                    <span>Security Configuration</span>
-                    <span>Multi-OS Support</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Learn This Way -->
-        <section class="why-learn">
-            <h2>Why Learn This Way?</h2>
-            <div class="learning-benefits">
-                <div class="benefit-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Learn by Doing</h3>
-                    <p>Actually deploy services instead of just reading about them. Type real commands, see real results.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Safe to Experiment</h3>
-                    <p>Virtual machines mean you can't break anything. Delete and recreate anytime.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-eye"></i>
-                    <h3>No Hidden Magic</h3>
-                    <p>Every command shows you what it's actually doing. No black boxes or mysterious abstractions.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Actually Free</h3>
-                    <p>No hidden costs, premium tiers, or required certifications. Just download and start.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- What You Can Deploy -->
-        <section class="deployments">
-            <h2>What You Can Deploy</h2>
-            <p class="section-intro">Try deploying the same services you'd find in real server environments.</p>
-            <div class="deployment-grid">
-                <div class="deployment-item">
-                    <i class="fas fa-server"></i>
-                    <h3>Web Servers</h3>
-                    <p>Apache web server with security hardening</p>
-                    <code>make install apache</code>
-                    <div class="learning-note">Understand how web servers work</div>
-                </div>
-                <div class="deployment-item">
-                    <i class="fas fa-database"></i>
-                    <h3>Databases</h3>
-                    <p>MySQL & PostgreSQL (coming soon)</p>
-                    <code>make install mysql</code>
-                    <div class="learning-note">See how databases are configured</div>
-                </div>
-                <div class="deployment-item">
-                    <i class="fas fa-desktop"></i>
-                    <h3>Multiple OS</h3>
-                    <p>Fedora, Debian, or Ubuntu workstations</p>
-                    <code>make install</code>
-                    <div class="learning-note">Compare different Linux distributions</div>
-                </div>
-                <div class="deployment-item">
-                    <i class="fas fa-plus-circle"></i>
-                    <h3>Your Projects</h3>
-                    <p>Build and deploy your own services</p>
-                    <code>make install yourproject</code>
-                    <div class="learning-note">Build your own deployment modules</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Start Section -->
-        <section class="quickstart" id="quickstart">
-            <h2>Quick Start (15 Minutes)</h2>
-            <div class="quickstart-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Install Prerequisites</h3>
-                        <div class="code-block">
-                            <pre><code># On Mac (using Homebrew)
-brew install git vagrant virtualbox
-
-# On Linux (Ubuntu/Debian)
-sudo apt install git vagrant virtualbox
-
-# On Linux (Fedora)
-sudo dnf install git vagrant VirtualBox</code></pre>
-                        </div>
-                        <p class="install-note">
-                            <i class="fas fa-info-circle"></i> Mac users: Install <a href="https://brew.sh" target="_blank" class="accent-link">Homebrew</a> first
-                        </p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Clone Repository</h3>
-                        <div class="code-block">
-                            <pre><code>git clone https://github.com/waltdundore/ahab.git
-cd ahab</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Choose Your OS & Deploy</h3>
-                        <div class="code-block">
-                            <pre><code># Option 1: Use default (Fedora 43)
-make install
-
-# Option 2: Choose your OS
-echo "DEFAULT_OS=debian" > ahab.conf  # or ubuntu
-make install
-
-# Deploy Apache web server
-make install apache
-
-# Access at http://localhost:8080</code></pre>
-                        </div>
-                        <p class="install-note">
-                            <i class="fas fa-info-circle"></i> Supports Fedora 43 (default), Debian 13, and Ubuntu 24.04 LTS
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works -->
-        <section class="how-it-works">
-            <h2>How It Works</h2>
-            <div class="architecture">
-                <div class="arch-step">
-                    <i class="fas fa-terminal"></i>
-                    <h3>Simple Commands</h3>
-                    <p>Type <code>make install apache</code></p>
-                </div>
-                <div class="arch-arrow">→</div>
-                <div class="arch-step">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Ansible Automation</h3>
-                    <p>Playbooks configure everything</p>
-                </div>
-                <div class="arch-arrow">→</div>
-                <div class="arch-step">
-                    <i class="fab fa-docker"></i>
-                    <h3>Docker Containers</h3>
-                    <p>Services run isolated and portable</p>
-                </div>
-                <div class="arch-arrow">→</div>
-                <div class="arch-step">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Working Service</h3>
-                    <p>Access your deployed application</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Get Started -->
-        <section class="get-started">
-            <h2>Ready to Try It?</h2>
-            <div class="start-options">
-                <div class="start-card primary">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Complete Tutorial</h3>
-                    <p>Walk through deploying your first service. Takes about 30 minutes.</p>
+                <h1>Deploy Apache in 15 Minutes</h1>
+                <p class="subtitle">One command. Secure by default.</p>
+                
+                <!-- Primary action -->
+                <div class="hero-cta">
                     <a href="tutorial.html" class="btn btn-primary">Start Tutorial</a>
                 </div>
-                <div class="start-card">
-                    <i class="fas fa-book"></i>
-                    <h3>Documentation</h3>
-                    <p>Technical details, troubleshooting help, and deeper explanations.</p>
-                    <a href="https://github.com/waltdundore/ahab" target="_blank" class="btn">View Docs</a>
+                
+                <!-- Quick proof it works -->
+                <div class="proof">
+                    <code>make install apache</code>
+                    <span class="result">→ Working web server at localhost:8080</span>
                 </div>
-                <div class="start-card">
-                    <i class="fas fa-users"></i>
-                    <h3>For Teachers</h3>
-                    <p>Curriculum integration and classroom resources.</p>
-                    <a href="https://github.com/waltdundore/ahab/blob/prod/EXECUTIVE_SUMMARY.md" target="_blank" class="btn">For Educators</a>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Learning FAQ -->
-        <section class="learning-faq">
-            <h2>Learning Questions</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3>Do I need prior experience?</h3>
-                    <p>Nope. If you can use a computer and aren't afraid of typing commands, you can do this.</p>
+            <!-- Secondary actions (if user wants alternatives) -->
+            <section class="alternatives">
+                <h2>Other Options</h2>
+                <div class="option-cards">
+                    <a href="learn.html" class="option-card">
+                        <i class="fas fa-book"></i>
+                        <span>Learn More First</span>
+                    </a>
+                    <a href="https://github.com/waltdundore/ahab" class="option-card">
+                        <i class="fab fa-github"></i>
+                        <span>View Source Code</span>
+                    </a>
+                    <a href="https://github.com/waltdundore/ahab/blob/prod/EXECUTIVE_SUMMARY.md" class="option-card">
+                        <i class="fas fa-users"></i>
+                        <span>For Teachers</span>
+                    </a>
                 </div>
-                <div class="faq-item">
-                    <h3>Is it really free?</h3>
-                    <p>Yes. No subscriptions, no "premium" version, no credit card required. Just download and use it.</p>
+            </section>
+            
+            <!-- Progressive disclosure: Show more only if user scrolls -->
+            <details class="more-info">
+                <summary>What exactly will I learn?</summary>
+                <div class="learning-preview">
+                    <div class="skill-item">
+                        <i class="fas fa-terminal"></i>
+                        <span>Linux command line</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker containers</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Ansible automation</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security basics</span>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>Can I break my computer?</h3>
-                    <p>No. Everything happens inside a virtual machine that you can delete and recreate anytime.</p>
+            </details>
+            
+            <details class="more-info">
+                <summary>System requirements?</summary>
+                <div class="requirements">
+                    <p><strong>Minimum:</strong> 8GB RAM, macOS/Linux/Windows+WSL2</p>
+                    <p><strong>Software:</strong> Git, Vagrant, VirtualBox (all free)</p>
+                    <p><strong>Time:</strong> 15 minutes to deploy Apache</p>
                 </div>
-                <div class="faq-item">
-                    <h3>What will I build?</h3>
-                    <p>Web servers, databases, and other services that you'd actually find running on real servers.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>How long does it take?</h3>
-                    <p>About 30 minutes to get your first web server running. Getting comfortable with everything takes longer, obviously.</p>
-                </div>
-            </div>
-        </section>
+            </details>
 
         </main>
         
-        <!-- Footer -->
+        <!-- Minimal footer with escape routes -->
         </main>
         
         </main>
         
         <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Learn DevOps</h3>
-                    <p>Hands-on infrastructure automation training</p>
-                    <p class="tagline-footer">Learn by actually doing it.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Start Learning</h3>
-                    <a href="tutorial.html">Complete Tutorial</a>
-                    <a href="learn.html">Learning Resources</a>
-                    <a href="https://github.com/waltdundore/ahab" target="_blank">Documentation</a>
-                    <a href="https://github.com/waltdundore/ahab/blob/prod/EXECUTIVE_SUMMARY.md" target="_blank">For Teachers</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Get Help</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/waltdundore/ahab" target="_blank" title="GitHub Repository">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                    <p class="contact-note">Questions? Open an issue on GitHub</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Ahab Project. Free for students and schools under CC BY-NC-SA 4.0.</p>
-                <p class="footer-note">Deploy services • Understand infrastructure • Build things that work</p>
-            </div>
+            <nav class="site-nav">
+                <a href="tutorial.html">Tutorial</a>
+                <a href="learn.html">Learn More</a>
+                <a href="https://github.com/waltdundore/ahab">GitHub</a>
+            </nav>
+            <p>&copy; 2025 Ahab Project. Free for students and schools.</p>
         </footer>
     </div>
+    
+    <!-- Progressive enhancement script -->
+    <script>
+        // Show proof of concept when user hovers over command
+        document.querySelector('.proof code').addEventListener('mouseenter', function() {
+            this.nextElementSibling.style.opacity = '1';
+        });
+    </script>
 </body>
 </html>

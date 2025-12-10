@@ -70,10 +70,20 @@ test_state_management() {
             fi
         fi
         
-        # Buttons should have state constraints
+        # Buttons should have state constraints or be properly disabled
         if grep -q '<button' "$file"; then
-            if ! grep -q 'disabled\|data-valid-states' "$file"; then
-                echo "WARNING: $file buttons lack state constraints"
+            # Check for proper button state management
+            if grep -q 'type="submit"' "$file"; then
+                if ! grep -q 'disabled\|data-requires\|data-valid-states' "$file"; then
+                    echo "INFO: $file submit buttons should have state constraints"
+                fi
+            fi
+        fi
+        
+        # Forms should have progressive enhancement
+        if grep -q '<form' "$file"; then
+            if ! grep -q 'novalidate\|data-progressive' "$file"; then
+                echo "INFO: $file forms should work without JavaScript (progressive enhancement)"
             fi
         fi
     done

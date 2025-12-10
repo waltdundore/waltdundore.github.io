@@ -1,0 +1,137 @@
+/* Ahab Website - Modular CSS Architecture */
+/* Progressive Disclosure Compliant Styles */
+
+/* Base styles - Variables, reset, accessibility */
+@import url('css/base.css');
+
+/* Component styles - Buttons, cards, navigation */
+@import url('css/components.css');
+
+/* Layout styles - Hero, sections, grid */
+.hero {
+    text-align: center;
+    padding: 60px 20px 80px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+}
+
+.logo-container {
+    margin-bottom: 30px;
+}
+
+.logo {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+}
+
+.alternatives {
+    background-color: var(--dark-bg);
+}
+
+.alternatives h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--white);
+}
+
+/* Footer */
+footer {
+    background-color: var(--darker-bg);
+    padding: 40px 20px 20px;
+    border-top: 1px solid var(--navy);
+}
+
+.site-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-nav a:hover {
+    color: var(--accent);
+}
+
+footer p {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .logo {
+        max-width: 200px;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .option-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .learning-preview {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+    :root {
+        --navy: #000000;
+        --slate: #333333;
+        --text-light: #ffffff;
+        --text-gray: #cccccc;
+    }
+}

@@ -15,6 +15,7 @@ help:
 	@echo "  test-secrets   - Scan for sensitive content before publish (comprehensive)"
 	@echo "  test-secrets-simple - Scan for real secrets only (recommended for regular use)"
 	@echo "  test-progressive-disclosure - Validate progressive disclosure UX principles"
+	@echo "  compliance-report - Generate comprehensive compliance status report"
 	@echo "  setup-secrets  - One-time setup of secrets detection patterns"
 	@echo "  serve          - Start local development server (Docker-based)"
 	@echo "  deploy         - Deploy to GitHub Pages (after tests pass)"
@@ -90,9 +91,33 @@ serve:
 	@echo "   Press Ctrl+C to stop"
 	@docker run --rm -p 8000:8000 -v $$(pwd):/app:ro -w /app python:3.11-slim python3 -m http.server 8000
 
+compliance-report:
+	@echo "→ Running: compliance status report generation"
+	@echo "   Purpose: Generate comprehensive compliance status report"
+	@echo ""
+	@echo "=== AHAB WEBSITE COMPLIANCE REPORT ==="
+	@echo "Generated: $$(date)"
+	@echo ""
+	@echo "Progressive Disclosure Compliance:"
+	@./tests/test-progressive-disclosure.sh | grep -E "(✓|ERROR|WARNING)" || true
+	@echo ""
+	@echo "Technical Standards Compliance:"
+	@./tests/test-html.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@./tests/test-css.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@echo ""
+	@echo "Security Compliance:"
+	@./tests/test-secrets-simple.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@echo ""
+	@echo "Accessibility Compliance:"
+	@./tests/test-accessibility.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@echo ""
+	@echo "Full compliance details: see COMPLIANCE_STATUS.md"
+	@echo "✓ Compliance report complete"
+
 clean:
 	@echo "→ Running: cleanup temporary files"
 	@echo "   Purpose: Remove test artifacts and temporary files"
 	@rm -f *.tmp
 	@rm -f tests/*.log
+	@rm -f *.backup
 	@echo "✓ Cleanup complete"

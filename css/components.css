@@ -1,0 +1,206 @@
+/* Component styles - Buttons, cards, navigation */
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1.05rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #3a8eef;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
+}
+
+.btn-primary:disabled {
+    background-color: var(--text-gray);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--navy);
+}
+
+/* Enhanced focus for buttons */
+.btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.3);
+}
+
+/* Navigation */
+.breadcrumb {
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    color: var(--text-gray);
+}
+
+.breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Cards */
+.card {
+    background-color: var(--dark-bg);
+    border-radius: 10px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Progressive Disclosure Components */
+.more-info {
+    margin: 30px 0;
+    border: 1px solid var(--slate);
+    border-radius: 8px;
+}
+
+.more-info summary {
+    cursor: pointer;
+    padding: 20px;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--accent);
+    transition: background-color 0.3s ease;
+}
+
+.more-info summary:hover {
+    background-color: var(--navy);
+}
+
+.more-info[open] summary {
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--slate);
+}
+
+.more-info div {
+    padding: 20px;
+}
+
+/* Code blocks */
+.proof {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+}
+
+.proof code {
+    background-color: var(--darker-bg);
+    color: var(--accent);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.proof .result {
+    color: var(--success);
+    font-style: italic;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Option cards for progressive disclosure */
+.option-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-3px);
+    background-color: var(--navy);
+}
+
+.option-card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+.option-card span {
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Skills preview for progressive disclosure */
+.learning-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--darker-bg);
+    border-radius: 5px;
+}
+
+.skill-item i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.skill-item span {
+    color: var(--text-light);
+}
+
+/* Requirements display */
+.requirements p {
+    margin: 10px 0;
+    color: var(--text-light);
+}
+
+.requirements strong {
+    color: var(--accent);
+}
