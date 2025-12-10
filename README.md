@@ -19,7 +19,6 @@ make deploy-all MSG="Update website"
 
 - `index.html` - Landing page (compressed, 5 sections)
 - `tutorial.html` - Complete tutorial
-- `blog.html` - About Walt (compressed, 4 sections)
 - `learn.html` - Learning resources (compressed, 3 sections)
 - `style.css` - All styles
 - `Makefile` - All commands
@@ -59,10 +58,7 @@ Applied iPod Fish Tank principle:
 - **After**: 5 sections, ~150 lines
 - **Removed**: Value Proposition, How It Works, Transparency boxes, Documentation cards, Repository Links, Recent Milestones
 
-### blog.html
-- **Before**: 6 sections with role cards, process flow, success timeline
-- **After**: 4 sections, ~150 lines
-- **Removed**: Role grid (6 cards), process flow, success timeline, get involved section, learning resources (moved to learn.html)
+
 
 ### learn.html
 - **Before**: 5 sections, 20+ resource cards
