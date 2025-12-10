@@ -138,9 +138,306 @@ body {
     color: var(--white);
 }
 
+/* CRITICAL PRODUCTION WARNING */
+.production-warning {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: 3px solid #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 800px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4);
+    animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+    0% { box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4); }
+    50% { box-shadow: 0 15px 40px rgba(220, 53, 69, 0.6); }
+    100% { box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4); }
+}
+
+.warning-icon {
+    flex-shrink: 0;
+}
+
+.warning-icon i {
+    font-size: 3rem;
+    color: #ffffff;
+    animation: flash-warning 1.5s infinite;
+}
+
+@keyframes flash-warning {
+    0%, 50% { opacity: 1; }
+    25%, 75% { opacity: 0.7; }
+}
+
+.warning-content {
+    flex-grow: 1;
+}
+
+.warning-content h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.warning-content p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.warning-content strong {
+    font-weight: 700;
+}
+
+.warning-link {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.warning-link:hover {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
 /* Section Styles */
 section {
     padding: 80px 20px;
+}
+
+/* Progress Highlight Section */
+.progress-highlight {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    border-top: 3px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.stat-card {
+    background: var(--navy);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid var(--accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(74, 158, 255, 0.3);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.stat-detail {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.progress-achievements {
+    margin: 60px 0;
+}
+
+.progress-achievements h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achievement-item {
+    background: var(--darker-bg);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid var(--success);
+    transition: transform 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-3px);
+}
+
+.achievement-item i {
+    font-size: 2.5rem;
+    color: var(--success);
+    margin-bottom: 15px;
+}
+
+.achievement-item h4 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.achievement-item p {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.roadmap-preview {
+    margin: 60px 0;
+}
+
+.roadmap-preview h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.roadmap-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--slate);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 40px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 18px;
+    top: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid var(--slate);
+    background: var(--dark-bg);
+}
+
+.timeline-item.completed .timeline-marker {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.timeline-item.current .timeline-marker {
+    background: var(--accent);
+    border-color: var(--accent);
+    animation: pulse-timeline 2s infinite;
+}
+
+@keyframes pulse-timeline {
+    0% { box-shadow: 0 0 0 0 rgba(74, 158, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 158, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 158, 255, 0); }
+}
+
+.timeline-item.future .timeline-marker {
+    background: var(--text-gray);
+    border-color: var(--text-gray);
+}
+
+.timeline-content {
+    background: var(--darker-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--slate);
+}
+
+.timeline-item.completed .timeline-content {
+    border-left-color: var(--success);
+}
+
+.timeline-item.current .timeline-content {
+    border-left-color: var(--accent);
+}
+
+.timeline-content h4 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: var(--text-gray);
+    margin: 0;
+}
+
+.potential-callout {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 60px auto 0;
+    max-width: 900px;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.callout-icon {
+    flex-shrink: 0;
+}
+
+.callout-icon i {
+    font-size: 3rem;
+    color: var(--warning);
+}
+
+.callout-content h3 {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin: 0 0 15px 0;
+}
+
+.callout-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 0 15px 0;
+}
+
+.callout-content strong {
+    color: var(--white);
+    font-weight: 700;
 }
 
 section h2 {
@@ -701,8 +998,27 @@ footer {
     .use-case-grid,
     .student-content,
     .transparency-grid,
-    .doc-grid {
+    .doc-grid,
+    .progress-stats,
+    .achievement-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .potential-callout {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .roadmap-timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-marker {
+        left: 3px;
     }
 }
 
