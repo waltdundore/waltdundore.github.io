@@ -1,9 +1,11 @@
+# Include shared configuration and common targets
+include ../ahab/Makefile.config
+include ../ahab/Makefile.common
+
 .PHONY: help validate test deploy clean serve
 
 help:
-	@echo "→ Running: help command"
-	@echo "   Purpose: Show available commands for website management"
-	@echo ""
+	$(call HELP_HEADER,Website Management)
 	@echo "Available commands:"
 	@echo "  validate        - Validate HTML/CSS compliance"
 	@echo "  test           - Run all tests (HTML, accessibility, links, performance)"
@@ -22,54 +24,35 @@ help:
 	@echo "  clean          - Clean temporary files"
 
 validate: test-html test-css
-	@echo "→ Running: validation complete"
-	@echo "   Purpose: Ensure HTML and CSS meet Ahab standards"
+	$(call SHOW_COMMAND,validation complete,Ensure HTML and CSS meet Ahab standards)
 	@echo "✓ All validation checks passed"
 
 test-html:
-	@echo "→ Running: ./tests/test-html.sh"
-	@echo "   Purpose: Validate HTML structure, meta tags, and accessibility"
-	@./tests/test-html.sh
+	$(call VALIDATE_HTML)
 
 test-css:
-	@echo "→ Running: ./tests/test-css.sh"
-	@echo "   Purpose: Validate CSS standards and no inline styles"
-	@./tests/test-css.sh
+	$(call VALIDATE_CSS)
 
 test-accessibility:
-	@echo "→ Running: ./tests/test-accessibility.sh"
-	@echo "   Purpose: Test WCAG 2.1 AA compliance and screen reader compatibility"
-	@./tests/test-accessibility.sh
+	$(call RUN_SHELL_TEST,./tests/test-accessibility.sh,WCAG 2.1 AA compliance and screen reader compatibility)
 
 test-links:
-	@echo "→ Running: ./tests/test-links.sh"
-	@echo "   Purpose: Verify all internal and external links work"
-	@./tests/test-links.sh
+	$(call CHECK_LINKS)
 
 test-performance:
-	@echo "→ Running: ./tests/test-performance.sh"
-	@echo "   Purpose: Ensure pages load in < 3 seconds"
-	@./tests/test-performance.sh
+	$(call RUN_SHELL_TEST,./tests/test-performance.sh,Ensure pages load in < 3 seconds)
 
 test-secrets:
-	@echo "→ Running: ./tests/test-secrets.sh"
-	@echo "   Purpose: Comprehensive scan for sensitive content (may have false positives)"
-	@./tests/test-secrets.sh
+	$(call RUN_SHELL_TEST,./tests/test-secrets.sh,Comprehensive scan for sensitive content (may have false positives))
 
 test-secrets-simple:
-	@echo "→ Running: ./tests/test-secrets-simple.sh"
-	@echo "   Purpose: Scan for real secrets only (MANDATORY before publish)"
-	@./tests/test-secrets-simple.sh
+	$(call SCAN_SECRETS)
 
 test-progressive-disclosure:
-	@echo "→ Running: ./tests/test-progressive-disclosure.sh"
-	@echo "   Purpose: Validate progressive disclosure UX principles (elevator principle)"
-	@./tests/test-progressive-disclosure.sh
+	$(call RUN_SHELL_TEST,./tests/test-progressive-disclosure.sh,Validate progressive disclosure UX principles (elevator principle))
 
 setup-secrets:
-	@echo "→ Running: ./scripts/setup-secrets-detection.sh"
-	@echo "   Purpose: One-time setup of secrets detection patterns (run once)"
-	@./scripts/setup-secrets-detection.sh
+	$(call RUN_SHELL_TEST,./scripts/setup-secrets-detection.sh,One-time setup of secrets detection patterns (run once))
 
 test: validate test-accessibility test-links test-performance test-progressive-disclosure test-secrets-simple
 	@echo "→ Running: complete test suite"
