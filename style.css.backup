@@ -1,11 +1,6 @@
 /* CSS Variables */
 /* CSS Variables */
 /* CSS Variables */
-/* CSS Variables */
-/* CSS Variables */
-/* CSS Variables */
-/* CSS Variables */
-/* CSS Variables */
 /* Ahab Website Styles - WCAG AA Compliant */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
@@ -20,20 +15,20 @@
     
     /* Legacy support (mapped to brand colors) */
     --navy: var(--ahab-navy);
-    --slate: #34495e;
+    --slate: #6c757d;
     --light-blue: var(--ahab-blue);
-    --dark-bg: var(--gray-900);
-    --darker-bg: #1a1d20;
+    --dark-bg: var(--gray-50);      /* Light background instead of dark */
+    --darker-bg: #e9ecef;           /* Slightly darker light background */
     --accent: var(--ahab-blue);
     --warning: #f39c12;
     
     /* High contrast text for accessibility (WCAG AA 4.5:1 ratio) */
-    --text-primary: #ffffff;     /* White on dark - 21:1 ratio */
-    --text-secondary: #f8f9fa;   /* Light gray - 19:1 ratio */
-    --text-muted: #dee2e6;       /* Muted but readable - 15:1 ratio */
+    --text-primary: var(--gray-900);    /* Dark text on light background */
+    --text-secondary: #6c757d;          /* Medium gray text */
+    --text-muted: #6c757d;              /* Muted but readable */
     --white: #ffffff;
-    --text-light: #ffffff;
-    --text-gray: #f8f9fa;
+    --text-light: var(--gray-900);      /* Dark text for light backgrounds */
+    --text-gray: #6c757d;
 }
 
 * {
@@ -44,8 +39,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--darker-bg);
-    color: var(--text-primary);
+    background-color: #ffffff;
+    color: var(--gray-900);
     line-height: 1.6;
     font-size: 16px;
 }
@@ -59,7 +54,7 @@ body {
 .hero {
     text-align: center;
     padding: 60px 20px 80px;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+    background: linear-gradient(135deg, var(--ahab-blue) 0%, var(--ahab-navy) 100%);
 }
 
 .logo-container {
@@ -73,16 +68,16 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.hero .tagline {
+.hero h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--white);
+    color: #ffffff;
     margin-bottom: 15px;
 }
 
 .hero .subtitle {
     font-size: 1.3rem;
-    color: var(--text-secondary);
+    color: #ffffff;
     margin-bottom: 40px;
     font-weight: 400;
 }
@@ -106,8 +101,8 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--accent);
-    color: var(--white);
+    background-color: var(--ahab-blue);
+    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -235,6 +230,159 @@ body {
 /* Section Styles */
 section {
     padding: 80px 20px;
+    background-color: #ffffff;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--gray-900);
+}
+
+/* Alternatives section */
+.alternatives {
+    background-color: var(--gray-50);
+    padding: 60px 20px;
+}
+
+.alternatives h2 {
+    color: var(--gray-900);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.option-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 2px solid var(--ahab-blue);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--gray-900);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+    color: var(--gray-900);
+    text-decoration: none;
+}
+
+.option-card i {
+    font-size: 2.5rem;
+    color: var(--ahab-blue);
+    margin-bottom: 15px;
+}
+
+.option-card span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Progressive disclosure sections */
+.more-info {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.more-info summary {
+    padding: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ahab-blue);
+    background-color: var(--gray-50);
+    border-radius: 8px;
+}
+
+.more-info summary:hover {
+    background-color: #e9ecef;
+}
+
+.more-info[open] summary {
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.learning-preview,
+.requirements {
+    padding: 20px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+    color: var(--ahab-blue);
+    margin-right: 15px;
+    width: 30px;
+}
+
+.skill-item span {
+    font-size: 1.1rem;
+    color: var(--gray-900);
+}
+
+.requirements p {
+    margin: 10px 0;
+    color: var(--gray-900);
+}
+
+.requirements strong {
+    color: var(--ahab-navy);
+}
+
+/* Proof section */
+.proof {
+    background-color: rgba(0, 102, 204, 0.1);
+    border: 2px solid var(--ahab-blue);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.proof code {
+    background-color: var(--gray-900);
+    color: #00ff00;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.proof .result {
+    color: var(--ahab-blue);
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
 /* Progress Highlight Section */
@@ -911,9 +1059,37 @@ section h2 {
 
 /* Footer */
 footer {
-    background-color: var(--darker-bg);
+    background-color: var(--gray-900);
     padding: 60px 20px 20px;
-    border-top: 1px solid var(--slate);
+    border-top: 1px solid #dee2e6;
+    color: #ffffff;
+}
+
+.site-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.site-nav a:hover {
+    color: var(--ahab-blue);
+    text-decoration: underline;
+}
+
+footer p {
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
 }
 
 .footer-content {
@@ -2444,10 +2620,10 @@ select:focus,
         --ahab-navy: #000000;
         --slate: #333333;
         --text-primary: #ffffff;
-        --text-secondary: #ffffff;
-        --text-muted: #ffffff;
-        --dark-bg: #000000;
-        --darker-bg: #000000;
+        --text-secondary: #6c757d;
+        --text-muted: #6c757d;
+        --dark-bg: var(--gray-50);
+        --darker-bg: #e9ecef;
     }
 }
 
