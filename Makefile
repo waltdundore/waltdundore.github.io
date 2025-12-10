@@ -20,7 +20,12 @@ help:
 	@echo "  compliance-report - Generate comprehensive compliance status report"
 	@echo "  setup-secrets  - One-time setup of secrets detection patterns"
 	@echo "  serve          - Start local development server (Docker-based)"
-	@echo "  deploy         - Deploy to GitHub Pages (after tests pass)"
+	@echo ""
+	@echo "⚠️  DEPLOYMENT (READ CAREFULLY):"
+	@echo "  deploy         - PREPARE for deployment (runs tests, stages files)"
+	@echo "                   ⚠️  Does NOT commit or push - you must do that manually!"
+	@echo "                   After 'make deploy', run: git commit -m \"msg\" && git push origin main"
+	@echo ""
 	@echo "  clean          - Clean temporary files"
 
 validate: test-html test-css
@@ -60,12 +65,24 @@ test: validate test-accessibility test-links test-performance test-progressive-d
 	@echo "✓ All tests passed - website meets Ahab standards and is safe to publish"
 
 deploy: test
-	@echo "→ Running: git push origin main"
-	@echo "   Purpose: Deploy to GitHub Pages after all tests pass"
-	@echo "Deploying to GitHub Pages..."
+	@echo "→ Running: PREPARATION ONLY - does NOT commit or push"
+	@echo "   Purpose: Run tests and stage files, but requires manual commit/push"
+	@echo ""
+	@echo "⚠️  WARNING: 'make deploy' does NOT actually deploy!"
+	@echo "⚠️  It only PREPARES for deployment by:"
+	@echo "   1. Running comprehensive tests"
+	@echo "   2. Staging files with 'git add .'"
+	@echo "   3. Showing you what needs to be committed"
+	@echo ""
+	@echo "📋 Preparing deployment..."
 	@git add .
 	@git status
-	@echo "Ready to deploy. Run 'git commit -m \"message\" && git push origin main' to complete."
+	@echo ""
+	@echo "🚀 TO ACTUALLY DEPLOY:"
+	@echo "   git commit -m \"your commit message\""
+	@echo "   git push origin main"
+	@echo ""
+	@echo "💡 TIP: This two-step process prevents accidental deployments"
 
 serve:
 	@echo "→ Running: docker run --rm -p 8000:8000 -v \$$(pwd):/app:ro -w /app python:3.11-slim python3 -m http.server 8000"
