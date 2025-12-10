@@ -2713,6 +2713,11 @@ footer {
     text-decoration: underline;
 }
 
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
 /* Responsive adjustments for tutorial */
 @media (max-width: 768px) {
     .tutorial-nav {
