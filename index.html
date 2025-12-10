@@ -28,16 +28,60 @@
             </div>
         </section>
 
-        <!-- Try It -->
+        <!-- Try the Demo -->
         <section class="quickstart">
-            <h2>Try It</h2>
-            <div class="code-block">
-                <pre><code>git clone https://github.com/waltdundore/ahab.git
+            <h2>Try the Demo</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
+                <strong>Two ways to try Ahab:</strong> Web interface (recommended for beginners) or command line
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                <!-- Web Interface -->
+                <div style="border: 2px solid #0066cc; border-radius: 8px; padding: 20px;">
+                    <h3 style="margin-top: 0; color: #0066cc;">
+                        <i class="fas fa-mouse-pointer"></i> Web Interface
+                    </h3>
+                    <p style="margin-bottom: 15px;">Point-and-click. Perfect for students and educators.</p>
+                    <div class="code-block">
+                        <pre><code># Clone both repos
+git clone https://github.com/waltdundore/ahab.git
+git clone https://github.com/waltdundore/ahab-gui.git
+
+# Start the GUI
 cd ahab
-make install apache</code></pre>
+make ui
+
+# Open http://localhost:5001</code></pre>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px;">
+                        <a href="https://github.com/waltdundore/ahab-gui/blob/main/DEMO.md" target="_blank">See screenshots →</a>
+                    </p>
+                </div>
+
+                <!-- Command Line -->
+                <div style="border: 2px solid #28a745; border-radius: 8px; padding: 20px;">
+                    <h3 style="margin-top: 0; color: #28a745;">
+                        <i class="fas fa-terminal"></i> Command Line
+                    </h3>
+                    <p style="margin-bottom: 15px;">Fast and scriptable. For automation and advanced users.</p>
+                    <div class="code-block">
+                        <pre><code># Clone repo
+git clone https://github.com/waltdundore/ahab.git
+
+# Deploy Apache
+cd ahab
+make install apache
+
+# Visit http://localhost:8080</code></pre>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px;">
+                        <a href="tutorial.html">Complete tutorial →</a>
+                    </p>
+                </div>
             </div>
-            <p style="text-align: center; margin-top: 20px;">
-                <a href="tutorial.html">Complete tutorial →</a>
+
+            <p style="text-align: center; font-size: 0.95rem; color: #666;">
+                <strong>Prerequisites:</strong> macOS or Linux with Docker installed. Takes 5-15 minutes.
             </p>
         </section>
 
@@ -47,23 +91,27 @@ make install apache</code></pre>
             <div class="use-case-grid">
                 <div class="use-case">
                     <i class="fas fa-check-circle"></i>
-                    <h3>Apache</h3>
-                    <a href="tutorial.html">Deploy →</a>
-                </div>
-                <div class="use-case">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>GUI</h3>
+                    <h3>Web GUI</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Point-and-click interface</p>
                     <a href="https://github.com/waltdundore/ahab-gui">Try →</a>
                 </div>
                 <div class="use-case">
                     <i class="fas fa-check-circle"></i>
+                    <h3>Apache</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Deploy in 15 minutes</p>
+                    <a href="tutorial.html">Deploy →</a>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-check-circle"></i>
                     <h3>Multi-OS</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Fedora, Debian, Ubuntu</p>
                     <a href="https://github.com/waltdundore/ahab/blob/prod/MILESTONE_OS_SELECTION_COMPLETE.md">Details →</a>
                 </div>
                 <div class="use-case">
                     <i class="fas fa-wrench"></i>
                     <h3>MySQL</h3>
-                    <a href="https://github.com/waltdundore/ahab/blob/prod/QUEUE.md">Coming →</a>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Coming soon</p>
+                    <a href="https://github.com/waltdundore/ahab/blob/prod/QUEUE.md">Roadmap →</a>
                 </div>
             </div>
         </section>

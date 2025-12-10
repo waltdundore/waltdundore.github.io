@@ -1991,3 +1991,72 @@ footer {
         font-size: 1.3rem;
     }
 }
+
+/* Learning Resources Section */
+.learning-resources {
+    margin: 30px 0;
+}
+
+.resource-category {
+    background-color: var(--dark-bg);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--accent);
+}
+
+.resource-category h4 {
+    color: var(--white);
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resource-category h4 i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.resource-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-category li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.resource-category li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.resource-category a {
+    color: var(--light-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.resource-category a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Responsive Learning Resources */
+@media (max-width: 768px) {
+    .resource-category {
+        padding: 20px;
+    }
+    
+    .resource-category h4 {
+        font-size: 1.1rem;
+    }
+}
