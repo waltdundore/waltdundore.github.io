@@ -13,7 +13,7 @@
         <!-- Hero -->
         <section class="hero">
             <div class="logo-container">
-                <img src="ahab-logo.png" alt="Ahab Logo" class="logo">
+                <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
             </div>
             <h1 class="tagline">Deploy Apache in 15 Minutes</h1>
             <p class="subtitle">One command. Free for schools.</p>
@@ -31,17 +31,17 @@
         <!-- Try the Demo -->
         <section class="quickstart">
             <h2>Try the Demo</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
+            <p class="quickstart-intro">
                 <strong>Two ways to try Ahab:</strong> Web interface (recommended for beginners) or command line
             </p>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+            <div class="demo-grid">
                 <!-- Web Interface -->
-                <div style="border: 2px solid #0066cc; border-radius: 8px; padding: 20px;">
-                    <h3 style="margin-top: 0; color: #0066cc;">
+                <div class="demo-card demo-web">
+                    <h3>
                         <i class="fas fa-mouse-pointer"></i> Web Interface
                     </h3>
-                    <p style="margin-bottom: 15px;">Point-and-click. Perfect for students and educators.</p>
+                    <p>Point-and-click. Perfect for students and educators.</p>
                     <div class="code-block">
                         <pre><code># Clone both repos
 git clone https://github.com/waltdundore/ahab.git
@@ -53,17 +53,17 @@ make ui
 
 # Open http://localhost:5001</code></pre>
                     </div>
-                    <p style="text-align: center; margin-top: 15px;">
+                    <p class="demo-link">
                         <a href="https://github.com/waltdundore/ahab-gui/blob/main/DEMO.md" target="_blank">See screenshots →</a>
                     </p>
                 </div>
 
                 <!-- Command Line -->
-                <div style="border: 2px solid #28a745; border-radius: 8px; padding: 20px;">
-                    <h3 style="margin-top: 0; color: #28a745;">
+                <div class="demo-card demo-cli">
+                    <h3>
                         <i class="fas fa-terminal"></i> Command Line
                     </h3>
-                    <p style="margin-bottom: 15px;">Fast and scriptable. For automation and advanced users.</p>
+                    <p>Fast and scriptable. For automation and advanced users.</p>
                     <div class="code-block">
                         <pre><code># Clone repo
 git clone https://github.com/waltdundore/ahab.git
@@ -74,13 +74,13 @@ make install apache
 
 # Visit http://localhost:8080</code></pre>
                     </div>
-                    <p style="text-align: center; margin-top: 15px;">
+                    <p class="demo-link">
                         <a href="tutorial.html">Complete tutorial →</a>
                     </p>
                 </div>
             </div>
 
-            <p style="text-align: center; font-size: 0.95rem; color: #666;">
+            <p class="prerequisites">
                 <strong>Prerequisites:</strong> macOS or Linux with Docker installed. Takes 5-15 minutes.
             </p>
         </section>
@@ -92,25 +92,25 @@ make install apache
                 <div class="use-case">
                     <i class="fas fa-check-circle"></i>
                     <h3>Web GUI</h3>
-                    <p style="font-size: 0.9rem; margin: 10px 0;">Point-and-click interface</p>
+                    <p>Point-and-click interface</p>
                     <a href="https://github.com/waltdundore/ahab-gui">Try →</a>
                 </div>
                 <div class="use-case">
                     <i class="fas fa-check-circle"></i>
                     <h3>Apache</h3>
-                    <p style="font-size: 0.9rem; margin: 10px 0;">Deploy in 15 minutes</p>
+                    <p>Deploy in 15 minutes</p>
                     <a href="tutorial.html">Deploy →</a>
                 </div>
                 <div class="use-case">
                     <i class="fas fa-check-circle"></i>
                     <h3>Multi-OS</h3>
-                    <p style="font-size: 0.9rem; margin: 10px 0;">Fedora, Debian, Ubuntu</p>
+                    <p>Fedora 43, Debian 13, Ubuntu 24.04</p>
                     <a href="https://github.com/waltdundore/ahab/blob/prod/MILESTONE_OS_SELECTION_COMPLETE.md">Details →</a>
                 </div>
                 <div class="use-case">
                     <i class="fas fa-wrench"></i>
                     <h3>MySQL</h3>
-                    <p style="font-size: 0.9rem; margin: 10px 0;">Coming soon</p>
+                    <p>Coming soon</p>
                     <a href="https://github.com/waltdundore/ahab/blob/prod/QUEUE.md">Roadmap →</a>
                 </div>
             </div>
@@ -137,7 +137,7 @@ make install apache
                     <h3>Open</h3>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 30px;">
+            <p class="school-links">
                 <a href="https://github.com/waltdundore/ahab/blob/prod/EXECUTIVE_SUMMARY.md" target="_blank">Administrators →</a> | 
                 <a href="https://github.com/waltdundore/ahab/blob/prod/README-STUDENTS.md" target="_blank">Students →</a> |
                 <a href="learn.html">Learn →</a>
@@ -146,7 +146,7 @@ make install apache
 
         <!-- Status -->
         <section class="transparency">
-            <p style="text-align: center; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+            <p class="transparency-text">
                 Alpha. Built by AI. 268 tests. <a href="https://github.com/waltdundore/ahab/blob/prod/LESSONS_LEARNED.md" target="_blank">We document failures</a>. <a href="blog.html">About →</a>
             </p>
         </section>

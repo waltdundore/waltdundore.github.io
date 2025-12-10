@@ -2,23 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-    /* High contrast color scheme for accessibility */
-    --navy: #1a365d;
+    /* Ahab Brand Colors (MANDATORY) */
+    --ahab-blue: #0066cc;        /* Primary actions */
+    --ahab-navy: #003d7a;        /* Headers */
+    --success: #28a745;          /* Success states */
+    --danger: #dc3545;           /* Errors */
+    --gray-900: #212529;         /* Text */
+    --gray-50: #f8f9fa;          /* Backgrounds */
+    
+    /* Legacy color mappings for compatibility */
+    --navy: var(--ahab-navy);
     --slate: #2d3748;
-    --light-blue: #3182ce;
+    --light-blue: var(--ahab-blue);
     --dark-bg: #2d3748;
     --darker-bg: #1a202c;
     --text-light: #ffffff;
     --text-gray: #e2e8f0;
     --white: #ffffff;
-    --accent: #3182ce;
-    --success: #38a169;
+    --accent: var(--ahab-blue);
     --warning: #d69e2e;
-    --danger: #e53e3e;
     
     /* Ensure minimum 4.5:1 contrast ratio */
-    --link-color: #63b3ed;
-    --link-hover: #90cdf4;
+    --link-color: var(--ahab-blue);
+    --link-hover: #3a8eef;
     --bg-primary: #1a202c;
     --bg-secondary: #2d3748;
     --border-color: #4a5568;
@@ -249,6 +255,100 @@ section h2 {
 /* Quick Start */
 .quickstart {
     background-color: var(--dark-bg);
+}
+
+.quickstart-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.demo-card {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.demo-web {
+    border: 2px solid var(--ahab-blue);
+}
+
+.demo-web h3 {
+    margin-top: 0;
+    color: var(--ahab-blue);
+}
+
+.demo-cli {
+    border: 2px solid var(--success);
+}
+
+.demo-cli h3 {
+    margin-top: 0;
+    color: var(--success);
+}
+
+.demo-card p {
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.demo-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.demo-link a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.demo-link a:hover {
+    text-decoration: underline;
+}
+
+.prerequisites {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.school-links {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-light);
+}
+
+.school-links a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.school-links a:hover {
+    text-decoration: underline;
+}
+
+.transparency-text {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-light);
+}
+
+.transparency-text a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.transparency-text a:hover {
+    text-decoration: underline;
 }
 
 .quickstart-steps {
@@ -710,7 +810,8 @@ footer {
     .use-case-grid,
     .student-content,
     .transparency-grid,
-    .doc-grid {
+    .doc-grid,
+    .demo-grid {
         grid-template-columns: 1fr;
     }
 }
