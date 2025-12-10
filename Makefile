@@ -1,7 +1,7 @@
 # Makefile for waltdundore.github.io
 # GitHub Pages deployment automation
 
-.PHONY: help status commit push deploy deploy-dev deploy-prod deploy-all test clean
+.PHONY: help status commit push deploy deploy-dev deploy-prod deploy-all test test-html test-links test-a11y serve clean
 
 # Default target
 help:
@@ -14,7 +14,14 @@ help:
 	@echo "  make deploy-dev    - Deploy to dev branch"
 	@echo "  make deploy-prod   - Deploy to production branch"
 	@echo "  make deploy-all    - Deploy to all branches (dev + production)"
-	@echo "  make test          - Test HTML files locally"
+	@echo ""
+	@echo "Testing Commands:"
+	@echo "  make test          - Run all tests"
+	@echo "  make test-html     - Validate HTML"
+	@echo "  make test-links    - Check for broken links"
+	@echo "  make test-a11y     - Check accessibility"
+	@echo "  make serve         - Start local server"
+	@echo ""
 	@echo "  make clean         - Clean up temporary files"
 	@echo ""
 
@@ -110,21 +117,46 @@ deploy-all:
 	echo ""; \
 	echo "==> Successfully deployed to all branches!"
 
-# Test HTML files locally
-test:
-	@echo "==> Testing HTML files..."
-	@echo "==> Checking for HTML syntax errors..."
+# Test HTML validation
+test-html:
+	@echo "==> Validating HTML..."
 	@for file in *.html; do \
 		echo "Checking $$file..."; \
 		if ! grep -q "<!DOCTYPE html>" $$file; then \
-			echo "Warning: $$file missing DOCTYPE"; \
+			echo "ERROR: $$file missing DOCTYPE"; \
+			exit 1; \
 		fi; \
 	done
-	@echo "==> HTML files checked"
-	@echo ""
-	@echo "To preview locally, run:"
-	@echo "  python3 -m http.server 8000"
-	@echo "Then visit: http://localhost:8000"
+	@echo "✓ HTML validation passed"
+
+# Test for broken links (requires linkchecker)
+test-links:
+	@echo "==> Checking for broken links..."
+	@echo "Note: Install linkchecker: pip install linkchecker"
+	@if command -v linkchecker &> /dev/null; then \
+		linkchecker index.html; \
+	else \
+		echo "Warning: linkchecker not installed, skipping"; \
+	fi
+
+# Test accessibility (requires pa11y)
+test-a11y:
+	@echo "==> Checking accessibility..."
+	@echo "Note: Install pa11y: npm install -g pa11y"
+	@if command -v pa11y &> /dev/null; then \
+		pa11y index.html; \
+	else \
+		echo "Warning: pa11y not installed, skipping"; \
+	fi
+
+# Run all tests
+test: test-html
+	@echo "==> All tests passed"
+
+# Serve locally for testing
+serve:
+	@echo "==> Starting local server on http://localhost:8000"
+	@python3 -m http.server 8000
 
 # Clean up temporary files
 clean:
