@@ -1,6 +1,9 @@
 /* CSS Variables */
 /* CSS Variables */
 /* CSS Variables */
+/* CSS Variables */
+/* CSS Variables */
+/* CSS Variables */
 /* Ahab Website Styles - WCAG AA Compliant */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
@@ -1220,6 +1223,30 @@ footer p {
     color: var(--slate);
 }
 
+/* Breadcrumb Navigation */
+.breadcrumb {
+    padding: 15px 20px;
+    background-color: var(--gray-50);
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--ahab-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--gray-900);
+    font-weight: 500;
+}
+
 /* Utility Classes */
 .text-center {
     text-align: center;
@@ -1227,6 +1254,24 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .tutorial-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        text-align: left;
+        padding: 12px 16px;
+    }
+    
     .hero .tagline {
         font-size: 2rem;
     }
@@ -1306,42 +1351,57 @@ footer p {
 
 /* Tutorial Page Styles */
 .tutorial-nav {
-    background-color: var(--dark-bg);
+    background-color: var(--ahab-navy);
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    border-bottom: 2px solid var(--navy);
+    border-bottom: 2px solid var(--ahab-blue);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.nav-brand span {
+    color: #ffffff;
 }
 
 .nav-back {
-    color: var(--accent);
+    color: var(--ahab-blue);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-back:hover {
-    color: var(--light-blue);
+    color: #3a8eef;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 .nav-links a {
-    color: var(--text-gray);
+    color: #ffffff;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: #ffffff;
+    background-color: var(--ahab-blue);
+    text-decoration: none;
 }
 
 .tutorial-hero {
