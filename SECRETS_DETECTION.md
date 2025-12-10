@@ -115,7 +115,7 @@ The system automatically scans for:
 ```bash
 # These would be BLOCKED:
 password = "MySecretPassword123"
-api_key = "sk_live_1234567890abcdef"
+api_key = "sk_live_FAKE_KEY_FOR_DOCS"
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAB... (real SSH key)
 postgresql://user:pass@localhost:5432/db
 192.168.1.100
