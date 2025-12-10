@@ -1,94 +1,62 @@
-# Ahab Website
+# Ahab Website (waltdundore.github.io)
 
-**URL**: https://waltdundore.github.io
+This is the GitHub Pages website for the Ahab project.
 
-## Quick Start
+## ⚠️ CRITICAL: Deployment Process
 
+**The `make deploy` command does NOT actually deploy!**
+
+### What `make deploy` Actually Does:
+1. ✅ Runs comprehensive tests (HTML, CSS, accessibility, links, performance)
+2. ✅ Stages files with `git add .`
+3. ✅ Shows you what will be committed
+4. ❌ **Does NOT commit**
+5. ❌ **Does NOT push**
+6. ❌ **Does NOT deploy**
+
+### To Actually Deploy:
 ```bash
-# Test locally
-make serve
+# Step 1: Prepare for deployment (runs tests, stages files)
+make deploy
 
-# Test before deploy
-make test
-
-# Deploy to all branches
-make deploy-all MSG="Update website"
+# Step 2: Actually deploy (manual confirmation required)
+git commit -m "your commit message"
+git push origin main
 ```
 
-## Structure
+### Why This Two-Step Process?
+- **Safety**: Prevents accidental deployments
+- **Transparency**: You see exactly what's being deployed
+- **Education**: You learn the actual git commands
+- **Control**: You write your own commit message
 
-- `index.html` - Landing page (compressed, 5 sections)
-- `tutorial.html` - Complete tutorial
-- `learn.html` - Learning resources (compressed, 3 sections)
-- `style.css` - All styles
-- `Makefile` - All commands
+## Available Commands
 
-## Principles
+Run `make help` to see all available commands.
 
-1. **iPod Fish Tank** - No air bubbles, compress ruthlessly
-2. **Make Commands** - Use Makefile, not direct commands
-3. **Testing** - Test before deploy
-4. **Accessibility** - WCAG 2.1 AA compliance
+### Key Commands:
+- `make test` - Run all validation tests
+- `make serve` - Start local development server
+- `make deploy` - **PREPARE** for deployment (does not commit/push)
+- `make validate` - Validate HTML/CSS compliance
+- `make compliance-report` - Generate compliance status report
 
-## Testing
+## Development Workflow
 
-```bash
-make test-html    # Validate HTML
-make test-links   # Check links (requires linkchecker)
-make test-a11y    # Accessibility (requires pa11y)
-make test         # All tests
-```
+1. Make changes to HTML/CSS files
+2. Test locally: `make serve` (opens http://localhost:8000)
+3. Validate changes: `make test`
+4. Prepare deployment: `make deploy`
+5. Review staged changes: `git status`
+6. Commit and deploy: `git commit -m "description" && git push origin main`
 
-## Deployment
+## Standards Compliance
 
-```bash
-make deploy-all MSG="Your message"
-```
+This website follows:
+- **Ahab Branding Guidelines** (colors, fonts, logo)
+- **WCAG 2.1 AA Accessibility** (contrast, alt text, keyboard navigation)
+- **Progressive Disclosure UX** (elevator principle)
+- **Zero Trust Security** (no hardcoded secrets, input validation)
+- **NASA Power of 10** (code quality standards)
 
-Deploys to:
-- dev branch (testing)
-- production branch (live site)
-
-## Compression Status
-
-Applied iPod Fish Tank principle:
-
-### index.html
-- **Before**: 11 sections, ~1200 lines
-- **After**: 5 sections, ~150 lines
-- **Removed**: Value Proposition, How It Works, Transparency boxes, Documentation cards, Repository Links, Recent Milestones
-
-
-
-### learn.html
-- **Before**: 5 sections, 20+ resource cards
-- **After**: 3 sections, 9 resource cards
-- **Removed**: Philosophy section, detailed teachable moments, learning paths, CTA grid
-
-## Maintenance
-
-### Every Month
-1. Run fish tank test (look for new bubbles)
-2. Run all tests (`make test`)
-3. Check for broken links
-4. Verify accessibility
-
-### Every Feature
-1. Add to appropriate section (don't create new sections)
-2. Compress existing content if needed
-3. Test before deploy
-4. Update README if needed
-
-## Rules
-
-- **No new sections** - Add to existing sections only
-- **Links over paragraphs** - Compress explanations to links
-- **Value before process** - Show results, not how it works
-- **One concept per section** - No repetition
-- **Test before deploy** - Always run `make test`
-
----
-
-**Last Updated**: 2025-12-09  
-**Status**: Ahab compliant  
-**Principles**: iPod Fish Tank applied
+All standards are automatically validated by `make test`.

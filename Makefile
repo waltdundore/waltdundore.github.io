@@ -1,8 +1,17 @@
+# Website Management Makefile
+# 
+# ⚠️  IMPORTANT: 'make deploy' does NOT actually deploy!
+# ⚠️  It only prepares for deployment (tests + staging).
+# ⚠️  You must manually commit and push after 'make deploy'.
+#
 # Include shared configuration and common targets
 include ../ahab/Makefile.config
 include ../ahab/Makefile.common
 
 .PHONY: help validate test deploy clean serve
+
+# CRITICAL: The 'deploy' target does NOT actually deploy!
+# It only prepares for deployment. You must manually commit and push.
 
 help:
 	$(call HELP_HEADER,Website Management)
