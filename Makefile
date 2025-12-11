@@ -227,3 +227,31 @@ clean:
 	@rm -f tests/*.log
 	@rm -f *.backup
 	@echo "✓ Cleanup complete"
+# ==============================================================================
+# Git Publishing Commands
+# ==============================================================================
+
+.PHONY: publish publish-all publish-status publish-sync
+
+publish:
+	@echo "→ Running: ./scripts/git-publish $(filter-out publish,$(MAKECMDGOALS))"
+	@echo "   Purpose: Publish branch to GitHub for live website deployment"
+	@./scripts/git-publish $(filter-out publish,$(MAKECMDGOALS))
+
+publish-all:
+	@echo "→ Running: ./scripts/git-publish all"
+	@echo "   Purpose: Publish all configured branches to GitHub"
+	@./scripts/git-publish all
+
+publish-status:
+	@echo "→ Running: ./scripts/git-publish status"
+	@echo "   Purpose: Show current git publishing status and branch sync state"
+	@./scripts/git-publish status
+
+publish-sync:
+	@echo "→ Running: ./scripts/git-publish sync"
+	@echo "   Purpose: Sync main branch with remote changes before publishing"
+	@./scripts/git-publish sync
+# Handle branch names as arguments to publish command
+%:
+	@:
