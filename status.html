@@ -16,113 +16,98 @@
     <!-- Skip to main content link (accessibility) -->
     <a href="#main" class="skip-link">Skip to main content</a>
     
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--ahab-navy);">
-        <div class="container">
-            <a class="navbar-brand" href="index.html" style="color: #ffffff;">
-                <img src="images/ahab-logo.png" alt="Ahab Logo" style="height: 40px; margin-right: 10px;">
-                Ahab Project Status
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html" style="color: #ffffff;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tutorial.html" style="color: #ffffff;">Tutorial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="learn.html" style="color: #ffffff;">Learn More</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="teachers.html" style="color: #ffffff;">For Teachers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="status.html" style="color: var(--ahab-blue); font-weight: 600;">Status</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/waltdundore/ahab" target="_blank" style="color: #ffffff;">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <!-- Navigation - Consistent with rest of site -->
+    <nav class="tutorial-nav sticky-nav">
+        <div class="nav-brand">
+            <img src="images/ahab-logo.png" alt="Ahab Logo" class="nav-logo">
+            <span>Ahab</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tutorial.html">Tutorial</a>
+            <a href="learn.html">Learn More</a>
+            <a href="teachers.html">For Teachers</a>
+            <a href="status.html" class="status-link active"><i class="fas fa-chart-line"></i> Status</a>
+            <a href="https://github.com/waltdundore/ahab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         </div>
     </nav>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> → 
+        <span>Project Status</span>
+    </nav>
 
-    <!-- Header -->
-    <div class="hero" style="padding: 40px 20px; background: linear-gradient(135deg, var(--ahab-blue) 0%, var(--ahab-navy) 100%);">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h1 style="color: #ffffff; font-size: 2.5rem; margin-bottom: 15px;">
-                        <i class="fas fa-chart-line"></i>
-                        Project Status Dashboard
-                    </h1>
-                    <p style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0;">Real-time development transparency and progress tracking</p>
+    <!-- Header - Consistent with site style -->
+    <main id="main">
+    <main id="main">
+        <section class="hero">
+        <div class="logo-container">
+            <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
+        </div>
+        <h1><i class="fas fa-chart-line"></i> Project Status Dashboard</h1>
+        <p class="subtitle">Real-time development transparency and progress tracking</p>
+        <div class="status-meta">
+            <span><i class="fas fa-clock"></i> Last Updated: <span id="lastUpdated">December 11, 2025</span></span>
+            <span><i class="fas fa-code-branch"></i> Version: v0.2.0</span>
+            <span><i class="fas fa-check-circle"></i> Production Ready</span>
+        </div>
+        
+        <!-- Teaching Tools Context -->
+        <div class="teaching-tools-context">
+            <h3><i class="fas fa-info-circle"></i> About This Status Page</h3>
+            <p>This status page is part of the <strong>Ahab Website</strong> - providing transparent project updates and development progress:</p>
+            <div class="tools-grid">
+                <div class="tool-card current">
+                    <i class="fas fa-globe"></i>
+                    <strong>This Website</strong>
+                    <p>Public updates & learning resources</p>
                 </div>
-                <div class="col-md-4 text-md-end">
-                    <div style="color: #ffffff; font-size: 0.9rem;">
-                        <i class="fas fa-clock"></i>
-                        Last Updated: <span id="lastUpdated">December 11, 2025</span>
-                    </div>
+                <div class="tool-card">
+                    <i class="fas fa-book"></i>
+                    <strong><a href="https://github.com/waltdundore/ahab" target="_blank">Technical Docs</a></strong>
+                    <p>Implementation details & commands</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-desktop"></i>
+                    <strong><a href="https://github.com/waltdundore/ahab-gui" target="_blank">Interactive GUI</a></strong>
+                    <p>Hands-on infrastructure management</p>
                 </div>
             </div>
+            <p class="tools-note">See real-time development progress and what's working right now.</p>
         </div>
-    </div>
+    </section>
 
-    <div class="container my-5">
-        <!-- Current Status Overview -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2><i class="fas fa-tachometer-alt"></i> Current Status Overview</h2>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <div class="card status-card status-passing h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
-                                <h5>Core System</h5>
-                                <p class="mb-0">✅ Stable & Production Ready</p>
-                                <small class="text-muted">v0.2.0 - All tests passing</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card status-card status-passing h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-desktop fa-3x text-success mb-3"></i>
-                                <h5>Web Interface</h5>
-                                <p class="mb-0">✅ Fully Functional</p>
-                                <small class="text-muted">268 tests, multi-OS support</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card status-card status-passing h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-book fa-3x text-success mb-3"></i>
-                                <h5>Documentation</h5>
-                                <p class="mb-0">� Comprehen/sive</p>
-                                <small class="text-muted">Consolidated & organized</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card status-card status-passing h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
-                                <h5>Security</h5>
-                                <p class="mb-0">🔒 Zero Trust Compliant</p>
-                                <small class="text-muted">CIA Triad + Docker STIG</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Current Status Overview -->
+    <section class="tutorial-section">
+        <h2><i class="fas fa-tachometer-alt"></i> Current Status Overview</h2>
+        <div class="status-grid">
+            <div class="status-card status-passing">
+                <i class="fas fa-check-circle"></i>
+                <h3>Core System</h3>
+                <p>✅ Stable & Production Ready</p>
+                <small>v0.2.0 - All tests passing</small>
+            </div>
+            <div class="status-card status-passing">
+                <i class="fas fa-desktop"></i>
+                <h3>Web Interface</h3>
+                <p>✅ Fully Functional</p>
+                <small>268 tests, multi-OS support</small>
+            </div>
+            <div class="status-card status-passing">
+                <i class="fas fa-book"></i>
+                <h3>Documentation</h3>
+                <p>📚 Comprehensive</p>
+                <small>Consolidated & organized</small>
+            </div>
+            <div class="status-card status-passing">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security</h3>
+                <p>🔒 Zero Trust Compliant</p>
+                <small>CIA Triad + Docker STIG</small>
             </div>
         </div>
+    </section>
 
         <!-- Recent Achievements -->
         <div class="row mb-5">
@@ -139,7 +124,7 @@
                                 <span>85% Complete</span>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
+                                <div class="progress-bar bg-success" role="progressbar"></div>
                             </div>
                         </div>
                         
@@ -242,7 +227,7 @@
                                 <span>98%</span>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 98%"></div>
+                                <div class="progress-bar bg-success" role="progressbar"></div>
                             </div>
                         </div>
                         
@@ -252,7 +237,7 @@
                                 <span>95%</span>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
+                                <div class="progress-bar bg-success" role="progressbar"></div>
                             </div>
                         </div>
                         
@@ -262,7 +247,7 @@
                                 <span>92%</span>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 92%"></div>
+                                <div class="progress-bar bg-success" role="progressbar"></div>
                             </div>
                         </div>
                         
@@ -272,7 +257,7 @@
                                 <span>90%</span>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>
+                                <div class="progress-bar bg-success" role="progressbar"></div>
                             </div>
                         </div>
                     </div>
@@ -404,19 +389,19 @@
                                 <div class="mb-2">
                                     <small class="text-muted">Features delivered per month</small>
                                     <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 75%">12 features</div>
+                                        <div class="progress-bar bg-info" role="progressbar">12 features</div>
                                     </div>
                                 </div>
                                 <div class="mb-2">
                                     <small class="text-muted">Test coverage improvement</small>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 83%">83%</div>
+                                        <div class="progress-bar bg-success" role="progressbar">83%</div>
                                     </div>
                                 </div>
                                 <div class="mb-0">
                                     <small class="text-muted">Documentation completeness</small>
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 92%">92%</div>
+                                        <div class="progress-bar bg-primary" role="progressbar">92%</div>
                                     </div>
                                 </div>
                             </div>
@@ -513,7 +498,7 @@
                             </div>
                         </div>
                         
-                        <div class="mt-4 p-3" style="background-color: var(--gray-50); border-left: 4px solid var(--ahab-blue); border-radius: 5px;">
+                        <div class="mt-4 p-3">
                             <p class="mb-0">
                                 <strong>Our Commitment:</strong> When we say "it works," we mean "it's working for us right now." 
                                 When we find problems, we document them publicly. No hiding, no spin, no marketing fluff.
@@ -579,42 +564,42 @@
     </div>
 
     <!-- Footer -->
-    <footer style="background-color: var(--gray-900); color: #ffffff; padding: 60px 20px 20px; border-top: 1px solid #dee2e6;">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class="mb-2" style="font-size: 1.1rem; font-weight: 600;">
+                    <p class="mb-2">
                         <strong>Ahab Project</strong> - Infrastructure automation for K-12 schools and non-profits
                     </p>
-                    <p class="mb-3" style="color: #6c757d;">
+                    <p class="mb-3">
                         Built with transparency, tested with care, documented with purpose. Free for education forever.
                     </p>
-                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="https://github.com/waltdundore/ahab" style="color: var(--ahab-blue); text-decoration: none;">
+                    <div>
+                        <a href="https://github.com/waltdundore/ahab">
                             <i class="fab fa-github"></i> Main Repository
                         </a>
-                        <a href="https://github.com/waltdundore/ahab-gui" style="color: var(--ahab-blue); text-decoration: none;">
+                        <a href="https://github.com/waltdundore/ahab-gui">
                             <i class="fas fa-desktop"></i> Web Interface
                         </a>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md" style="color: var(--ahab-blue); text-decoration: none;">
+                        <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">
                             <i class="fas fa-book"></i> Lessons Learned
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <p class="mb-2" style="color: #6c757d;">
+                    <p class="mb-2">
                         <small>
                             <i class="fas fa-clock"></i>
                             Status updated: <span id="footerLastUpdated">December 11, 2025</span>
                         </small>
                     </p>
-                    <p class="mb-2" style="color: #6c757d;">
+                    <p class="mb-2">
                         <small>
                             <i class="fas fa-code-branch"></i>
                             Version: v0.2.0 (Production Ready)
                         </small>
                     </p>
-                    <p class="mb-0" style="color: #6c757d;">
+                    <p class="mb-0">
                         <small>
                             <i class="fas fa-shield-alt"></i>
                             License: CC BY-NC-SA 4.0
@@ -622,9 +607,9 @@
                     </p>
                 </div>
             </div>
-            <hr style="border-color: var(--ahab-navy); margin: 30px 0 20px;">
+            <hr>
             <div class="text-center">
-                <p class="mb-0" style="color: #6c757d; font-size: 0.9rem;">
+                <p class="mb-0">
                     "We're not here forever, but what we teach can be." - 
                     <em>Committed to educational excellence and open source values</em>
                 </p>
@@ -632,164 +617,6 @@
         </div>
     </footer>
 
-    <style>
-        /* Additional styles for status page */
-        .navbar-toggler {
-            border: 1px solid #ffffff;
-        }
-        
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-        
-        .card {
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        
-        .card-header {
-            background-color: var(--gray-50);
-            border-bottom: 1px solid #dee2e6;
-            font-weight: 600;
-        }
-        
-        .progress {
-            height: 8px;
-            background-color: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            background-color: var(--ahab-blue);
-            transition: width 0.6s ease;
-        }
-        
-        .progress-bar.bg-success {
-            background-color: var(--success) !important;
-        }
-        
-        .progress-bar.bg-info {
-            background-color: #17a2b8 !important;
-        }
-        
-        .progress-bar.bg-primary {
-            background-color: var(--ahab-blue) !important;
-        }
-        
-        .badge {
-            font-size: 0.75rem;
-            padding: 0.35em 0.65em;
-            border-radius: 0.375rem;
-        }
-        
-        .badge.bg-success {
-            background-color: var(--success) !important;
-            color: #ffffff;
-        }
-        
-        .badge.bg-warning {
-            background-color: #ffc107 !important;
-            color: #000000;
-        }
-        
-        .timeline-item {
-            padding: 10px 0;
-            border-left: 2px solid #dee2e6;
-            padding-left: 15px;
-            margin-left: 10px;
-            position: relative;
-        }
-        
-        .timeline-item.completed {
-            border-left-color: var(--success);
-        }
-        
-        .timeline-item.current {
-            border-left-color: var(--ahab-blue);
-        }
-        
-        .timeline-item.future {
-            border-left-color: #6c757d;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 15px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #dee2e6;
-        }
-        
-        .timeline-item.completed::before {
-            background-color: var(--success);
-        }
-        
-        .timeline-item.current::before {
-            background-color: var(--ahab-blue);
-        }
-        
-        .commit-hash {
-            font-family: 'Courier New', monospace;
-            background-color: var(--gray-50);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.9rem;
-        }
-        
-        .alert {
-            border-radius: 8px;
-            border: 1px solid transparent;
-        }
-        
-        .alert-info {
-            background-color: rgba(13, 202, 240, 0.1);
-            border-color: rgba(13, 202, 240, 0.2);
-            color: #055160;
-        }
-        
-        .alert-success {
-            background-color: rgba(25, 135, 84, 0.1);
-            border-color: rgba(25, 135, 84, 0.2);
-            color: #0a3622;
-        }
-        
-        .alert-primary {
-            background-color: rgba(13, 110, 253, 0.1);
-            border-color: rgba(13, 110, 253, 0.2);
-            color: #084298;
-        }
-        
-        .alert-warning {
-            background-color: rgba(255, 193, 7, 0.1);
-            border-color: rgba(255, 193, 7, 0.2);
-            color: #664d03;
-        }
-        
-        @media (max-width: 768px) {
-            .navbar-nav {
-                text-align: center;
-            }
-            
-            .hero {
-                text-align: center;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .col-md-4.text-md-end {
-                text-align: center !important;
-                margin-top: 20px;
-            }
-        }
-    </style>
     
     <script>
         // Update timestamps
