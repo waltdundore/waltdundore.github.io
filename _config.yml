@@ -1,0 +1,33 @@
+# Jekyll configuration for GitHub Pages
+# Enables server-side includes and templating
+
+# Site settings
+title: "Ahab Project"
+description: "Infrastructure automation for K-12 schools and non-profits"
+baseurl: ""
+url: "https://waltdundore.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections
+collections:
+  includes:
+    output: false
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Makefile
+  - "*.backup"
+  - tests/
+  - scripts/
+
+# Include files
+include:
+  - _includes/
+  - _layouts/

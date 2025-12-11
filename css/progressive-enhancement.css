@@ -1,0 +1,153 @@
+/* Progressive Enhancement CSS - Accessibility First */
+
+/* Default state: Show fallback content, hide enhanced content */
+.js-enhanced {
+    display: none;
+}
+
+.js-fallback {
+    display: block;
+}
+
+.js-only {
+    display: none;
+}
+
+/* When JavaScript is enabled, flip the visibility */
+.js-enabled .js-enhanced {
+    display: block;
+}
+
+.js-enabled .js-fallback {
+    display: none;
+}
+
+.js-enabled .js-only {
+    display: block;
+}
+
+/* Ensure fallback navigation is accessible */
+.fallback-nav {
+    background: var(--ahab-navy, #003d7a);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fallback-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fallback-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.fallback-nav a:hover,
+.fallback-nav a:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: underline;
+}
+
+.fallback-nav .active {
+    background-color: var(--ahab-blue, #0066cc);
+    font-weight: bold;
+}
+
+/* Fallback breadcrumb styling */
+.fallback-breadcrumb {
+    background: var(--gray-50, #f8f9fa);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.9rem;
+}
+
+.fallback-breadcrumb a {
+    color: var(--ahab-blue, #0066cc);
+    text-decoration: none;
+}
+
+.fallback-breadcrumb a:hover,
+.fallback-breadcrumb a:focus {
+    text-decoration: underline;
+}
+
+/* Fallback footer styling */
+.fallback-footer {
+    background: var(--gray-900, #212529);
+    color: white;
+    padding: 2rem 1rem 1rem;
+    margin-top: 3rem;
+}
+
+.fallback-footer h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.fallback-footer a {
+    color: var(--ahab-blue, #0066cc);
+    text-decoration: none;
+}
+
+.fallback-footer a:hover,
+.fallback-footer a:focus {
+    text-decoration: underline;
+}
+
+.fallback-footer .footer-links {
+    margin-top: 1rem;
+}
+
+.fallback-footer .footer-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Screen reader announcements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus indicators for keyboard navigation */
+.js-enhanced a:focus,
+.js-fallback a:focus,
+button:focus {
+    outline: 2px solid var(--ahab-blue, #0066cc);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .fallback-nav {
+        border: 2px solid white;
+    }
+    
+    .fallback-nav a {
+        border: 1px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .fallback-nav a,
+    .js-enhanced a {
+        transition: none;
+    }
+}
