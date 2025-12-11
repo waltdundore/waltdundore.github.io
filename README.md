@@ -1,6 +1,33 @@
 # Ahab Website (waltdundore.github.io)
 
-This is the GitHub Pages website for the Ahab project.
+**Public-facing educational resource and project marketing website**
+
+This is the GitHub Pages website for the Ahab project - one of three distinct teaching tools in the Ahab ecosystem.
+
+## 🎯 Purpose & Audience
+
+**Purpose**: Public-facing educational resource and project discovery  
+**Audience**: General public, potential users, educators researching tools  
+**Context**: First impression, discovery, and conceptual learning  
+
+**What this website provides**:
+- Project overview and value proposition
+- Learning pathways for different skill levels  
+- Educational resources and tutorials
+- Teacher guides and curriculum alignment
+- Public project status and updates
+
+**When to use this website**: When you want to learn about infrastructure automation concepts or evaluate Ahab for your organization.
+
+## 🔗 Related Teaching Tools
+
+This website is part of a three-tool teaching ecosystem:
+
+- **🌐 This Website** - Conceptual learning and discovery
+- **📖 [Main README](https://github.com/waltdundore/ahab)** - Technical implementation guide
+- **🖥️ [Ahab GUI](https://github.com/waltdundore/ahab-gui)** - Interactive hands-on learning
+
+See the [Teaching Tools Overview](https://github.com/waltdundore/ahab/blob/main/TEACHING_TOOLS_OVERVIEW.md) for detailed comparisons.
 
 ## ⚠️ CRITICAL: Deployment Process
 
