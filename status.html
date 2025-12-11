@@ -10,973 +10,390 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
 </head>
 <body>
     <!-- Skip to main content link (accessibility) -->
     <a href="#main" class="skip-link">Skip to main content</a>
     
-    <!-- Navigation - Consistent with rest of site -->
-    <nav class="tutorial-nav sticky-nav">
-        <div class="nav-brand">
-            <img src="images/ahab-logo.png" alt="Ahab Logo" class="nav-logo">
-            <span>Ahab</span>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="tutorial.html">Tutorial</a>
-            <a href="learn.html">Learn More</a>
-            <a href="teachers.html">For Teachers</a>
-            <a href="status.html" class="status-link active"><i class="fas fa-chart-line"></i> Status</a>
-            <a href="https://github.com/waltdundore/ahab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-    </nav>
+    <!-- Navigation - Loaded by JavaScript -->
+    <div id="navigation-placeholder">
+        <!-- Fallback navigation (no JavaScript) -->
+        <nav id="navigation-fallback" class="tutorial-nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-brand">
+                <img src="images/ahab-logo.png" alt="Ahab Logo" class="nav-logo">
+                <span>Ahab</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" data-page="home">Home</a>
+                <a href="tutorial.html" data-page="tutorial">Tutorial</a>
+                <a href="learn.html" data-page="learn">Learn More</a>
+                <a href="teachers.html" data-page="teachers">For Teachers</a>
+                <a href="status.html" data-page="status" class="status-link active" aria-current="page"><i class="fas fa-chart-line" aria-hidden="true"></i> Status</a>
+                <a href="https://github.com/waltdundore/ahab" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
+        </nav>
+    </div>
     
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb">
-        <a href="index.html">Home</a> → 
-        <span>Project Status</span>
-    </nav>
+    <!-- Breadcrumb Navigation - Loaded by JavaScript -->
+    <div id="breadcrumb-placeholder">
+        <!-- Fallback breadcrumb (no JavaScript) -->
+        <nav id="breadcrumb-fallback" class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+            <a href="index.html">Home</a> → <span data-current-page aria-current="page">Project Status</span>
+        </nav>
+    </div>
 
-    <!-- Header - Consistent with site style -->
+    <!-- Main Content -->
     <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
-        <main id="main">
         <section class="hero">
-        <div class="logo-container">
-            <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
-        </div>
-        <h1><i class="fas fa-chart-line"></i> Project Status Dashboard</h1>
-        <p class="subtitle">Real-time development transparency and progress tracking</p>
-        <div class="status-meta">
-            <span><i class="fas fa-clock"></i> Last Updated: <span id="lastUpdated">December 11, 2025</span></span>
-            <span><i class="fas fa-code-branch"></i> Version: v0.2.0-alpha</span>
-            <span><i class="fas fa-exclamation-triangle"></i> Alpha Development</span>
-        </div>
-        
-        <!-- Teaching Tools Context -->
-        <div class="teaching-tools-context">
-            <h3><i class="fas fa-info-circle"></i> About This Status Page</h3>
-            <p>This status page is part of the <strong>Ahab Website</strong> - providing transparent project updates and development progress:</p>
-            <div class="tools-grid">
-                <div class="tool-card current">
-                    <i class="fas fa-globe"></i>
-                    <strong>This Website</strong>
-                    <p>Public updates & learning resources</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-book"></i>
-                    <strong><a href="https://github.com/waltdundore/ahab" target="_blank">Technical Docs</a></strong>
-                    <p>Implementation details & commands</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-desktop"></i>
-                    <strong><a href="https://github.com/waltdundore/ahab-gui" target="_blank">Interactive GUI</a></strong>
-                    <p>Hands-on infrastructure management</p>
-                </div>
+            <div class="logo-container">
+                <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
             </div>
-            <p class="tools-note">See real-time development progress and what's working right now.</p>
-        </div>
-    </section>
-
-    <!-- Alpha Development Warning -->
-    <section class="tutorial-section">
-        <div class="warning-box">
-            <h3><i class="fas fa-exclamation-triangle"></i> ⚠️ ALPHA VERSION - NOT FOR PRODUCTION USE ⚠️</h3>
-            <p><strong>Current Status:</strong> This is experimental software under active development</p>
-            <p><strong>⚠️ Important:</strong> No security audit has been performed - use only for learning, testing, and development</p>
-            <p><strong>Expect:</strong> Features may change or break without notice, bugs, incomplete functionality</p>
-            <p><strong>Recommended Use:</strong> Educational environments, development testing, learning infrastructure automation</p>
-        </div>
-    </section>
-
-    <!-- Development Notice -->
-    <section class="tutorial-section">
-        <div class="info-box">
-            <h3><i class="fas fa-info-circle"></i> Development Update - December 11, 2025</h3>
-            <p><strong>Current Focus:</strong> Makefile consolidation, progressive disclosure UX, and milestone system improvements</p>
-            <p><strong>Development Pace:</strong> Development will slow significantly until January 1, 2026 due to holiday schedule</p>
-            <p><strong>What We're Working On:</strong> DRY principle enforcement, progressive disclosure implementation, and v0.2.0-alpha release preparation</p>
-        </div>
-    </section>
-
-    <!-- Current Status Overview -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-tachometer-alt"></i> Current Status Overview</h2>
-        <div class="status-grid">
-            <div class="status-card status-warning">
-                <i class="fas fa-tools"></i>
-                <h3>Core System (Ahab)</h3>
-                <p>🔧 70-75% Complete</p>
-                <small>Repository consolidation complete, testing in progress</small>
-            </div>
-            <div class="status-card status-warning">
-                <i class="fas fa-desktop"></i>
-                <h3>Web Interface (GUI)</h3>
-                <p>🚧 Early Development</p>
-                <small>Building hooks & modules, 268 tests passing</small>
-            </div>
-            <div class="status-card status-passing">
-                <i class="fas fa-book"></i>
-                <h3>Documentation</h3>
-                <p>📚 Comprehensive</p>
-                <small>Consolidated & organized, ready for v0.2.0</small>
-            </div>
-            <div class="status-card status-passing">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Security</h3>
-                <p>🔒 Zero Trust Compliant</p>
-                <small>CIA Triad + Docker STIG implemented</small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recent Achievements -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-trophy"></i> Recent Major Achievements</h2>
-        <div class="card">
-            <h3>v0.2.0 Release - December 2025</h3>
-            <div class="progress-section">
-                <div class="progress-label">
-                    <span>Project Maturity</span>
-                    <span>60-70% Complete</span>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar"></div>
-                </div>
+            <h1><i class="fas fa-chart-line"></i> Project Status Dashboard</h1>
+            <p class="subtitle">Real-time development transparency and progress tracking</p>
+            <div class="status-meta">
+                <span><i class="fas fa-clock"></i> Last Updated: <span class="last-updated">December 11, 2025</span></span>
+                <span><i class="fas fa-code-branch"></i> Version: v0.2.0-alpha</span>
+                <span><i class="fas fa-exclamation-triangle"></i> Alpha Development</span>
             </div>
             
-            <div class="achievement-grid">
-                <div class="achievement-column">
-                    <h4>✅ Completed Features</h4>
-                    <div class="timeline-item current">
-                        <strong>Multi-OS Support:</strong> Fedora 43, Debian 13, Ubuntu 24.04
-                        <br><small>Status: In Testing</small>
+            <!-- Teaching Tools Context -->
+            <div class="teaching-tools-context">
+                <h3><i class="fas fa-info-circle"></i> About This Status Page</h3>
+                <p>This status page is part of the <strong>Ahab Website</strong> - providing transparent project updates and development progress:</p>
+                <div class="tools-grid">
+                    <div class="tool-card current">
+                        <i class="fas fa-globe"></i>
+                        <strong>This Website</strong>
+                        <p>Public updates & learning resources</p>
                     </div>
-                    <div class="timeline-item current">
-                        <strong>Web Interface:</strong> Building hooks and modules
-                        <br><small>Status: Early Development</small>
-                    </div>
-                    <div class="timeline-item completed">
-                        <strong>Modular Architecture:</strong> Multi-repo with versioned components
-                        <br><small>Status: Complete</small>
-                    </div>
-                    <div class="timeline-item completed">
-                        <strong>Security Framework:</strong> Zero Trust + CIA Triad
-                        <br><small>Status: Implemented</small>
-                    </div>
-                    <div class="timeline-item completed">
-                        <strong>Progressive Disclosure:</strong> Milestone system consolidation
-                        <br><small>Status: Complete - DRY principles enforced</small>
-                    </div>
-                </div>
-                <div class="achievement-column">
-                    <h4>🚀 Next Phase Goals</h4>
-                    <div class="timeline-item current">
-                        <strong>Advanced Deployment:</strong> Multi-server orchestration
-                        <br><small>Status: Planning Phase</small>
-                    </div>
-                    <div class="timeline-item future">
-                        <strong>Service Marketplace:</strong> Community modules
-                        <br><small>Status: Future Release</small>
-                    </div>
-                    <div class="timeline-item future">
-                        <strong>Monitoring Dashboard:</strong> Real-time infrastructure health
-                        <br><small>Status: Future Release</small>
-                    </div>
-                    <div class="timeline-item future">
-                        <strong>Educational Curriculum:</strong> Structured learning paths
-                        <br><small>Status: Future Release</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Status -->
-    <section class="tutorial-section">
-        <div class="status-technical-grid">
-            <div class="technical-card">
-                <h3><i class="fas fa-cogs"></i> Technical Status</h3>
-                <div class="card">
-                    <h4>Test Suite Status</h4>
-                    <div class="status-list">
-                        <div class="status-item">
-                            <span><i class="fas fa-check"></i> Core System Tests</span>
-                            <span class="badge bg-success">PASSING</span>
-                        </div>
-                        <div class="status-item">
-                            <span><i class="fas fa-check"></i> GUI Tests (268 total)</span>
-                            <span class="badge bg-success">83% PASS</span>
-                        </div>
-                        <div class="status-item">
-                            <span><i class="fas fa-check"></i> Security Scans</span>
-                            <span class="badge bg-success">PASSING</span>
-                        </div>
-                        <div class="status-item">
-                            <span><i class="fas fa-check"></i> Multi-OS Support</span>
-                            <span class="badge bg-success">VERIFIED</span>
-                        </div>
-                    </div>
-                    
-                    <h4>Current Version</h4>
-                    <div class="version-info">
-                        <p><strong>Release:</strong> v0.2.0-alpha</p>
-                        <p><strong>Commit:</strong> <span class="commit-hash">f32464f</span></p>
-                        <p><strong>Branch:</strong> main (alpha development)</p>
-                        <p><strong>Last Test:</strong> 2025-12-11 14:02:56 UTC</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="technical-card">
-                <h3><i class="fas fa-chart-bar"></i> System Readiness</h3>
-                <div class="card">
-                    <div class="readiness-metrics">
-                        <div class="metric">
-                            <div class="progress-label">
-                                <span>Core Infrastructure</span>
-                                <span>98%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="metric">
-                            <div class="progress-label">
-                                <span>Security Implementation</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="metric">
-                            <div class="progress-label">
-                                <span>Documentation Coverage</span>
-                                <span>92%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="metric">
-                            <div class="progress-label">
-                                <span>User Experience</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parallel Development Roadmap -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-road"></i> Parallel Development Roadmap</h2>
-        <div class="info-box">
-            <h4><i class="fas fa-info-circle"></i> Two-Track Development Strategy</h4>
-            <p>Ahab follows a parallel development approach with two complementary tracks:</p>
-            <ul>
-                <li><strong>Track 1 (Ahab Core):</strong> Infrastructure automation engine and CLI interface</li>
-                <li><strong>Track 2 (Ahab GUI):</strong> Web-based visual interface for educational use</li>
-            </ul>
-            <p>Both tracks integrate through the same core commands, maintaining educational transparency.</p>
-        </div>
-        
-        <div class="roadmap-grid">
-            <div class="roadmap-column">
-                <h3><i class="fas fa-terminal"></i> Track 1: Ahab Core (CLI)</h3>
-                <div class="card">
-                    <h4>Phase 1: Foundation ✅ COMPLETE</h4>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Workstation Bootstrap</li>
-                        <li><i class="fas fa-check"></i> Single Source of Truth (DRY)</li>
-                        <li><i class="fas fa-check"></i> Security Standards Compliance</li>
-                        <li><i class="fas fa-check"></i> Testing Framework</li>
-                    </ul>
-                    
-                    <h4>Phase 2: Docker Compose First 🚧 IN PROGRESS</h4>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Apache Module Working</li>
-                        <li><i class="fas fa-clock"></i> Docker Compose Generation Script</li>
-                        <li><i class="fas fa-clock"></i> Git Submodule Configuration</li>
-                        <li><i class="fas fa-clock"></i> Multi-Service Deployments</li>
-                    </ul>
-                    
-                    <h4>Phase 3: Production Ready ⏳ PLANNED</h4>
-                    <ul class="feature-list future">
-                        <li><i class="fas fa-circle"></i> MySQL, PHP, Nginx Modules</li>
-                        <li><i class="fas fa-circle"></i> Raspberry Pi Testing</li>
-                        <li><i class="fas fa-circle"></i> Dev Server Deployment</li>
-                        <li><i class="fas fa-circle"></i> Release Pipeline</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="roadmap-column">
-                <h3><i class="fas fa-desktop"></i> Track 2: Ahab GUI (Web)</h3>
-                <div class="card">
-                    <h4>Phase 1: Core Interface ✅ COMPLETE</h4>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Flask Application</li>
-                        <li><i class="fas fa-check"></i> WebSocket Streaming</li>
-                        <li><i class="fas fa-check"></i> Progressive Disclosure UX</li>
-                        <li><i class="fas fa-check"></i> Basic Service Management</li>
-                    </ul>
-                    
-                    <h4>Phase 2: Enhanced UX 🚧 IN PROGRESS</h4>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Real-time Status Monitoring</li>
-                        <li><i class="fas fa-clock"></i> Enhanced Error Recovery</li>
-                        <li><i class="fas fa-clock"></i> Command History</li>
-                        <li><i class="fas fa-clock"></i> Multi-user Support</li>
-                    </ul>
-                    
-                    <h4>Phase 3: Advanced Features ⏳ PLANNED</h4>
-                    <ul class="feature-list future">
-                        <li><i class="fas fa-circle"></i> Service Discovery</li>
-                        <li><i class="fas fa-circle"></i> Scheduling & Automation</li>
-                        <li><i class="fas fa-circle"></i> Notifications (Email/Slack)</li>
-                        <li><i class="fas fa-circle"></i> Dark Mode Theme</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Priority Matrix -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-list-ol"></i> Priority Matrix & Timeline</h2>
-        <div class="card">
-            <h3>Current Quarter (Q4 2025) - Docker Compose First</h3>
-            <div class="priority-grid">
-                <div class="priority-column">
-                    <h4>P0 - Critical (Must Have)</h4>
-                    <div class="priority-list">
-                        <div class="priority-item completed">
-                            <span>Workstation Bootstrap</span>
-                            <span class="badge bg-success">✅ Complete</span>
-                        </div>
-                        <div class="priority-item completed">
-                            <span>Apache Deployment</span>
-                            <span class="badge bg-success">✅ Complete</span>
-                        </div>
-                        <div class="priority-item current">
-                            <span>Docker Compose Generation</span>
-                            <span class="badge bg-warning">🚧 Testing</span>
-                        </div>
-                        <div class="priority-item completed">
-                            <span>Security Compliance</span>
-                            <span class="badge bg-success">✅ Complete</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="priority-column">
-                    <h4>P1 - High (Should Have)</h4>
-                    <div class="priority-list">
-                        <div class="priority-item current">
-                            <span>Multi-Service Deploy</span>
-                            <span class="badge bg-info">Jan 2026</span>
-                        </div>
-                        <div class="priority-item current">
-                            <span>Git Submodules</span>
-                            <span class="badge bg-warning">Dec 2025</span>
-                        </div>
-                        <div class="priority-item current">
-                            <span>GUI Error Recovery</span>
-                            <span class="badge bg-info">Jan 2026</span>
-                        </div>
-                        <div class="priority-item future">
-                            <span>Command History</span>
-                            <span class="badge bg-secondary">Feb 2026</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <h3>Next Quarter (Q1 2026) - Multi-Service Ready</h3>
-            <div class="timeline-preview">
-                <div class="timeline-item">
-                    <strong>January 2026:</strong> MySQL & PHP modules, Enhanced GUI error handling
-                </div>
-                <div class="timeline-item">
-                    <strong>February 2026:</strong> Nginx module, Command history, Multi-user support
-                </div>
-                <div class="timeline-item">
-                    <strong>March 2026:</strong> Raspberry Pi testing, Service discovery, Mobile responsiveness
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Integration Architecture -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-sitemap"></i> Integration Architecture</h2>
-        <div class="card">
-            <h3>How Core & GUI Work Together</h3>
-            <div class="architecture-diagram">
-                <div class="arch-layer">
-                    <h4>User Experience Layer</h4>
-                    <div class="arch-components">
-                        <div class="arch-component">
-                            <i class="fas fa-terminal"></i>
-                            <strong>CLI Interface</strong>
-                            <small>make install, make test, make ssh</small>
-                        </div>
-                        <div class="arch-component">
-                            <i class="fas fa-desktop"></i>
-                            <strong>Web Interface</strong>
-                            <small>[Create Workstation] Button, Real-time Output</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="arch-layer">
-                    <h4>Ahab Core Engine</h4>
-                    <div class="arch-components">
-                        <div class="arch-component">
-                            <i class="fas fa-cogs"></i>
-                            <strong>Make → Ansible → Vagrant → Docker</strong>
-                            <small>Same commands, same results, educational transparency</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="arch-layer">
-                    <h4>Infrastructure Layer</h4>
-                    <div class="arch-components">
-                        <div class="arch-component">
-                            <i class="fas fa-server"></i>
-                            <strong>Fedora 43 VM → Docker → Services</strong>
-                            <small>Apache, MySQL, PHP with security hardening</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="integration-principles">
-                <h4>Key Integration Principles</h4>
-                <ul>
-                    <li><strong>Same Commands:</strong> GUI executes the same `make` commands as CLI</li>
-                    <li><strong>Real-time Sync:</strong> GUI shows live output from core operations</li>
-                    <li><strong>Educational Transparency:</strong> GUI shows what commands it's running</li>
-                    <li><strong>Independent Development:</strong> Core and GUI evolve separately but stay compatible</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Release Timeline -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-calendar-alt"></i> Release Timeline & Milestones</h2>
-        <div class="card">
-            <div class="timeline-container">
-                <div class="timeline-quarter current">
-                    <h3>2025 Q4 (Current) - Docker Compose First</h3>
-                    <div class="timeline-tracks">
-                        <div class="timeline-track">
-                            <h4>Ahab Core</h4>
-                            <ul>
-                                <li class="completed">✅ Workstation bootstrap complete</li>
-                                <li class="completed">✅ Apache module working</li>
-                                <li class="current">🚧 Docker Compose generation script</li>
-                                <li class="current">🚧 Git submodule configuration</li>
-                            </ul>
-                        </div>
-                        <div class="timeline-track">
-                            <h4>Ahab GUI</h4>
-                            <ul>
-                                <li class="completed">✅ Core interface complete</li>
-                                <li class="completed">✅ Progressive disclosure UX</li>
-                                <li class="current">🚧 Enhanced error handling</li>
-                                <li class="current">🚧 Command history feature</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="milestone-badge current">Milestone: v0.2.0 - Docker Compose First</div>
-                </div>
-                
-                <div class="timeline-quarter future">
-                    <h3>2026 Q1 (Jan-Mar) - Multi-Service Deployments</h3>
-                    <div class="timeline-tracks">
-                        <div class="timeline-track">
-                            <h4>Ahab Core</h4>
-                            <ul>
-                                <li class="future">⏳ MySQL module</li>
-                                <li class="future">⏳ PHP module</li>
-                                <li class="future">⏳ Nginx module</li>
-                                <li class="future">⏳ Raspberry Pi testing framework</li>
-                            </ul>
-                        </div>
-                        <div class="timeline-track">
-                            <h4>Ahab GUI</h4>
-                            <ul>
-                                <li class="future">⏳ Multi-user support</li>
-                                <li class="future">⏳ Service discovery</li>
-                                <li class="future">⏳ Enhanced notifications</li>
-                                <li class="future">⏳ Mobile responsiveness improvements</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="milestone-badge future">Milestone: v0.3.0 - Multi-Service Ready</div>
-                </div>
-                
-                <div class="timeline-quarter future">
-                    <h3>2026 Q2 (Apr-Jun) - Production Readiness</h3>
-                    <div class="timeline-tracks">
-                        <div class="timeline-track">
-                            <h4>Ahab Core</h4>
-                            <ul>
-                                <li class="future">⏳ Dev server deployment (d701.dundore.net)</li>
-                                <li class="future">⏳ Release creation pipeline</li>
-                                <li class="future">⏳ Advanced security features</li>
-                                <li class="future">⏳ Network switches support</li>
-                            </ul>
-                        </div>
-                        <div class="timeline-track">
-                            <h4>Ahab GUI</h4>
-                            <ul>
-                                <li class="future">⏳ Scheduling & automation</li>
-                                <li class="future">⏳ Dark mode theme</li>
-                                <li class="future">⏳ Advanced analytics</li>
-                                <li class="future">⏳ API development</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="milestone-badge future">Milestone: v1.0.0 - Production Ready</div>
-                </div>
-                
-                <div class="timeline-quarter future">
-                    <h3>2026 Q3+ (Future) - Advanced Features & Scale</h3>
-                    <div class="timeline-tracks">
-                        <div class="timeline-track">
-                            <h4>Ahab Core</h4>
-                            <ul>
-                                <li class="future">⏳ Enterprise integrations</li>
-                                <li class="future">⏳ Multi-OS testing (Debian, Ubuntu)</li>
-                                <li class="future">⏳ Advanced monitoring</li>
-                                <li class="future">⏳ Backup & recovery</li>
-                            </ul>
-                        </div>
-                        <div class="timeline-track">
-                            <h4>Ahab GUI</h4>
-                            <ul>
-                                <li class="future">⏳ Native mobile app</li>
-                                <li class="future">⏳ Third-party integrations</li>
-                                <li class="future">⏳ Advanced user management</li>
-                                <li class="future">⏳ Custom dashboards</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="milestone-badge future">Milestone: v2.0.0 - Enterprise Ready</div>
-                </div>
-            </div>
-            
-            <div class="success-metrics">
-                <h3>📊 Success Metrics & Goals</h3>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <h4>2026 Adoption Targets</h4>
-                        <ul>
-                            <li>🎯 10 K-12 schools using Ahab</li>
-                            <li>🎯 100 students trained on infrastructure automation</li>
-                            <li>🎯 5 educator training workshops</li>
-                            <li>🎯 Community contributions from 20+ developers</li>
-                        </ul>
-                    </div>
-                    <div class="metric-card">
-                        <h4>Technical Targets</h4>
-                        <ul>
-                            <li>🎯 Sub-5-minute workstation deployment</li>
-                            <li>🎯 99.9% uptime for deployed services</li>
-                            <li>🎯 Support for 10+ service modules</li>
-                            <li>🎯 Mobile-first GUI experience</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Current Focus Areas -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-bullseye"></i> Current Focus Areas (December 2025)</h2>
-        
-        <div class="info-box">
-            <h4><i class="fas fa-code"></i> Makefile Consolidation & Progressive Disclosure</h4>
-            <p><strong>Focus:</strong> Consolidated 8 milestone targets into 1 progressive system, implemented DRY principles</p>
-            <p><strong>Impact:</strong> Simplified user experience, reduced cognitive load, maintained transparency</p>
-            <p><strong>Timeline:</strong> December 2025 - v0.2.0 release ready</p>
-            <p><strong>Status:</strong> ✅ COMPLETE - All tests passing, progressive disclosure working</p>
-        </div>
-        
-        <div class="info-box">
-            <h4><i class="fas fa-bug"></i> Error Handling & User Experience</h4>
-            <p><strong>Focus:</strong> Improving error messages, adding pre-flight checks, timeout protection</p>
-            <p><strong>Impact:</strong> Better user experience, fewer installation failures, clearer guidance</p>
-            <p><strong>Timeline:</strong> December 2025 - immediate improvements</p>
-            <p><strong>Status:</strong> High priority quick wins identified and ready for implementation</p>
-        </div>
-
-        <div class="success-box">
-            <h4><i class="fas fa-graduation-cap"></i> Educational Content Development</h4>
-            <p><strong>Focus:</strong> Creating structured learning paths for K-12 computer science education</p>
-            <p><strong>Impact:</strong> Better integration with classroom curricula and student projects</p>
-            <p><strong>Timeline:</strong> Q1 2026 - aligned with academic calendar</p>
-            <p><strong>Status:</strong> Planning phase, development slowed until January 1, 2026</p>
-        </div>
-
-        <div class="warning-box">
-            <h4><i class="fas fa-calendar-times"></i> Holiday Development Schedule</h4>
-            <p><strong>Notice:</strong> Development pace will slow significantly from December 11, 2025 through January 1, 2026</p>
-            <p><strong>Focus:</strong> Critical bug fixes only, major feature development paused</p>
-            <p><strong>Resume:</strong> Full development pace resumes January 2, 2026</p>
-            <p><strong>Feedback:</strong> We welcome feedback during this period - please use GitHub Issues</p>
-        </div>
-    </section>
-
-    <!-- Transparency & Trust -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-eye"></i> Transparency & Trust</h2>
-        <div class="card">
-            <p class="lead">
-                This status page reflects the actual, real-time state of the Ahab project. We believe in radical transparency.
-            </p>
-            
-            <div class="transparency-grid">
-                <div class="transparency-column">
-                    <h4><i class="fas fa-check-circle"></i> What We Promise</h4>
-                    <ul class="promise-list">
-                        <li>✅ <strong>We use what we document</strong> - Same commands, same repository, same network</li>
-                        <li>✅ <strong>We test everything</strong> - 268 GUI tests + comprehensive core validation</li>
-                        <li>✅ <strong>We document failures</strong> - See our <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">Lessons Learned</a></li>
-                        <li>✅ <strong>We follow standards</strong> - Code quality standards, Zero Trust, CIA Triad</li>
-                        <li>✅ <strong>We're educators first</strong> - Built for learning, not just using</li>
-                    </ul>
-                </div>
-                <div class="transparency-column">
-                    <h4><i class="fas fa-graduation-cap"></i> Educational Philosophy</h4>
-                    <p>
-                        <strong>AI-Assisted, Human-Validated:</strong> We use AI to accelerate development, 
-                        but every feature is tested and validated by human educators who understand K-12 environments.
-                    </p>
-                    <p>
-                        <strong>Teaching Through Transparency:</strong> We show you not just what works, 
-                        but how it works and why we built it that way. Every command teaches.
-                    </p>
-                    <p>
-                        <strong>Community-Driven:</strong> Built by educators, for educators, with input 
-                        from the <a href="https://www.reddit.com/r/k12sysadmin">r/k12sysadmin</a> community.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="commitment-box">
-                <p>
-                    <strong>Our Commitment:</strong> When we say "it works," we mean "it's working for us right now." 
-                    When we find problems, we document them publicly. No hiding, no spin, no marketing fluff.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Educational Impact Roadmap -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-graduation-cap"></i> Educational Impact Roadmap</h2>
-        <div class="card">
-            <div class="educational-grid">
-                <div class="educational-column">
-                    <h3>Current Educational Value</h3>
-                    <div class="educational-benefits">
-                        <h4>For Students</h4>
-                        <ul>
-                            <li>✅ Real-world infrastructure tools (same as Netflix, Spotify)</li>
-                            <li>✅ Hands-on learning with immediate feedback</li>
-                            <li>✅ Visual and command-line interfaces</li>
-                            <li>✅ Georgia CS Standards alignment</li>
-                        </ul>
-                        
-                        <h4>For Educators</h4>
-                        <ul>
-                            <li>✅ Classroom-ready demonstrations</li>
-                            <li>✅ Progressive disclosure reduces cognitive load</li>
-                            <li>✅ Built-in documentation and help</li>
-                            <li>✅ Standards-aligned learning objectives</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="educational-column">
-                    <h3>Planned Educational Enhancements</h3>
-                    <div class="educational-timeline">
-                        <div class="edu-phase">
-                            <h4>2026 Q1: Enhanced Learning Features</h4>
-                            <ul>
-                                <li>⏳ Interactive tutorials within GUI</li>
-                                <li>⏳ Step-by-step guided workflows</li>
-                                <li>⏳ Assessment integration</li>
-                                <li>⏳ Student progress tracking</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="edu-phase">
-                            <h4>2026 Q2: Curriculum Integration</h4>
-                            <ul>
-                                <li>⏳ Lesson plan templates</li>
-                                <li>⏳ Lab exercise library</li>
-                                <li>⏳ Teacher training materials</li>
-                                <li>⏳ Student certification paths</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="edu-phase">
-                            <h4>2026 Q3+: Advanced Educational Tools</h4>
-                            <ul>
-                                <li>⏳ Virtual classroom management</li>
-                                <li>⏳ Multi-student environments</li>
-                                <li>⏳ Collaborative projects</li>
-                                <li>⏳ Industry partnership programs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Links & Resources -->
-    <section class="tutorial-section">
-        <h2><i class="fas fa-link"></i> Resources & Documentation</h2>
-        <div class="resources-grid">
-            <div class="resource-section">
-                <h3>Core Project</h3>
-                <div class="quick-links-grid">
-                    <div class="quick-link-card">
-                        <i class="fab fa-github"></i>
-                        <h4>Ahab Main Repository</h4>
-                        <a href="https://github.com/waltdundore/ahab" class="btn btn-primary">
-                            Infrastructure automation
-                        </a>
-                    </div>
-                    <div class="quick-link-card">
+                    <div class="tool-card">
                         <i class="fas fa-book"></i>
-                        <h4>Executive Summary</h4>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/EXECUTIVE_SUMMARY.md" class="btn btn-primary">
-                            For school leaders
-                        </a>
+                        <strong><a href="https://github.com/waltdundore/ahab" target="_blank">Technical Docs</a></strong>
+                        <p>Implementation details & commands</p>
                     </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-road"></i>
-                        <h4>Complete Roadmap</h4>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/ROADMAP.md" class="btn btn-primary">
-                            Detailed development plan
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="resource-section">
-                <h3>GUI Project</h3>
-                <div class="quick-links-grid">
-                    <div class="quick-link-card">
+                    <div class="tool-card">
                         <i class="fas fa-desktop"></i>
-                        <h4>Ahab GUI Repository</h4>
-                        <a href="https://github.com/waltdundore/ahab-gui" class="btn btn-primary">
-                            Web interface
-                        </a>
-                    </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-play"></i>
-                        <h4>Demo Guide</h4>
-                        <a href="https://github.com/waltdundore/ahab-gui/blob/main/DEMO.md" class="btn btn-primary">
-                            Screenshots & walkthroughs
-                        </a>
-                    </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-palette"></i>
-                        <h4>Branding Guidelines</h4>
-                        <a href="https://github.com/waltdundore/ahab-gui/blob/main/BRANDING.md" class="btn btn-primary">
-                            Design system
-                        </a>
+                        <strong><a href="https://github.com/waltdundore/ahab-gui" target="_blank">Interactive GUI</a></strong>
+                        <p>Hands-on infrastructure management</p>
                     </div>
                 </div>
+                <p class="tools-note">See real-time development progress and what's working right now.</p>
+            </div>
+        </section>
+
+        <!-- Alpha Development Warning -->
+        <section class="tutorial-section">
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-triangle"></i> ⚠️ ALPHA VERSION - NOT FOR PRODUCTION USE ⚠️</h3>
+                <p><strong>Current Status:</strong> This is experimental software under active development</p>
+                <p><strong>⚠️ Important:</strong> No security audit has been performed - use only for learning, testing, and development</p>
+                <p><strong>Expect:</strong> Features may change or break without notice, bugs, incomplete functionality</p>
+                <p><strong>Recommended Use:</strong> Educational environments, development testing, learning infrastructure automation</p>
+            </div>
+        </section>
+
+        <!-- Parallel Development Roadmap -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-road"></i> Parallel Development Roadmap</h2>
+            <div class="info-box">
+                <h4><i class="fas fa-info-circle"></i> Two-Track Development Strategy</h4>
+                <p>Ahab follows a parallel development approach with two complementary tracks:</p>
+                <ul>
+                    <li><strong>Track 1 (Ahab Core):</strong> Infrastructure automation engine and CLI interface</li>
+                    <li><strong>Track 2 (Ahab GUI):</strong> Web-based visual interface for educational use</li>
+                </ul>
+                <p>Both tracks integrate through the same core commands, maintaining educational transparency.</p>
             </div>
             
-            <div class="resource-section">
-                <h3>Educational Resources</h3>
-                <div class="quick-links-grid">
-                    <div class="quick-link-card">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Student Guide</h4>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/README-STUDENTS.md" class="btn btn-primary">
-                            Learning infrastructure
-                        </a>
+            <div class="roadmap-grid">
+                <div class="roadmap-column">
+                    <h3><i class="fas fa-terminal"></i> Track 1: Ahab Core (CLI)</h3>
+                    <div class="card">
+                        <h4>Phase 1: Foundation ✅ COMPLETE</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Workstation Bootstrap</li>
+                            <li><i class="fas fa-check"></i> Single Source of Truth (DRY)</li>
+                            <li><i class="fas fa-check"></i> Security Standards Compliance</li>
+                            <li><i class="fas fa-check"></i> Testing Framework</li>
+                        </ul>
+                        
+                        <h4>Phase 2: Docker Compose First 🚧 IN PROGRESS</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Apache Module Working</li>
+                            <li><i class="fas fa-clock"></i> Docker Compose Generation Script</li>
+                            <li><i class="fas fa-clock"></i> Git Submodule Configuration</li>
+                            <li><i class="fas fa-clock"></i> Multi-Service Deployments</li>
+                        </ul>
+                        
+                        <h4>Phase 3: Production Ready ⏳ PLANNED</h4>
+                        <ul class="feature-list future">
+                            <li><i class="fas fa-circle"></i> MySQL, PHP, Nginx Modules</li>
+                            <li><i class="fas fa-circle"></i> Raspberry Pi Testing</li>
+                            <li><i class="fas fa-circle"></i> Dev Server Deployment</li>
+                            <li><i class="fas fa-circle"></i> Release Pipeline</li>
+                        </ul>
                     </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-clipboard-list"></i>
-                        <h4>Standards Alignment</h4>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/feature-standards-map.yml" class="btn btn-primary">
-                            Georgia CS Standards
-                        </a>
-                    </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <h4>Teaching Tools Overview</h4>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/TEACHING_TOOLS_OVERVIEW.md" class="btn btn-primary">
-                            Complete ecosystem
-                        </a>
+                </div>
+                
+                <div class="roadmap-column">
+                    <h3><i class="fas fa-desktop"></i> Track 2: Ahab GUI (Web)</h3>
+                    <div class="card">
+                        <h4>Phase 1: Core Interface ✅ COMPLETE</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Flask Application</li>
+                            <li><i class="fas fa-check"></i> WebSocket Streaming</li>
+                            <li><i class="fas fa-check"></i> Progressive Disclosure UX</li>
+                            <li><i class="fas fa-check"></i> Basic Service Management</li>
+                        </ul>
+                        
+                        <h4>Phase 2: Enhanced UX 🚧 IN PROGRESS</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Real-time Status Monitoring</li>
+                            <li><i class="fas fa-clock"></i> Enhanced Error Recovery</li>
+                            <li><i class="fas fa-clock"></i> Command History</li>
+                            <li><i class="fas fa-clock"></i> Multi-user Support</li>
+                        </ul>
+                        
+                        <h4>Phase 3: Advanced Features ⏳ PLANNED</h4>
+                        <ul class="feature-list future">
+                            <li><i class="fas fa-circle"></i> Service Discovery</li>
+                            <li><i class="fas fa-circle"></i> Scheduling & Automation</li>
+                            <li><i class="fas fa-circle"></i> Notifications (Email/Slack)</li>
+                            <li><i class="fas fa-circle"></i> Dark Mode Theme</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-            <div class="resource-section">
-                <h3>Community & Support</h3>
-                <div class="quick-links-grid">
-                    <div class="quick-link-card">
-                        <i class="fas fa-bug"></i>
-                        <h4>Report Issues</h4>
-                        <a href="https://github.com/waltdundore/ahab/issues" class="btn btn-primary">
-                            GitHub Issues
-                        </a>
-                    </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-comments"></i>
-                        <h4>Community</h4>
-                        <a href="https://www.reddit.com/r/k12sysadmin" class="btn btn-primary">
-                            r/k12sysadmin
-                        </a>
-                    </div>
-                    <div class="quick-link-card">
-                        <i class="fas fa-play"></i>
-                        <h4>Getting Started</h4>
-                        <a href="tutorial.html" class="btn btn-primary">
-                            Start Tutorial
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- Current Status Overview -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-tachometer-alt"></i> Current Status Overview</h2>
+            <div class="status-grid">
+                <div class="status-card status-warning">
+                    <i class="fas fa-tools"></i>
+                    <h3>Core System (Ahab)</h3>
+                    <p>🔧 70-75% Complete</p>
+                    <small>Repository consolidation complete, testing in progress</small>
+                </div>
+                <div class="status-card status-warning">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Web Interface (GUI)</h3>
+                    <p>� Earxly Development</p>
+                    <small>Building hooks & modules, 268 tests passing</small>
+                </div>
+                <div class="status-card status-passing">
+                    <i class="fas fa-book"></i>
+                    <h3>Documentation</h3>
+                    <p>📚 Comprehensive</p>
+                    <small>Consolidated & organized, ready for v0.2.0</small>
+                </div>
+                <div class="status-card status-passing">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security</h3>
+                    <p>🔒 Zero Trust Compliant</p>
+                    <small>CIA Triad + Docker STIG implemented</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration Architecture -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-sitemap"></i> Integration Architecture</h2>
+            <div class="card">
+                <h3>How Core & GUI Work Together</h3>
+                <div class="architecture-diagram">
+                    <div class="arch-layer">
+                        <h4>User Experience Layer</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">
+                                <i class="fas fa-terminal"></i>
+                                <strong>CLI Interface</strong>
+                                <small>make install, make test, make ssh</small>
+                            </div>
+                            <div class="arch-component">
+                                <i class="fas fa-desktop"></i>
+                                <strong>Web Interface</strong>
+                                <small>[Create Workstation] Button, Real-time Output</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <h4>Ahab Core Engine</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">
+                                <i class="fas fa-cogs"></i>
+                                <strong>Make → Ansible → Vagrant → Docker</strong>
+                                <small>Same commands, same results, educational transparency</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <h4>Infrastructure Layer</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">
+                                <i class="fas fa-server"></i>
+                                <strong>Fedora 43 VM → Docker → Services</strong>
+                                <small>Apache, MySQL, PHP with security hardening</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-principles">
+                    <h4>Key Integration Principles</h4>
+                    <ul>
+                        <li><strong>Same Commands:</strong> GUI executes the same `make` commands as CLI</li>
+                        <li><strong>Real-time Sync:</strong> GUI shows live output from core operations</li>
+                        <li><strong>Educational Transparency:</strong> GUI shows what commands it's running</li>
+                        <li><strong>Independent Development:</strong> Core and GUI evolve separately but stay compatible</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Impact Roadmap -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-graduation-cap"></i> Educational Impact Roadmap</h2>
+            <div class="card">
+                <div class="educational-grid">
+                    <div class="educational-column">
+                        <h3>Current Educational Value</h3>
+                        <div class="educational-benefits">
+                            <h4>For Students</h4>
+                            <ul>
+                                <li>✅ Real-world infrastructure tools (same as Netflix, Spotify)</li>
+                                <li>✅ Hands-on learning with immediate feedback</li>
+                                <li>✅ Visual and command-line interfaces</li>
+                                <li>✅ Georgia CS Standards alignment</li>
+                            </ul>
+                            
+                            <h4>For Educators</h4>
+                            <ul>
+                                <li>✅ Classroom-ready demonstrations</li>
+                                <li>✅ Progressive disclosure reduces cognitive load</li>
+                                <li>✅ Built-in documentation and help</li>
+                                <li>✅ Standards-aligned learning objectives</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="educational-column">
+                        <h3>Planned Educational Enhancements</h3>
+                        <div class="educational-timeline">
+                            <div class="edu-phase">
+                                <h4>2026 Q1: Enhanced Learning Features</h4>
+                                <ul>
+                                    <li>⏳ Interactive tutorials within GUI</li>
+                                    <li>⏳ Step-by-step guided workflows</li>
+                                    <li>⏳ Assessment integration</li>
+                                    <li>⏳ Student progress tracking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="edu-phase">
+                                <h4>2026 Q2: Curriculum Integration</h4>
+                                <ul>
+                                    <li>⏳ Lesson plan templates</li>
+                                    <li>⏳ Lab exercise library</li>
+                                    <li>⏳ Teacher training materials</li>
+                                    <li>⏳ Student certification paths</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources & Documentation -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-link"></i> Resources & Documentation</h2>
+            <div class="resources-grid">
+                <div class="resource-section">
+                    <h3>Core Project</h3>
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card">
+                            <i class="fab fa-github"></i>
+                            <h4>Ahab Main Repository</h4>
+                            <a href="https://github.com/waltdundore/ahab" class="btn btn-primary">
+                                Infrastructure automation
+                            </a>
+                        </div>
+                        <div class="quick-link-card">
+                            <i class="fas fa-book"></i>
+                            <h4>Executive Summary</h4>
+                            <a href="https://github.com/waltdundore/ahab/blob/main/EXECUTIVE_SUMMARY.md" class="btn btn-primary">
+                                For school leaders
+                            </a>
+                        </div>
+                        <div class="quick-link-card">
+                            <i class="fas fa-road"></i>
+                            <h4>Complete Roadmap</h4>
+                            <a href="https://github.com/waltdundore/ahab/blob/main/ROADMAP.md" class="btn btn-primary">
+                                Detailed development plan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-section">
+                    <h3>GUI Project</h3>
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card">
+                            <i class="fas fa-desktop"></i>
+                            <h4>Ahab GUI Repository</h4>
+                            <a href="https://github.com/waltdundore/ahab-gui" class="btn btn-primary">
+                                Web interface
+                            </a>
+                        </div>
+                        <div class="quick-link-card">
+                            <i class="fas fa-play"></i>
+                            <h4>Demo Guide</h4>
+                            <a href="https://github.com/waltdundore/ahab-gui/blob/main/DEMO.md" class="btn btn-primary">
+                                Screenshots & walkthroughs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        </main>
-        
-        <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Ahab Project</h3>
-                <p>Infrastructure automation for K-12 schools and non-profits</p>
-                <p>Built with transparency, tested with care, documented with purpose. Free for education forever.</p>
-                <div class="footer-links">
-                    <a href="https://github.com/waltdundore/ahab">
-                        <i class="fab fa-github"></i> Main Repository
-                    </a>
-                    <a href="https://github.com/waltdundore/ahab-gui">
-                        <i class="fas fa-desktop"></i> Web Interface
-                    </a>
-                    <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">
-                        <i class="fas fa-book"></i> Lessons Learned
-                    </a>
+    <!-- Footer - Loaded by JavaScript -->
+    <div id="footer-placeholder">
+        <!-- Fallback footer (no JavaScript) -->
+        <footer id="footer-fallback" role="contentinfo">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ahab Project</h3>
+                    <p>Infrastructure automation for K-12 schools and non-profits</p>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="tutorial.html">Tutorial</a>
+                        <a href="https://github.com/waltdundore/ahab" target="_blank" rel="noopener">
+                            <i class="fab fa-github" aria-hidden="true"></i> Main Repository
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <div class="footer-meta">
+                        <p><i class="fas fa-clock" aria-hidden="true"></i> Status updated: <span class="last-updated">December 11, 2025</span></p>
+                        <p><i class="fas fa-code-branch" aria-hidden="true"></i> Version: v0.2.0-alpha</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section">
-                <div class="footer-meta">
-                    <p>
-                        <i class="fas fa-clock"></i>
-                        Status updated: <span id="footerLastUpdated">December 11, 2025</span>
-                    </p>
-                    <p>
-                        <i class="fas fa-code-branch"></i>
-                        Version: v0.2.0-alpha (Development)
-                    </p>
-                    <p>
-                        <i class="fas fa-shield-alt"></i>
-                        License: CC BY-NC-SA 4.0
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>
-                "We're not here forever, but what we teach can be." - 
-                <em>Committed to educational excellence and open source values</em>
-            </p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
+    <!-- JavaScript Components -->
+    <script src="js/components.js"></script>
     <script>
-        // Update timestamps
+        // Initialize page components
         document.addEventListener('DOMContentLoaded', function() {
-            const now = new Date();
-            const timestamp = now.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long', 
-                day: 'numeric'
-            });
-            
-            const elements = document.querySelectorAll('#lastUpdated, #footerLastUpdated');
-            elements.forEach(el => {
-                if (el) el.textContent = timestamp;
-            });
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Add loading animation to progress bars
-        window.addEventListener('load', function() {
-            const progressBars = document.querySelectorAll('.progress-bar');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 500);
+            initializeComponents({
+                activePage: 'status',
+                currentPage: 'Project Status'
             });
         });
     </script>
