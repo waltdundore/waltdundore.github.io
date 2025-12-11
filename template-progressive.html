@@ -14,11 +14,6 @@
     
     <!-- No-JS fallback styles -->
     <noscript>
-        <style>
-            .js-enhanced { display: none !important; }
-            .js-fallback { display: block !important; }
-            .js-only { display: none !important; }
-        </style>
     </noscript>
 </head>
 <body>
@@ -41,7 +36,7 @@
     </nav>
     
     <!-- ENHANCED NAVIGATION (Loaded by JavaScript) -->
-    <div id="navigation-placeholder" class="js-enhanced" style="display: none;"></div>
+    <div id="navigation-placeholder" class="js-enhanced"></div>
     
     <!-- FALLBACK BREADCRUMB (Works without JavaScript) -->
     <nav class="fallback-breadcrumb js-fallback" id="breadcrumb-fallback" role="navigation" aria-label="Breadcrumb">
@@ -50,10 +45,16 @@
     </nav>
     
     <!-- ENHANCED BREADCRUMB (Loaded by JavaScript) -->
-    <div id="breadcrumb-placeholder" class="js-enhanced" style="display: none;"></div>
+    <div id="breadcrumb-placeholder" class="js-enhanced"></div>
 
     <!-- MAIN CONTENT -->
     <main id="main">
+        <main id="main">
+        <main id="main">
+        <main id="main">
+        <main id="main">
+        <main id="main">
+        <main id="main">
         <section class="hero">
             <div class="logo-container">
                 <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
@@ -70,7 +71,7 @@
                         <p>All navigation, links, and content remain fully accessible. Enhanced features are not available, but core functionality is preserved.</p>
                     </div>
                 </div>
-                <div class="js-enhanced" style="display: none;">
+                <div class="js-enhanced">
                     <div class="success-box">
                         <h3><i class="fas fa-check-circle" aria-hidden="true"></i> Enhanced Mode Active</h3>
                         <p><strong>JavaScript is enabled.</strong> You're seeing the enhanced version with additional features!</p>
@@ -120,11 +121,11 @@
         </section>
 
         <!-- JavaScript-only features demo -->
-        <section class="tutorial-section js-only" style="display: none;">
+        <section class="tutorial-section js-only">
             <h2><i class="fas fa-magic" aria-hidden="true"></i> JavaScript-Enhanced Features</h2>
             <div class="card">
                 <p>This section only appears when JavaScript is enabled, demonstrating progressive enhancement.</p>
-                <button onclick="announceToScreenReader('Button clicked! This demonstrates JavaScript interactivity.')">
+                <button>
                     Test Screen Reader Announcement
                 </button>
                 <p><small>Click the button above to test screen reader announcements (requires JavaScript).</small></p>
@@ -167,7 +168,7 @@
     </footer>
 
     <!-- ENHANCED FOOTER (Loaded by JavaScript) -->
-    <div id="footer-placeholder" class="js-enhanced" style="display: none;"></div>
+    <div id="footer-placeholder" class="js-enhanced"></div>
 
     <!-- JavaScript Components (Progressive Enhancement) -->
     <script src="js/components.js"></script>

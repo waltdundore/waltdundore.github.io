@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fallback Components</title>
+</head>
+<body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
 <!-- Fallback Navigation Component (No JavaScript Required) -->
 <nav class="fallback-nav js-fallback" id="navigation-fallback" role="navigation" aria-label="Main navigation">
     <div class="sr-only">
@@ -52,3 +61,5 @@
         </p>
     </div>
 </footer>
+</body>
+</html>
