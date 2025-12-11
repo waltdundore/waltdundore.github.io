@@ -83,7 +83,7 @@
                     <i class="fas fa-exclamation-triangle"></i>
                     <strong>STOP: Install Prerequisites First</strong>
                 </div>
-                <p>Before running <code>make install</code>, you MUST have <strong>Git</strong>, <strong>Vagrant</strong>, and <strong>VirtualBox</strong> installed.</p>
+                <p>Before running <code>make install</code>, you MUST have <strong>Git</strong>, <strong>Vagrant</strong>, and a <strong>virtualization provider</strong> installed.</p>
                 <a href="#installation" class="btn btn-secondary">Install Prerequisites Now →</a>
             </div>
         </section>
@@ -97,7 +97,7 @@
                 <div class="command-showcase">
                     <div class="command-step">
                         <div class="step-num">0</div>
-                        <code>brew install git vagrant virtualbox</code>
+                        <code>brew install git vagrant</code>
                         <p>Install prerequisites (macOS)</p>
                     </div>
                     <div class="command-step">
@@ -297,7 +297,7 @@ make install apache
             </div>
 
             <h3>Step 1: Install Prerequisites</h3>
-            <p><strong>Ahab requires exactly three tools:</strong> Git, Vagrant, and VirtualBox. All are free.</p>
+            <p><strong>Ahab requires exactly three tools:</strong> Git, Vagrant, and a virtualization provider. All are free.</p>
 
             <div class="tab-container">
                 <div class="tabs">
@@ -315,10 +315,12 @@ make install apache
 # Install required tools
 brew install git
 brew install --cask vagrant
-brew install --cask virtualbox</code></pre>
+# Virtualization provider (choose one):
+brew install --cask virtualbox     # Most common
+# OR: brew install --cask vmware-fusion  # Alternative</code></pre>
                     </div>
                     <p class="note"><i class="fas fa-info-circle"></i> <a href="https://brew.sh" target="_blank">Homebrew</a> is a package manager for macOS</p>
-                    <p class="note"><i class="fas fa-info-circle"></i> You may need to allow VirtualBox in System Preferences → Security & Privacy</p>
+                    <p class="note"><i class="fas fa-info-circle"></i> You may need to allow your virtualization provider in System Preferences → Security & Privacy</p>
                 </div>
 
                 <div id="linux" class="tab-content">
@@ -332,8 +334,9 @@ sudo apt update
 # Install Git
 sudo apt install -y git
 
-# Install VirtualBox
-sudo apt install -y virtualbox
+# Install virtualization provider (choose one):
+sudo apt install -y virtualbox     # Most common
+# OR: sudo apt install -y qemu-kvm libvirt-daemon-system  # Alternative
 
 # Install Vagrant
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -346,20 +349,26 @@ sudo apt update && sudo apt install -y vagrant</code></pre>
                         <pre><code># Install Git
 sudo dnf install -y git
 
-# Install VirtualBox
-sudo dnf install -y VirtualBox
+# Install virtualization provider (choose one):
+sudo dnf install -y VirtualBox     # Most common
+# OR: sudo dnf install -y qemu-kvm libvirt  # Alternative
 
 # Install Vagrant
 sudo dnf install -y vagrant</code></pre>
                     </div>
-                    <p class="note"><i class="fas fa-info-circle"></i> On Fedora, you may need to enable the RPM Fusion repository for VirtualBox</p>
+                    <p class="note"><i class="fas fa-info-circle"></i> On Fedora, you may need to enable the RPM Fusion repository for VirtualBox, or use the built-in libvirt/KVM</p>
                 </div>
 
                 <div id="windows" class="tab-content">
                     <h4>Windows Installation</h4>
                     <ol>
                         <li>Download and install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a></li>
-                        <li>Download and install <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a></li>
+                        <li>Download and install a virtualization provider:
+                            <ul>
+                                <li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> (most common, free)</li>
+                                <li><a href="https://www.vmware.com/products/workstation-pro.html" target="_blank">VMware Workstation</a> (alternative)</li>
+                            </ul>
+                        </li>
                         <li>Download and install <a href="https://www.vagrantup.com/downloads" target="_blank">Vagrant</a></li>
                         <li>Restart your computer after installation</li>
                     </ol>
@@ -382,9 +391,10 @@ git --version
 vagrant --version
 # Should show: Vagrant 2.x.x
 
-# Check VirtualBox
-VBoxManage --version
-# Should show: 7.x.x or 6.x.x</code></pre>
+# Check virtualization provider
+VBoxManage --version        # For VirtualBox
+# OR: vmrun -T ws list      # For VMware
+# Should show version info</code></pre>
             </div>
 
             <div class="success-box">
@@ -397,7 +407,7 @@ VBoxManage --version
                 <ul>
                     <li><strong>Command not found:</strong> That tool isn't installed. Go back and install it.</li>
                     <li><strong>Permission denied:</strong> You may need to restart your terminal or computer.</li>
-                    <li><strong>VirtualBox issues:</strong> Check System Preferences → Security & Privacy (macOS) or enable virtualization in BIOS.</li>
+                    <li><strong>Virtualization issues:</strong> Check System Preferences → Security & Privacy (macOS) or enable virtualization in BIOS.</li>
                 </ul>
                 <p><strong>Don't proceed until all three commands work!</strong> <code>make install</code> will fail without them.</p>
             </div>
@@ -518,7 +528,7 @@ echo "DEFAULT_OS=ubuntu" > ahab.conf</code></pre>
                 <details>
                     <summary>VM won't start?</summary>
                     <ul>
-                        <li>Ensure VirtualBox is running</li>
+                        <li>Ensure your virtualization provider is running</li>
                         <li>Check if virtualization is enabled in BIOS</li>
                         <li>Try: <code>make clean</code> then <code>make install</code></li>
                     </ul>
@@ -818,8 +828,8 @@ code ahab/Makefile</code></pre>
                 <div class="arch-layer">
                     <div class="arch-box">
                         <i class="fas fa-cube"></i>
-                        <h4>VirtualBox</h4>
-                        <p>Runs virtual machines</p>
+                        <h4>Virtualization</h4>
+                        <p>Runs virtual machines (VirtualBox, VMware, etc.)</p>
                     </div>
                 </div>
                 <div class="arch-arrow-down">↓</div>
