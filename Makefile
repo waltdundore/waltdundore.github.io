@@ -29,6 +29,7 @@ help:
 	@echo "  compliance-report - Generate comprehensive compliance status report"
 	@echo "  setup-secrets  - One-time setup of secrets detection patterns"
 	@echo "  serve          - Start local development server (Docker-based)"
+	@echo "  update-status  - Update status page with real data from ahab system"
 	@echo ""
 	@echo "⚠️  DEPLOYMENT (READ CAREFULLY):"
 	@echo "  deploy         - PREPARE for deployment (runs tests, stages files)"
@@ -122,6 +123,11 @@ compliance-report:
 	@echo ""
 	@echo "Full compliance details: see COMPLIANCE_STATUS.md"
 	@echo "✓ Compliance report complete"
+
+update-status:
+	@echo "→ Running: ./scripts/update-status.sh"
+	@echo "   Purpose: Update status page with real data from ahab system"
+	@./scripts/update-status.sh
 
 clean:
 	@echo "→ Running: cleanup temporary files"

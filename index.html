@@ -20,6 +20,7 @@
             <div class="nav-links">
                 <a href="tutorial.html">Start Tutorial</a>
                 <a href="learn.html">Learn More</a>
+                <a href="status.html">Status</a>
                 <a href="https://github.com/waltdundore/ahab">GitHub</a>
             </div>
         </nav>
@@ -43,8 +44,22 @@
                     <a href="tutorial.html" class="btn btn-primary">Start Learning</a>
                 </div>
                 
+                <!-- Prerequisites Warning -->
+                <div class="prereq-callout">
+                    <div class="prereq-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Before You Start: Install Prerequisites</strong>
+                    </div>
+                    <p>You need <strong>Git</strong>, <strong>Vagrant</strong>, and <strong>VirtualBox</strong> installed first.</p>
+                    <a href="tutorial.html#installation" class="btn btn-secondary">Install Prerequisites →</a>
+                </div>
+
                 <!-- Quick roadmap preview -->
                 <div class="roadmap-preview">
+                    <div class="roadmap-step">
+                        <code>git clone https://github.com/waltdundore/ahab.git && cd ahab</code>
+                        <span class="step-desc">→ Get the code</span>
+                    </div>
                     <div class="roadmap-step">
                         <code>make install</code>
                         <span class="step-desc">→ Create your development environment</span>
@@ -52,10 +67,6 @@
                     <div class="roadmap-step">
                         <code>make install apache</code>
                         <span class="step-desc">→ Deploy your first web server</span>
-                    </div>
-                    <div class="roadmap-step">
-                        <code>make install mysql</code>
-                        <span class="step-desc">→ Add database services</span>
                     </div>
                     <div class="roadmap-step">
                         <code>make test</code>
@@ -132,8 +143,11 @@
                 <summary>System requirements?</summary>
                 <div class="requirements">
                     <p><strong>Minimum:</strong> 8GB RAM, macOS/Linux/Windows+WSL2</p>
-                    <p><strong>Software:</strong> Git, Vagrant, VirtualBox (all free)</p>
+                    <p><strong>Required Software:</strong> Git, Vagrant, VirtualBox (all free)</p>
                     <p><strong>Time:</strong> 15 minutes to get started, hours to master</p>
+                    <div class="prereq-warning">
+                        <p><strong>⚠️ IMPORTANT:</strong> You must install Git, Vagrant, and VirtualBox BEFORE running <code>make install</code>. <a href="tutorial.html#installation">See installation guide →</a></p>
+                    </div>
                 </div>
             </details>
         </main>
@@ -144,6 +158,7 @@
             <nav class="site-nav">
                 <a href="tutorial.html">Tutorial</a>
                 <a href="learn.html">Learn More</a>
+                <a href="status.html">Status</a>
                 <a href="https://github.com/waltdundore/ahab">GitHub</a>
             </nav>
             <p>&copy; 2025 Ahab Project. Free for students and schools.</p>
