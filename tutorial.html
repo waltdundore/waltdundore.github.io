@@ -10,7 +10,16 @@
     <meta name="description" content="Complete tutorial for Ahab infrastructure automation. Learn to deploy services with simple commands. Perfect for schools, non-profits, and students.">
 </head>
 <body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
     <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a> → 
+            <span>Tutorial</span>
+        </nav>
+        
         <!-- Navigation -->
         <nav class="tutorial-nav sticky-nav">
             <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
@@ -21,10 +30,12 @@
                 <a href="#commands">Commands</a>
                 <a href="#understanding">Understanding</a>
                 <a href="#next-steps">Next Steps</a>
+                <a href="status.html" class="status-link"><i class="fas fa-chart-line"></i> Project Status</a>
             </div>
         </nav>
 
         <!-- Hero -->
+        <main id="main">
         <section class="tutorial-hero">
             <h1>Complete Ahab Tutorial</h1>
             <p class="subtitle">From zero to deployed service in 30 minutes</p>
@@ -33,9 +44,47 @@
                 <span><i class="fas fa-signal"></i> Beginner friendly</span>
                 <span><i class="fas fa-graduation-cap"></i> Learn by doing</span>
             </div>
+            
+            <!-- Teaching Tools Context -->
+            <div class="teaching-tools-context">
+                <h3><i class="fas fa-info-circle"></i> About This Tutorial</h3>
+                <p>This tutorial is part of the <strong>Ahab Website</strong> - one of three teaching tools designed for different learning contexts:</p>
+                <div class="tools-grid">
+                    <div class="tool-card current">
+                        <i class="fas fa-globe"></i>
+                        <strong>This Website</strong>
+                        <p>Conceptual learning & discovery</p>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-book"></i>
+                        <strong><a href="https://github.com/waltdundore/ahab" target="_blank">Technical Docs</a></strong>
+                        <p>Implementation & commands</p>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-desktop"></i>
+                        <strong><a href="https://github.com/waltdundore/ahab-gui" target="_blank">Interactive GUI</a></strong>
+                        <p>Hands-on practice</p>
+                    </div>
+                </div>
+                <p class="tools-note">After completing this tutorial, try the <strong>Interactive GUI</strong> for hands-on practice!</p>
+            </div>
+            
             <div class="hero-callout">
                 <i class="fas fa-shield-alt"></i>
                 <p><strong>Make commands = Secure boilerplate you can trust.</strong> Every command follows security best practices. See exactly what runs. Find a problem? Tell us - everyone benefits.</p>
+            </div>
+        </section>
+
+
+        <!-- Prerequisites Warning (FIRST) -->
+        <section id="prereq-warning" class="tutorial-section">
+            <div class="prereq-callout">
+                <div class="prereq-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>STOP: Install Prerequisites First</strong>
+                </div>
+                <p>Before running <code>make install</code>, you MUST have <strong>Git</strong>, <strong>Vagrant</strong>, and <strong>VirtualBox</strong> installed.</p>
+                <a href="#installation" class="btn btn-secondary">Install Prerequisites Now →</a>
             </div>
         </section>
 
@@ -44,8 +93,13 @@
             <h2><i class="fas fa-rocket"></i> Quick Start (Already Have Prerequisites?)</h2>
             
             <div class="quick-start-box">
-                <h3>Three Commands to Your First Deployment</h3>
+                <h3>Four Commands to Your First Deployment</h3>
                 <div class="command-showcase">
+                    <div class="command-step">
+                        <div class="step-num">0</div>
+                        <code>brew install git vagrant virtualbox</code>
+                        <p>Install prerequisites (macOS)</p>
+                    </div>
                     <div class="command-step">
                         <div class="step-num">1</div>
                         <code>git clone https://github.com/waltdundore/ahab.git && cd ahab</code>
@@ -151,7 +205,7 @@ make install apache
                 <ul>
                     <li>Open an issue on <a href="https://github.com/waltdundore/ahab/issues" target="_blank">GitHub</a></li>
                     <li>Submit a pull request with improvements</li>
-                    <li>Share your concerns in <a href="https://github.com/waltdundore/ahab/discussions" target="_blank">Discussions</a></li>
+                    <li>Share your concerns in <a href="https://github.com/waltdundore/ahab/issues" target="_blank">GitHub Issues</a></li>
                 </ul>
                 <p>When you improve Ahab, <strong>everyone benefits</strong>. That's the power of open source.</p>
             </div>
@@ -174,8 +228,8 @@ make install apache
                 </div>
                 <div class="benefit-card">
                     <i class="fas fa-graduation-cap"></i>
-                    <h4>Learn Real Skills</h4>
-                    <p>Same tools used by Netflix, Spotify, and NASA</p>
+                    <h4>Learn Useful Skills</h4>
+                    <p>Docker, Ansible, and Linux are widely used in the industry</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fas fa-shield-alt"></i>
@@ -234,17 +288,22 @@ make install apache
         </section>
 
         <!-- Installation -->
-        <section id="installation" class="tutorial-section">
-            <h2>Installation</h2>
+        <section id="installation" class="tutorial-section highlight-section">
+            <h2><i class="fas fa-download"></i> Installation</h2>
+
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Critical:</strong> You MUST install these three tools before running <code>make install</code>. Without them, Ahab will not work.
+            </div>
 
             <h3>Step 1: Install Prerequisites</h3>
-            <p>Ahab needs three tools: Git, Vagrant, and VirtualBox.</p>
+            <p><strong>Ahab requires exactly three tools:</strong> Git, Vagrant, and VirtualBox. All are free.</p>
 
             <div class="tab-container">
                 <div class="tabs">
-                    <button class="tab-button active" onclick="showTab('mac')">macOS</button>
-                    <button class="tab-button" onclick="showTab('linux')">Linux</button>
-                    <button class="tab-button" onclick="showTab('windows')">Windows</button>
+                    <button class="tab-button active" data-tab="mac">macOS</button>
+                    <button class="tab-button" data-tab="linux">Linux</button>
+                    <button class="tab-button" data-tab="windows">Windows</button>
                 </div>
 
                 <div id="mac" class="tab-content active">
@@ -308,8 +367,12 @@ sudo dnf install -y vagrant</code></pre>
                 </div>
             </div>
 
-            <h3>Step 2: Verify Installation</h3>
-            <p>Open a terminal and verify everything is installed:</p>
+            <h3>Step 2: Verify Installation (REQUIRED)</h3>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Do NOT skip this step!</strong> Run these commands to verify everything is installed correctly:
+            </div>
+            
             <div class="code-block">
                 <pre><code># Check Git
 git --version
@@ -326,7 +389,17 @@ VBoxManage --version
 
             <div class="success-box">
                 <i class="fas fa-check-circle"></i>
-                <strong>Success!</strong> If all three commands show version numbers, you're ready to continue.
+                <strong>All three commands show version numbers?</strong> Perfect! You're ready to continue.
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4><i class="fas fa-wrench"></i> If Any Command Fails</h4>
+                <ul>
+                    <li><strong>Command not found:</strong> That tool isn't installed. Go back and install it.</li>
+                    <li><strong>Permission denied:</strong> You may need to restart your terminal or computer.</li>
+                    <li><strong>VirtualBox issues:</strong> Check System Preferences → Security & Privacy (macOS) or enable virtualization in BIOS.</li>
+                </ul>
+                <p><strong>Don't proceed until all three commands work!</strong> <code>make install</code> will fail without them.</p>
             </div>
 
             <h3>Step 3: Clone Ahab Repository</h3>
@@ -1002,7 +1075,113 @@ code ahab/Makefile</code></pre>
             </div>
         </section>
 
+        </main>
+        
         <!-- Footer -->
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
         <footer>
             <div class="footer-content">
                 <div class="footer-section">
@@ -1023,19 +1202,32 @@ code ahab/Makefile</code></pre>
     </div>
 
     <script>
-        function showTab(tabName) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+        // ✅ Zero Trust compliant: Progressive enhancement with event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
             
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-            
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-        }
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Hide all tab contents
+                    const contents = document.querySelectorAll('.tab-content');
+                    contents.forEach(content => content.classList.remove('active'));
+                    
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Show selected tab
+                    const targetTab = document.getElementById(tabName);
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

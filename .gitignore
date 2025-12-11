@@ -17,7 +17,17 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.bak
+*.backup
 *.log
+
+# Backup files (HTML/CSS backups)
+*.html.backup
+*.css.backup
+index.html.backup
+learn.html.backup
+teachers.html.backup
+tutorial.html.backup
+style.css.backup
 
 # Node modules (if using any build tools)
 node_modules/
@@ -33,3 +43,10 @@ build/
 .env
 .env.local
 .env.*.local
+
+# Test outputs
+test-output/
+
+# Python cache (if any Python scripts)
+__pycache__/
+*.pyc

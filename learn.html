@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Learning Resources - DevOps Skills</title>
+    <meta name="description" content="Comprehensive learning resources for DevOps, Docker, Ansible, and infrastructure automation. From beginner to advanced.">
+</head>
+<body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a> → 
+            <span>Learning Resources</span>
+        </nav>
+        
+        <!-- Navigation -->
+        <nav class="tutorial-nav sticky-nav">
+            <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <div class="nav-links">
+                <a href="#beginner">New to Linux</a>
+                <a href="#intermediate">Know Linux</a>
+                <a href="#advanced">DevOps Pro</a>
+                <a href="status.html" class="status-link"><i class="fas fa-chart-line"></i> Status</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <main id="main">
+        <section class="tutorial-hero">
+            <h1>Learning Resources</h1>
+            <p class="subtitle">Master DevOps skills step by step</p>
+            <div class="tutorial-meta">
+                <span><i class="fas fa-graduation-cap"></i> All skill levels</span>
+                <span><i class="fas fa-book-open"></i> Curated resources</span>
+                <span><i class="fas fa-hands-helping"></i> Hands-on practice</span>
+            </div>
+        </section>
+
+        <!-- Learning Path -->
+        <section class="learning-path">
+            <h2>Your Learning Journey</h2>
+            <div class="path-steps">
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <h3>Start Here</h3>
+                    <p>New to Linux? Begin with command line basics</p>
+                    <a href="#beginner" class="btn">Linux Basics</a>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <h3>Build Skills</h3>
+                    <p>Learn Docker, Ansible, and Git</p>
+                    <a href="#intermediate" class="btn">Core Tools</a>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <h3>Go Pro</h3>
+                    <p>Advanced DevOps and security practices</p>
+                    <a href="#advanced" class="btn">Advanced Skills</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beginner Resources -->
+        <section id="beginner" class="learning-section">
+            <h2><i class="fas fa-seedling"></i> New to Linux</h2>
+            <p class="section-intro">Start here if you're new to command line and Linux systems.</p>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <i class="fas fa-terminal"></i>
+                    <h3>Command Line Basics</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://linuxjourney.com/" target="_blank">Linux Journey</a> - Interactive tutorial</li>
+                        <li><a href="https://www.codecademy.com/learn/learn-the-command-line" target="_blank">Codecademy Command Line</a> - Learn by doing</li>
+                        <li><a href="https://www.mankier.com/" target="_blank">Mankier</a> - Linux manual pages and command explanations</li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <i class="fab fa-linux"></i>
+                    <h3>Linux Fundamentals</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://www.edx.org/course/introduction-to-linux" target="_blank">Introduction to Linux (edX)</a> - Free course</li>
+                        <li><a href="https://ubuntu.com/tutorials" target="_blank">Ubuntu Tutorials</a> - Hands-on guides</li>
+                        <li><a href="https://www.digitalocean.com/community/tutorials" target="_blank">DigitalOcean Tutorials</a> - Practical examples</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="practice-box">
+                <h3><i class="fas fa-play"></i> Practice Right Now</h3>
+                <p>Ready to try Linux commands? Start our tutorial:</p>
+                <a href="tutorial.html" class="btn btn-primary">Start Ahab Tutorial</a>
+            </div>
+        </section>
+
+        <!-- Intermediate Resources -->
+        <section id="intermediate" class="learning-section">
+            <h2><i class="fas fa-tools"></i> Know Linux - Learn Core Tools</h2>
+            <p class="section-intro">Master the essential DevOps tools used in production environments.</p>
+
+            <div class="tool-section">
+                <h3><i class="fab fa-docker"></i> Docker & Containers</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Getting Started</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.docker.com/get-started/" target="_blank">Docker Official Tutorial</a> - Start here</li>
+                            <li><a href="https://www.docker.com/101-tutorial" target="_blank">Docker 101 Tutorial</a> - Interactive</li>
+                            <li><a href="https://katacoda.com/courses/docker" target="_blank">Katacoda Docker Scenarios</a> - Browser practice</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Advanced Docker</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://github.com/docker/labs" target="_blank">Docker Labs</a> - Hands-on exercises</li>
+                            <li><a href="https://docs.docker.com/compose/" target="_blank">Docker Compose</a> - Multi-container apps</li>
+                            <li><a href="https://docs.docker.com/engine/security/" target="_blank">Docker Security</a> - Best practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-cogs"></i> Ansible Automation</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Ansible Basics</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.ansible.com/ansible/latest/getting_started/index.html" target="_blank">Ansible Getting Started</a> - Official docs</li>
+                            <li><a href="https://www.ansible.com/resources/get-started" target="_blank">Ansible Basics Course</a> - Video tutorials</li>
+                            <li><a href="https://github.com/ansible/ansible-examples" target="_blank">Ansible Examples</a> - Real playbooks</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Playbook Development</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html" target="_blank">Ansible Best Practices</a> - Professional patterns</li>
+                            <li><a href="https://galaxy.ansible.com/" target="_blank">Ansible Galaxy</a> - Reusable roles</li>
+                            <li><a href="https://docs.ansible.com/ansible/latest/user_guide/vault.html" target="_blank">Ansible Vault</a> - Secrets management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-code-branch"></i> Git & Version Control</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Git Fundamentals</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.github.com/en/get-started/quickstart" target="_blank">GitHub Quickstart</a> - Official guide</li>
+                            <li><a href="https://learngitbranching.js.org/" target="_blank">Learn Git Branching</a> - Interactive tutorial</li>
+                            <li><a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git Book</a> - Complete reference</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Collaboration</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.github.com/en/pull-requests" target="_blank">Pull Requests</a> - Code review workflow</li>
+                            <li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">Git Workflows</a> - Team strategies</li>
+                            <li><a href="https://chris.beams.io/posts/git-commit/" target="_blank">Git Commit Messages</a> - Best practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-box">
+                <h3><i class="fas fa-laptop-code"></i> Practice These Skills</h3>
+                <p>Apply what you've learned with our hands-on tutorial:</p>
+                <a href="tutorial.html" class="btn btn-primary">Deploy Real Infrastructure</a>
+            </div>
+        </section>
+
+        <!-- Advanced Resources -->
+        <section id="advanced" class="learning-section">
+            <h2><i class="fas fa-rocket"></i> DevOps Professional</h2>
+            <p class="section-intro">Advanced topics for production environments and enterprise systems.</p>
+            
+            <!-- Progressive Disclosure: Advanced content hidden by default -->
+            <details class="advanced-section">
+                <summary><strong>Show Advanced Resources</strong></summary>
+                <div class="advanced-content">
+            <div class="tool-section">
+                <h3><i class="fas fa-cloud"></i> Infrastructure as Code</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Terraform</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://www.terraform.io/intro" target="_blank">Terraform Introduction</a> - Industry standard</li>
+                            <li><a href="https://learn.hashicorp.com/terraform" target="_blank">HashiCorp Learn</a> - Official tutorials</li>
+                            <li><a href="https://github.com/terraform-providers" target="_blank">Terraform Providers</a> - Cloud integrations</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Advanced Ansible</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_advanced_syntax.html" target="_blank">Advanced Playbooks</a> - Complex automation</li>
+                            <li><a href="https://docs.ansible.com/ansible-tower/" target="_blank">Ansible Tower/AWX</a> - Enterprise automation</li>
+                            <li><a href="https://docs.ansible.com/ansible/latest/dev_guide/" target="_blank">Ansible Development</a> - Custom modules</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-shield-alt"></i> Security & Compliance</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Security Standards</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://www.cisecurity.org/cis-benchmarks" target="_blank">CIS Benchmarks</a> - Industry standards</li>
+                            <li><a href="https://public.cyber.mil/stigs/" target="_blank">DISA STIGs</a> - DoD requirements</li>
+                            <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top 10</a> - Web security</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Container Security</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.docker.com/engine/security/" target="_blank">Docker Security</a> - Best practices</li>
+                            <li><a href="https://kubernetes.io/docs/concepts/security/" target="_blank">Kubernetes Security</a> - Container orchestration</li>
+                            <li><a href="https://github.com/docker/docker-bench-security" target="_blank">Docker Bench Security</a> - Security scanner</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <h3><i class="fas fa-chart-line"></i> Monitoring & Observability</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Monitoring Tools</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://prometheus.io/docs/introduction/overview/" target="_blank">Prometheus</a> - Metrics collection</li>
+                            <li><a href="https://grafana.com/tutorials/" target="_blank">Grafana</a> - Visualization dashboards</li>
+                            <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blank">ELK Stack</a> - Log analysis</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Performance</h4>
+                        <ul class="resource-list">
+                            <li><a href="https://docs.datadoghq.com/getting_started/" target="_blank">Datadog</a> - Application monitoring</li>
+                            <li><a href="https://newrelic.com/resources" target="_blank">New Relic</a> - Performance monitoring</li>
+                            <li><a href="https://www.jaegertracing.io/docs/" target="_blank">Jaeger</a> - Distributed tracing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Learning Tips -->
+        <section class="learning-tips">
+            <h2>Learning Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Learn by Doing</h3>
+                    <p>Don't just read - practice! Set up your own lab environment and experiment.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Join Communities</h3>
+                    <p>Connect with other learners on Reddit, Discord, and Stack Overflow.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Build Projects</h3>
+                    <p>Create portfolio projects that demonstrate your skills to employers.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Get Certified</h3>
+                    <p>Consider AWS, Azure, or Docker certifications to validate your skills.</p>
+                </div>
+            </div>
+            </details>
+        </section>
+
+        <!-- Get Started CTA -->
+        <section class="start-learning-cta">
+            <h2>Ready to Start Learning?</h2>
+            <p>Begin your DevOps journey with hands-on practice</p>
+            <div class="cta-buttons">
+                <a href="tutorial.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-play"></i> Start Tutorial
+                </a>
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </section>
+
+        </main>
+        
+
+        
+        <!-- Footer -->
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Learn DevOps</h3>
+                    <p>Hands-on infrastructure automation training</p>
+                    <p class="tagline-footer">Real skills. Real tools. Real projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Start Learning</h3>
+                    <a href="tutorial.html">Complete Tutorial</a>
+                    <a href="learn.html">Learning Resources</a>
+                    <a href="https://github.com/waltdundore/ahab" target="_blank">Documentation</a>
+                    <a href="https://github.com/waltdundore/ahab/blob/prod/EXECUTIVE_SUMMARY.md" target="_blank">For Teachers</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Help</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/waltdundore/ahab" target="_blank" title="GitHub Repository">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <p class="contact-note">Questions? Open an issue on GitHub</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ahab Project. Free for students and schools under CC BY-NC-SA 4.0.</p>
+                <p class="footer-note">Learn by doing • Build your portfolio • Master real tools</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -40,7 +40,8 @@
 
     <!-- Header - Consistent with site style -->
     <main id="main">
-    <main id="main">
+        <main id="main">
+        <main id="main">
         <section class="hero">
         <div class="logo-container">
             <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
@@ -78,151 +79,147 @@
         </div>
     </section>
 
+    <!-- Development Notice -->
+    <section class="tutorial-section">
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> Development Update - December 11, 2025</h3>
+            <p><strong>Current Focus:</strong> Repository consolidation, code quality improvements, and comprehensive testing</p>
+            <p><strong>Development Pace:</strong> Development will slow significantly until January 1, 2026 due to holiday schedule</p>
+            <p><strong>What We're Working On:</strong> Fixing NASA Power of 10 violations, improving error messages, and preparing v0.2.0 release</p>
+        </div>
+    </section>
+
     <!-- Current Status Overview -->
     <section class="tutorial-section">
         <h2><i class="fas fa-tachometer-alt"></i> Current Status Overview</h2>
         <div class="status-grid">
-            <div class="status-card status-passing">
-                <i class="fas fa-check-circle"></i>
-                <h3>Core System</h3>
-                <p>✅ Stable & Tested</p>
-                <small>v0.2.0 - All tests passing</small>
+            <div class="status-card status-warning">
+                <i class="fas fa-tools"></i>
+                <h3>Core System (Ahab)</h3>
+                <p>🔧 70-75% Complete</p>
+                <small>Repository consolidation complete, testing in progress</small>
             </div>
-            <div class="status-card status-passing">
+            <div class="status-card status-warning">
                 <i class="fas fa-desktop"></i>
-                <h3>Web Interface</h3>
-                <p>✅ Fully Functional</p>
-                <small>268 tests, multi-OS support</small>
+                <h3>Web Interface (GUI)</h3>
+                <p>🚧 Early Development</p>
+                <small>Building hooks & modules, 268 tests passing</small>
             </div>
             <div class="status-card status-passing">
                 <i class="fas fa-book"></i>
                 <h3>Documentation</h3>
                 <p>📚 Comprehensive</p>
-                <small>Consolidated & organized</small>
+                <small>Consolidated & organized, ready for v0.2.0</small>
             </div>
             <div class="status-card status-passing">
                 <i class="fas fa-shield-alt"></i>
                 <h3>Security</h3>
                 <p>🔒 Zero Trust Compliant</p>
-                <small>CIA Triad + Docker STIG</small>
+                <small>CIA Triad + Docker STIG implemented</small>
             </div>
         </div>
     </section>
 
-        <!-- Recent Achievements -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2><i class="fas fa-trophy"></i> Recent Major Achievements</h2>
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">v0.2.0 Release - December 2025</h5>
+    <!-- Recent Achievements -->
+    <section class="tutorial-section">
+        <h2><i class="fas fa-trophy"></i> Recent Major Achievements</h2>
+        <div class="card">
+            <h3>v0.2.0 Release - December 2025</h3>
+            <div class="progress-section">
+                <div class="progress-label">
+                    <span>Project Maturity</span>
+                    <span>60-70% Complete</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar"></div>
+                </div>
+            </div>
+            
+            <div class="achievement-grid">
+                <div class="achievement-column">
+                    <h4>✅ Completed Features</h4>
+                    <div class="timeline-item current">
+                        <strong>Multi-OS Support:</strong> Fedora 43, Debian 13, Ubuntu 24.04
+                        <br><small>Status: In Testing</small>
                     </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Project Maturity</span>
-                                <span>85% Complete</span>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>✅ Completed Features</h6>
-                                <div class="timeline-item completed">
-                                    <strong>Multi-OS Support:</strong> Fedora 43, Debian 13, Ubuntu 24.04
-                                    <br><small class="text-success">Status: Stable</small>
-                                </div>
-                                <div class="timeline-item completed">
-                                    <strong>Web Interface:</strong> Full GUI with 268 comprehensive tests
-                                    <br><small class="text-success">Status: Stable</small>
-                                </div>
-                                <div class="timeline-item completed">
-                                    <strong>Modular Architecture:</strong> Multi-repo with versioned components
-                                    <br><small class="text-success">Status: Complete</small>
-                                </div>
-                                <div class="timeline-item completed">
-                                    <strong>Security Framework:</strong> Zero Trust + CIA Triad
-                                    <br><small class="text-success">Status: Implemented</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>🚀 Next Phase Goals</h6>
-                                <div class="timeline-item current">
-                                    <strong>Advanced Deployment:</strong> Multi-server orchestration
-                                    <br><small class="text-primary">Status: Planning Phase</small>
-                                </div>
-                                <div class="timeline-item future">
-                                    <strong>Service Marketplace:</strong> Community modules
-                                    <br><small class="text-muted">Status: Future Release</small>
-                                </div>
-                                <div class="timeline-item future">
-                                    <strong>Monitoring Dashboard:</strong> Real-time infrastructure health
-                                    <br><small class="text-muted">Status: Future Release</small>
-                                </div>
-                                <div class="timeline-item future">
-                                    <strong>Educational Curriculum:</strong> Structured learning paths
-                                    <br><small class="text-muted">Status: Future Release</small>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="timeline-item current">
+                        <strong>Web Interface:</strong> Building hooks and modules
+                        <br><small>Status: Early Development</small>
+                    </div>
+                    <div class="timeline-item completed">
+                        <strong>Modular Architecture:</strong> Multi-repo with versioned components
+                        <br><small>Status: Complete</small>
+                    </div>
+                    <div class="timeline-item completed">
+                        <strong>Security Framework:</strong> Zero Trust + CIA Triad
+                        <br><small>Status: Implemented</small>
+                    </div>
+                </div>
+                <div class="achievement-column">
+                    <h4>🚀 Next Phase Goals</h4>
+                    <div class="timeline-item current">
+                        <strong>Advanced Deployment:</strong> Multi-server orchestration
+                        <br><small>Status: Planning Phase</small>
+                    </div>
+                    <div class="timeline-item future">
+                        <strong>Service Marketplace:</strong> Community modules
+                        <br><small>Status: Future Release</small>
+                    </div>
+                    <div class="timeline-item future">
+                        <strong>Monitoring Dashboard:</strong> Real-time infrastructure health
+                        <br><small>Status: Future Release</small>
+                    </div>
+                    <div class="timeline-item future">
+                        <strong>Educational Curriculum:</strong> Structured learning paths
+                        <br><small>Status: Future Release</small>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Technical Status -->
-        <div class="row mb-5">
-            <div class="col-md-6">
+    <!-- Technical Status -->
+    <section class="tutorial-section">
+        <div class="status-technical-grid">
+            <div class="technical-card">
                 <h3><i class="fas fa-cogs"></i> Technical Status</h3>
                 <div class="card">
-                    <div class="card-body">
-                        <h6>Test Suite Status</h6>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between">
-                                <span><i class="fas fa-check text-success"></i> Core System Tests</span>
-                                <span class="badge bg-success">PASSING</span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span><i class="fas fa-check text-success"></i> GUI Tests (268 total)</span>
-                                <span class="badge bg-success">83% PASS</span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span><i class="fas fa-check text-success"></i> Security Scans</span>
-                                <span class="badge bg-success">PASSING</span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span><i class="fas fa-check text-success"></i> Multi-OS Support</span>
-                                <span class="badge bg-success">VERIFIED</span>
-                            </div>
+                    <h4>Test Suite Status</h4>
+                    <div class="status-list">
+                        <div class="status-item">
+                            <span><i class="fas fa-check"></i> Core System Tests</span>
+                            <span class="badge bg-success">PASSING</span>
                         </div>
-                        
-                        <h6>Current Version</h6>
-                        <p class="mb-2">
-                            <strong>Release:</strong> v0.2.0
-                        </p>
-                        <p class="mb-2">
-                            <strong>Commit:</strong> 
-                            <span class="commit-hash">f32464f</span>
-                        </p>
-                        <p class="mb-2">
-                            <strong>Branch:</strong> main (stable)
-                        </p>
-                        <p class="mb-0">
-                            <strong>Last Test:</strong> 2025-12-11 14:02:56 UTC
-                        </p>
+                        <div class="status-item">
+                            <span><i class="fas fa-check"></i> GUI Tests (268 total)</span>
+                            <span class="badge bg-success">83% PASS</span>
+                        </div>
+                        <div class="status-item">
+                            <span><i class="fas fa-check"></i> Security Scans</span>
+                            <span class="badge bg-success">PASSING</span>
+                        </div>
+                        <div class="status-item">
+                            <span><i class="fas fa-check"></i> Multi-OS Support</span>
+                            <span class="badge bg-success">VERIFIED</span>
+                        </div>
+                    </div>
+                    
+                    <h4>Current Version</h4>
+                    <div class="version-info">
+                        <p><strong>Release:</strong> v0.2.0</p>
+                        <p><strong>Commit:</strong> <span class="commit-hash">f32464f</span></p>
+                        <p><strong>Branch:</strong> main (stable)</p>
+                        <p><strong>Last Test:</strong> 2025-12-11 14:02:56 UTC</p>
                     </div>
                 </div>
             </div>
             
-            <div class="col-md-6">
-                <h3><i class="fas fa-chart-bar"></i> Production Readiness</h3>
+            <div class="technical-card">
+                <h3><i class="fas fa-chart-bar"></i> System Readiness</h3>
                 <div class="card">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
+                    <div class="readiness-metrics">
+                        <div class="metric">
+                            <div class="progress-label">
                                 <span>Core Infrastructure</span>
                                 <span>98%</span>
                             </div>
@@ -231,8 +228,8 @@
                             </div>
                         </div>
                         
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
+                        <div class="metric">
+                            <div class="progress-label">
                                 <span>Security Implementation</span>
                                 <span>95%</span>
                             </div>
@@ -241,8 +238,8 @@
                             </div>
                         </div>
                         
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
+                        <div class="metric">
+                            <div class="progress-label">
                                 <span>Documentation Coverage</span>
                                 <span>92%</span>
                             </div>
@@ -251,8 +248,8 @@
                             </div>
                         </div>
                         
-                        <div class="mb-0">
-                            <div class="d-flex justify-content-between mb-1">
+                        <div class="metric">
+                            <div class="progress-label">
                                 <span>User Experience</span>
                                 <span>90%</span>
                             </div>
@@ -264,360 +261,318 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- What Works vs What's Next -->
-        <div class="row mb-5">
-            <div class="col-md-6">
-                <h3><i class="fas fa-check-circle text-success"></i> Stable Features</h3>
+    <!-- What Works vs What's Next -->
+    <section class="tutorial-section">
+        <div class="roadmap-grid">
+            <div class="roadmap-column">
+                <h3><i class="fas fa-tools"></i> Current Development Status</h3>
                 <div class="card">
-                    <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Multi-OS Support:</strong> Fedora 43, Debian 13, Ubuntu 24.04
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Web Interface:</strong> Complete GUI with visual feedback
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Security Framework:</strong> Zero Trust + CIA Triad compliance
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Container Management:</strong> Docker STIG compliant
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Automated Testing:</strong> 268 GUI tests + core validation
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Documentation:</strong> Comprehensive user and developer guides
-                            </li>
-                            <li class="mb-0">
-                                <i class="fas fa-check text-success"></i>
-                                <strong>Service Deployment:</strong> Apache, MySQL, PHP modules
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Core System (Ahab):</strong> 60-70% complete, needs in-depth testing
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Web Interface (GUI):</strong> Early development, building hooks & modules
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <strong>Security Framework:</strong> Zero Trust + CIA Triad standards implemented
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <strong>Container Standards:</strong> Docker STIG compliance patterns
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Testing Infrastructure:</strong> Basic tests passing, needs expansion
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <strong>Documentation:</strong> Comprehensive guides and lessons learned
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <strong>Service Deployment:</strong> Apache, MySQL, PHP modules
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="col-md-6">
-                <h3><i class="fas fa-road text-primary"></i> Future Roadmap</h3>
+            <div class="roadmap-column">
+                <h3><i class="fas fa-road"></i> Future Roadmap</h3>
                 <div class="card">
-                    <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>Advanced Orchestration:</strong> Multi-server deployment workflows
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>Service Marketplace:</strong> Community-contributed modules
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>Monitoring Dashboard:</strong> Real-time infrastructure health
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>Educational Curriculum:</strong> Structured CS learning paths
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>Cloud Integration:</strong> Hybrid on-premise/cloud deployments
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>Mobile Interface:</strong> Tablet and phone management
-                            </li>
-                            <li class="mb-0">
-                                <i class="fas fa-clock text-primary"></i>
-                                <strong>AI Assistant:</strong> Intelligent troubleshooting and guidance
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Development Milestones -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h3><i class="fas fa-calendar-alt"></i> Development Milestones</h3>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>✅ Completed (v0.2.0)</h6>
-                                <ul class="list-unstyled">
-                                    <li><i class="fas fa-check-circle text-success"></i> Multi-OS workstation support</li>
-                                    <li><i class="fas fa-check-circle text-success"></i> Web interface with 268 tests</li>
-                                    <li><i class="fas fa-check-circle text-success"></i> Modular multi-repo architecture</li>
-                                    <li><i class="fas fa-check-circle text-success"></i> Zero Trust security framework</li>
-                                    <li><i class="fas fa-check-circle text-success"></i> Docker STIG compliance</li>
-                                    <li><i class="fas fa-check-circle text-success"></i> Comprehensive documentation</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>🎯 Next Release (v0.3.0)</h6>
-                                <ul class="list-unstyled">
-                                    <li><i class="fas fa-circle text-primary"></i> Advanced deployment orchestration</li>
-                                    <li><i class="fas fa-circle text-primary"></i> Service health monitoring</li>
-                                    <li><i class="fas fa-circle text-primary"></i> Backup and recovery automation</li>
-                                    <li><i class="fas fa-circle text-primary"></i> Performance optimization</li>
-                                    <li><i class="fas fa-circle text-primary"></i> Enhanced error handling</li>
-                                    <li><i class="fas fa-circle text-primary"></i> Mobile-responsive interface</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <h6>🔮 Future Vision (v1.0.0)</h6>
-                                <ul class="list-unstyled">
-                                    <li><i class="fas fa-circle text-muted"></i> Service marketplace ecosystem</li>
-                                    <li><i class="fas fa-circle text-muted"></i> AI-powered troubleshooting</li>
-                                    <li><i class="fas fa-circle text-muted"></i> Educational curriculum integration</li>
-                                    <li><i class="fas fa-circle text-muted"></i> Cloud-hybrid deployments</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>📊 Development Velocity</h6>
-                                <div class="mb-2">
-                                    <small class="text-muted">Features delivered per month</small>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar">12 features</div>
-                                    </div>
-                                </div>
-                                <div class="mb-2">
-                                    <small class="text-muted">Test coverage improvement</small>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar">83%</div>
-                                    </div>
-                                </div>
-                                <div class="mb-0">
-                                    <small class="text-muted">Documentation completeness</small>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar">92%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Current Focus Areas -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h3><i class="fas fa-bullseye text-primary"></i> Current Focus Areas</h3>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="alert alert-info" role="alert">
-                            <h6><i class="fas fa-code"></i> Code Quality Improvements</h6>
-                            <p class="mb-2">
-                                <strong>Focus:</strong> Refactoring 13 scripts that exceed NASA 60-line function limit
-                            </p>
-                            <p class="mb-2">
-                                <strong>Impact:</strong> Improved maintainability and compliance with safety-critical standards
-                            </p>
-                            <p class="mb-0">
-                                <strong>Timeline:</strong> Ongoing - part of continuous improvement process
-                            </p>
-                        </div>
-                        
-                        <div class="alert alert-success" role="alert">
-                            <h6><i class="fas fa-graduation-cap"></i> Educational Content Development</h6>
-                            <p class="mb-2">
-                                <strong>Focus:</strong> Creating structured learning paths for K-12 computer science education
-                            </p>
-                            <p class="mb-2">
-                                <strong>Impact:</strong> Better integration with classroom curricula and student projects
-                            </p>
-                            <p class="mb-0">
-                                <strong>Timeline:</strong> Q1 2026 - aligned with academic calendar
-                            </p>
-                        </div>
-
-                        <div class="alert alert-primary" role="alert">
-                            <h6><i class="fas fa-rocket"></i> Performance Optimization</h6>
-                            <p class="mb-2">
-                                <strong>Focus:</strong> Optimizing container startup times and resource usage
-                            </p>
-                            <p class="mb-2">
-                                <strong>Impact:</strong> Faster deployment and better performance on school hardware
-                            </p>
-                            <p class="mb-0">
-                                <strong>Timeline:</strong> Next release cycle - v0.3.0
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Transparency & Trust -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h3><i class="fas fa-eye"></i> Transparency & Trust</h3>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="lead">
-                            This status page reflects the actual, real-time state of the Ahab project. We believe in radical transparency.
-                        </p>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6><i class="fas fa-check-circle text-success"></i> What We Promise</h6>
-                                <ul class="list-unstyled">
-                                    <li class="mb-2">✅ <strong>We use what we document</strong> - Same commands, same repository, same network</li>
-                                    <li class="mb-2">✅ <strong>We test everything</strong> - 268 GUI tests + comprehensive core validation</li>
-                                    <li class="mb-2">✅ <strong>We document failures</strong> - See our <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">Lessons Learned</a></li>
-                                    <li class="mb-2">✅ <strong>We follow standards</strong> - NASA Power of 10, Zero Trust, CIA Triad</li>
-                                    <li class="mb-0">✅ <strong>We're educators first</strong> - Built for learning, not just using</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h6><i class="fas fa-graduation-cap text-primary"></i> Educational Philosophy</h6>
-                                <p>
-                                    <strong>AI-Assisted, Human-Validated:</strong> We use AI to accelerate development, 
-                                    but every feature is tested and validated by human educators who understand K-12 environments.
-                                </p>
-                                <p>
-                                    <strong>Teaching Through Transparency:</strong> We show you not just what works, 
-                                    but how it works and why we built it that way. Every command teaches.
-                                </p>
-                                <p class="mb-0">
-                                    <strong>Community-Driven:</strong> Built by educators, for educators, with input 
-                                    from the <a href="https://www.reddit.com/r/k12sysadmin">r/k12sysadmin</a> community.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-4 p-3">
-                            <p class="mb-0">
-                                <strong>Our Commitment:</strong> When we say "it works," we mean "it's working for us right now." 
-                                When we find problems, we document them publicly. No hiding, no spin, no marketing fluff.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="row">
-            <div class="col-12">
-                <h3><i class="fas fa-link"></i> Quick Links</h3>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fab fa-github fa-2x mb-3"></i>
-                                <h6>Source Code</h6>
-                                <a href="https://github.com/waltdundore/ahab" class="btn btn-outline-primary btn-sm">
-                                    View on GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-play fa-2x mb-3"></i>
-                                <h6>Getting Started</h6>
-                                <a href="tutorial.html" class="btn btn-outline-primary btn-sm">
-                                    Start Tutorial
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-bug fa-2x mb-3"></i>
-                                <h6>Report Issues</h6>
-                                <a href="https://github.com/waltdundore/ahab/issues" class="btn btn-outline-primary btn-sm">
-                                    GitHub Issues
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-comments fa-2x mb-3"></i>
-                                <h6>Community</h6>
-                                <a href="https://www.reddit.com/r/k12sysadmin" class="btn btn-outline-primary btn-sm">
-                                    r/k12sysadmin
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <p class="mb-2">
-                        <strong>Ahab Project</strong> - Infrastructure automation for K-12 schools and non-profits
-                    </p>
-                    <p class="mb-3">
-                        Built with transparency, tested with care, documented with purpose. Free for education forever.
-                    </p>
-                    <div>
-                        <a href="https://github.com/waltdundore/ahab">
-                            <i class="fab fa-github"></i> Main Repository
-                        </a>
-                        <a href="https://github.com/waltdundore/ahab-gui">
-                            <i class="fas fa-desktop"></i> Web Interface
-                        </a>
-                        <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">
-                            <i class="fas fa-book"></i> Lessons Learned
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <p class="mb-2">
-                        <small>
+                    <ul class="feature-list future">
+                        <li>
                             <i class="fas fa-clock"></i>
-                            Status updated: <span id="footerLastUpdated">December 11, 2025</span>
-                        </small>
+                            <strong>Advanced Orchestration:</strong> Multi-server deployment workflows
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Service Marketplace:</strong> Community-contributed modules
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Monitoring Dashboard:</strong> Real-time infrastructure health
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Educational Curriculum:</strong> Structured CS learning paths
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Cloud Integration:</strong> Hybrid on-premise/cloud deployments
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Mobile Interface:</strong> Tablet and phone management
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>AI Assistant:</strong> Intelligent troubleshooting and guidance
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Milestones -->
+    <section class="tutorial-section">
+        <h2><i class="fas fa-calendar-alt"></i> Development Milestones</h2>
+        <div class="card">
+            <div class="milestones-grid">
+                <div class="milestone-column">
+                    <h4>✅ Completed (v0.2.0)</h4>
+                    <ul class="milestone-list">
+                        <li><i class="fas fa-check-circle"></i> Multi-OS workstation support</li>
+                        <li><i class="fas fa-check-circle"></i> Web interface with 268 tests</li>
+                        <li><i class="fas fa-check-circle"></i> Repository consolidation</li>
+                        <li><i class="fas fa-check-circle"></i> Zero Trust security framework</li>
+                        <li><i class="fas fa-check-circle"></i> Docker STIG compliance</li>
+                        <li><i class="fas fa-check-circle"></i> Comprehensive documentation</li>
+                    </ul>
+                </div>
+                <div class="milestone-column">
+                    <h4>🎯 Next Release (v0.3.0)</h4>
+                    <ul class="milestone-list next">
+                        <li><i class="fas fa-circle"></i> Advanced deployment orchestration</li>
+                        <li><i class="fas fa-circle"></i> Service health monitoring</li>
+                        <li><i class="fas fa-circle"></i> Backup and recovery automation</li>
+                        <li><i class="fas fa-circle"></i> Performance optimization</li>
+                        <li><i class="fas fa-circle"></i> Enhanced error handling</li>
+                        <li><i class="fas fa-circle"></i> Mobile-responsive interface</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="milestones-grid">
+                <div class="milestone-column">
+                    <h4>🔮 Future Vision (v1.0.0)</h4>
+                    <ul class="milestone-list future">
+                        <li><i class="fas fa-circle"></i> Service marketplace ecosystem</li>
+                        <li><i class="fas fa-circle"></i> AI-powered troubleshooting</li>
+                        <li><i class="fas fa-circle"></i> Educational curriculum integration</li>
+                        <li><i class="fas fa-circle"></i> Cloud-hybrid deployments</li>
+                    </ul>
+                </div>
+                <div class="milestone-column">
+                    <h4>📊 Development Velocity</h4>
+                    <div class="velocity-metrics">
+                        <div class="metric">
+                            <small>Features delivered per month</small>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar">12 features</div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <small>Test coverage improvement</small>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar">83%</div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <small>Documentation completeness</small>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar">92%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Focus Areas -->
+    <section class="tutorial-section">
+        <h2><i class="fas fa-bullseye"></i> Current Focus Areas (December 2025)</h2>
+        
+        <div class="info-box">
+            <h4><i class="fas fa-code"></i> Repository Consolidation & Code Quality</h4>
+            <p><strong>Focus:</strong> Consolidating 4 repositories into 1, fixing NASA Power of 10 violations (47 identified)</p>
+            <p><strong>Impact:</strong> Simplified architecture, improved maintainability, safety-critical compliance</p>
+            <p><strong>Timeline:</strong> December 2025 - preparing v0.2.0 release</p>
+            <p><strong>Status:</strong> Repository cleanup complete, working on code quality improvements</p>
+        </div>
+        
+        <div class="info-box">
+            <h4><i class="fas fa-bug"></i> Error Handling & User Experience</h4>
+            <p><strong>Focus:</strong> Improving error messages, adding pre-flight checks, timeout protection</p>
+            <p><strong>Impact:</strong> Better user experience, fewer installation failures, clearer guidance</p>
+            <p><strong>Timeline:</strong> December 2025 - immediate improvements</p>
+            <p><strong>Status:</strong> High priority quick wins identified and ready for implementation</p>
+        </div>
+
+        <div class="success-box">
+            <h4><i class="fas fa-graduation-cap"></i> Educational Content Development</h4>
+            <p><strong>Focus:</strong> Creating structured learning paths for K-12 computer science education</p>
+            <p><strong>Impact:</strong> Better integration with classroom curricula and student projects</p>
+            <p><strong>Timeline:</strong> Q1 2026 - aligned with academic calendar</p>
+            <p><strong>Status:</strong> Planning phase, development slowed until January 1, 2026</p>
+        </div>
+
+        <div class="warning-box">
+            <h4><i class="fas fa-calendar-times"></i> Holiday Development Schedule</h4>
+            <p><strong>Notice:</strong> Development pace will slow significantly from December 11, 2025 through January 1, 2026</p>
+            <p><strong>Focus:</strong> Critical bug fixes only, major feature development paused</p>
+            <p><strong>Resume:</strong> Full development pace resumes January 2, 2026</p>
+            <p><strong>Feedback:</strong> We welcome feedback during this period - please use GitHub Issues</p>
+        </div>
+    </section>
+
+    <!-- Transparency & Trust -->
+    <section class="tutorial-section">
+        <h2><i class="fas fa-eye"></i> Transparency & Trust</h2>
+        <div class="card">
+            <p class="lead">
+                This status page reflects the actual, real-time state of the Ahab project. We believe in radical transparency.
+            </p>
+            
+            <div class="transparency-grid">
+                <div class="transparency-column">
+                    <h4><i class="fas fa-check-circle"></i> What We Promise</h4>
+                    <ul class="promise-list">
+                        <li>✅ <strong>We use what we document</strong> - Same commands, same repository, same network</li>
+                        <li>✅ <strong>We test everything</strong> - 268 GUI tests + comprehensive core validation</li>
+                        <li>✅ <strong>We document failures</strong> - See our <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">Lessons Learned</a></li>
+                        <li>✅ <strong>We follow standards</strong> - NASA Power of 10, Zero Trust, CIA Triad</li>
+                        <li>✅ <strong>We're educators first</strong> - Built for learning, not just using</li>
+                    </ul>
+                </div>
+                <div class="transparency-column">
+                    <h4><i class="fas fa-graduation-cap"></i> Educational Philosophy</h4>
+                    <p>
+                        <strong>AI-Assisted, Human-Validated:</strong> We use AI to accelerate development, 
+                        but every feature is tested and validated by human educators who understand K-12 environments.
                     </p>
-                    <p class="mb-2">
-                        <small>
-                            <i class="fas fa-code-branch"></i>
-                            Version: v0.2.0 (Stable)
-                        </small>
+                    <p>
+                        <strong>Teaching Through Transparency:</strong> We show you not just what works, 
+                        but how it works and why we built it that way. Every command teaches.
                     </p>
-                    <p class="mb-0">
-                        <small>
-                            <i class="fas fa-shield-alt"></i>
-                            License: CC BY-NC-SA 4.0
-                        </small>
+                    <p>
+                        <strong>Community-Driven:</strong> Built by educators, for educators, with input 
+                        from the <a href="https://www.reddit.com/r/k12sysadmin">r/k12sysadmin</a> community.
                     </p>
                 </div>
             </div>
-            <hr>
-            <div class="text-center">
-                <p class="mb-0">
-                    "We're not here forever, but what we teach can be." - 
-                    <em>Committed to educational excellence and open source values</em>
+            
+            <div class="commitment-box">
+                <p>
+                    <strong>Our Commitment:</strong> When we say "it works," we mean "it's working for us right now." 
+                    When we find problems, we document them publicly. No hiding, no spin, no marketing fluff.
                 </p>
             </div>
         </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="tutorial-section">
+        <h2><i class="fas fa-link"></i> Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-link-card">
+                <i class="fab fa-github"></i>
+                <h4>Source Code</h4>
+                <a href="https://github.com/waltdundore/ahab" class="btn btn-primary">
+                    View on GitHub
+                </a>
+            </div>
+            <div class="quick-link-card">
+                <i class="fas fa-play"></i>
+                <h4>Getting Started</h4>
+                <a href="tutorial.html" class="btn btn-primary">
+                    Start Tutorial
+                </a>
+            </div>
+            <div class="quick-link-card">
+                <i class="fas fa-bug"></i>
+                <h4>Report Issues</h4>
+                <a href="https://github.com/waltdundore/ahab/issues" class="btn btn-primary">
+                    GitHub Issues
+                </a>
+            </div>
+            <div class="quick-link-card">
+                <i class="fas fa-comments"></i>
+                <h4>Community</h4>
+                <a href="https://www.reddit.com/r/k12sysadmin" class="btn btn-primary">
+                    r/k12sysadmin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    </main>
+        
+        </main>
+        
+        <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ahab Project</h3>
+                <p>Infrastructure automation for K-12 schools and non-profits</p>
+                <p>Built with transparency, tested with care, documented with purpose. Free for education forever.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/waltdundore/ahab">
+                        <i class="fab fa-github"></i> Main Repository
+                    </a>
+                    <a href="https://github.com/waltdundore/ahab-gui">
+                        <i class="fas fa-desktop"></i> Web Interface
+                    </a>
+                    <a href="https://github.com/waltdundore/ahab/blob/main/LESSONS_LEARNED.md">
+                        <i class="fas fa-book"></i> Lessons Learned
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-meta">
+                    <p>
+                        <i class="fas fa-clock"></i>
+                        Status updated: <span id="footerLastUpdated">December 11, 2025</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-code-branch"></i>
+                        Version: v0.2.0 (Stable)
+                    </p>
+                    <p>
+                        <i class="fas fa-shield-alt"></i>
+                        License: CC BY-NC-SA 4.0
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                "We're not here forever, but what we teach can be." - 
+                <em>Committed to educational excellence and open source values</em>
+            </p>
+        </div>
     </footer>
 
-    
     <script>
         // Update timestamps
         document.addEventListener('DOMContentLoaded', function() {

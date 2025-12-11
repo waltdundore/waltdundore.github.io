@@ -1,279 +1,229 @@
-# ==============================================================================
-# Makefile for waltdundore.github.io
-# ==============================================================================
+# Website Management Makefile
+# 
+# ⚠️  IMPORTANT: 'make deploy' does NOT actually deploy!
+# ⚠️  It only prepares for deployment (tests + staging).
+# ⚠️  You must manually commit and push after 'make deploy'.
 #
-# PURPOSE:
-#   Automate GitHub Pages deployment and local testing
-#
-# WHAT IS A MAKEFILE?
-#   A Makefile is a build automation tool that:
-#   - Defines "targets" (commands you can run)
-#   - Manages dependencies between targets
-#   - Provides a consistent interface across projects
-#   - Documents available commands in one place
-#
-# HOW TO USE THIS MAKEFILE:
-#   1. Run `make help` to see all available commands
-#   2. Run `make <target>` to execute a specific command
-#   3. Example: `make test` runs HTML validation
-#
-# MAKEFILE SYNTAX BASICS:
-#   target: dependencies
-#       command
-#       another-command
-#
-#   - Lines starting with # are comments
-#   - Targets are the names you type after `make`
-#   - Commands MUST be indented with a TAB (not spaces!)
-#   - @ before a command suppresses echo (silent execution)
-#   - $$ escapes $ in shell commands (Make uses $ for variables)
-#   - $(VAR) references a Make variable
-#   - $(MAKE) recursively calls make (for calling other targets)
-#
-# SPECIAL VARIABLES USED HERE:
-#   .PHONY - Declares targets that don't create files
-#   $(shell ...) - Executes shell command and captures output
-#   $$(pwd) - Shell variable (escaped with $$)
-#   MSG - User-provided variable (e.g., make commit MSG="my message")
-#
-# LEARNING RESOURCES:
-#   - GNU Make Manual: https://www.gnu.org/software/make/manual/
-#   - Make Tutorial: https://makefiletutorial.com/
-#
-# ==============================================================================
+# Include shared configuration and common targets
+include ../ahab/Makefile.config
+include ../ahab/Makefile.common
 
-# .PHONY tells Make these targets don't create files with these names
-# Without .PHONY, if a file named "test" existed, `make test` wouldn't run
-.PHONY: help status commit push deploy deploy-dev deploy-prod deploy-all test preview preview-docker clean
+.PHONY: help validate test deploy clean serve
 
-# ==============================================================================
-# DEFAULT TARGET (runs when you type just `make`)
-# ==============================================================================
-# The first target in a Makefile is the default
-# We make it `help` so users see available commands
+# CRITICAL: The 'deploy' target does NOT actually deploy!
+# It only prepares for deployment. You must manually commit and push.
+
 help:
-	@echo "================================================================================"
-	@echo "GitHub Pages Deployment - Available Commands"
-	@echo "================================================================================"
+	$(call HELP_HEADER,Ahab Website Publishing)
+	@echo "🚀 QUICK START:"
+	@echo "  make test                 → Run all quality checks (~2-3 min)"
+	@echo "  make deploy               → Prepare for publishing (tests + staging)"
+	@echo "  git commit -m 'message'   → Commit your changes"
+	@echo "  git push origin production → Publish to live website"
 	@echo ""
-	@echo "TESTING & PREVIEW:"
-	@echo "  make test          - Validate HTML files"
-	@echo "  make preview       - Preview site locally (Python http.server)"
-	@echo "  make preview-docker - Preview site in Docker container (Container-First)"
+	@echo "✅ TESTING & VALIDATION:"
+	@echo "  make test                 → Complete test suite (~2-3 minutes)"
+	@echo "                              • HTML/CSS validation"
+	@echo "                              • WCAG 2.1 AA accessibility compliance"
+	@echo "                              • Link checking (internal + external)"
+	@echo "                              • Page performance (< 3 sec load time)"
+	@echo "                              • Progressive disclosure UX validation"
+	@echo "                              • Secret scanning (safety check)"
+	@echo "  make validate             → HTML/CSS validation only (~30 sec)"
+	@echo "                              • W3C HTML5 standards compliance"
+	@echo "                              • CSS3 syntax and best practices"
+	@echo "  make test-html            → HTML structure validation"
+	@echo "                              • Semantic markup verification"
+	@echo "                              • Accessibility markup (alt text, ARIA)"
+	@echo "  make test-css             → CSS standards validation"
+	@echo "                              • Syntax checking and linting"
+	@echo "                              • Brand color compliance"
+	@echo "  make test-accessibility   → WCAG 2.1 AA compliance testing"
+	@echo "                              • Color contrast ratios (4.5:1 minimum)"
+	@echo "                              • Keyboard navigation support"
+	@echo "                              • Screen reader compatibility"
+	@echo "  make test-links           → Link validation (~1-2 min)"
+	@echo "                              • Internal navigation verification"
+	@echo "                              • External resource availability"
+	@echo "                              • Broken link detection"
+	@echo "  make test-performance     → Page load performance testing"
+	@echo "                              • Load time measurement (< 3 sec target)"
+	@echo "                              • Resource optimization check"
+	@echo "                              • Mobile performance validation"
+	@echo "  make test-secrets         → Comprehensive secret scanning"
+	@echo "                              • API keys, passwords, tokens"
+	@echo "                              • May have false positives"
+	@echo "  make test-secrets-simple  → Real secrets only (recommended)"
+	@echo "                              • High-confidence secret detection"
+	@echo "                              • Fewer false positives"
+	@echo "  make test-progressive-disclosure → UX principle validation"
+	@echo "                              • Progressive disclosure compliance"
+	@echo "                              • Context-aware navigation"
+	@echo "                              • Elevator principle adherence"
 	@echo ""
-	@echo "GIT OPERATIONS:"
-	@echo "  make status        - Show git status"
-	@echo "  make commit        - Stage and commit changes (requires MSG='...')"
-	@echo "  make push          - Push current branch to origin"
+	@echo "🔧 DEVELOPMENT & UTILITIES:"
+	@echo "  make serve                → Start local development server"
+	@echo "                              • Runs on http://localhost:8000"
+	@echo "                              • Docker-based (no host dependencies)"
+	@echo "                              • Auto-refresh on file changes"
+	@echo "  make update-status        → Sync status page with ahab system"
+	@echo "                              • Pulls real data from ahab tests"
+	@echo "                              • Updates progress indicators"
+	@echo "                              • Refreshes version information"
+	@echo "  make compliance-report    → Generate comprehensive compliance report"
+	@echo "                              • Detailed test results"
+	@echo "                              • Standards compliance matrix"
+	@echo "                              • Recommendations for improvements"
+	@echo "  make setup-secrets        → One-time secrets detection setup"
+	@echo "                              • Configures detection patterns"
+	@echo "                              • Only run once per repository"
+	@echo "  make clean                → Clean temporary files"
+	@echo "                              • Removes test artifacts"
+	@echo "                              • Clears cached data"
 	@echo ""
-	@echo "DEPLOYMENT:"
-	@echo "  make deploy        - Commit and push current branch (requires MSG='...')"
-	@echo "  make deploy-dev    - Deploy to dev branch (requires MSG='...')"
-	@echo "  make deploy-prod   - Deploy to production branch (requires MSG='...')"
-	@echo "  make deploy-all    - Deploy to all branches (requires MSG='...')"
+	@echo "🚀 PUBLISHING WORKFLOW:"
+	@echo "  make deploy               → PREPARE for publishing (does NOT publish!)"
+	@echo "                              • Runs complete test suite"
+	@echo "                              • Stages files for deployment"
+	@echo "                              • ⚠️  Does NOT commit or push automatically"
+	@echo "                              • You maintain full control"
+	@echo "  make pre-push             → Complete pre-publication workflow"
+	@echo "                              • Comprehensive validation"
+	@echo "                              • Documentation updates"
+	@echo "                              • Issue detection and fixing"
 	@echo ""
-	@echo "MAINTENANCE:"
-	@echo "  make clean         - Clean up temporary files (.DS_Store, etc.)"
+	@echo "💡 COMMON WORKFLOWS:"
+	@echo "  # Daily development:"
+	@echo "  make serve                # Start local server"
+	@echo "  # Edit files..."
+	@echo "  make test                 # Validate changes"
 	@echo ""
-	@echo "EXAMPLES:"
-	@echo "  make test"
-	@echo "  make preview-docker"
-	@echo "  make deploy-all MSG='Update site with new features'"
+	@echo "  # Publish changes:"
+	@echo "  make deploy               # Prepare for publishing"
+	@echo "  git add ."
+	@echo "  git commit -m 'Update website content'"
+	@echo "  git push origin production"
 	@echo ""
-	@echo "LEARN MORE:"
-	@echo "  Read the comments in this Makefile to learn how Make works!"
-	@echo "================================================================================"
+	@echo "  # Quality assurance:"
+	@echo "  make pre-push             # Comprehensive validation"
 	@echo ""
-
-# ==============================================================================
-# GIT OPERATIONS
-# ==============================================================================
-
-# Show git status
-# The @ before echo suppresses printing the command itself
-# Without @, you'd see: echo "==> Checking git status..."
-# With @, you only see: ==> Checking git status...
-status:
-	@echo "==> Checking git status..."
-	git status
-
-# Stage and commit changes
-# This target requires a MSG variable: make commit MSG="your message"
-# $(MSG) is a Make variable that gets its value from the command line
-# The if statement checks if MSG is empty and exits with error if so
-commit:
-	@echo "==> Staging all changes..."
-	git add .
-	@echo "==> Committing changes..."
-	@if [ -z "$(MSG)" ]; then \
-		echo "Error: Please provide a commit message with MSG='your message'"; \
-		exit 1; \
-	fi
-	git commit -m "$(MSG)"
-
-# Push current branch
-# $$(git branch --show-current) - Double $$ escapes the $ for shell
-# In Make, $ has special meaning, so $$ becomes $ in the shell command
-# The backslash \ continues the command on the next line
-push:
-	@echo "==> Pushing to origin..."
-	@BRANCH=$$(git branch --show-current); \
-	echo "==> Pushing branch: $$BRANCH"; \
-	git push origin $$BRANCH
-
-# ==============================================================================
-# DEPLOYMENT TARGETS
-# ==============================================================================
-# These targets combine multiple operations for common workflows
-
-# Deploy to current branch (commit + push)
-# $(MAKE) calls make recursively to run another target
-# This is better than duplicating code - follows DRY principle
-# We pass MSG="$(MSG)" to forward the message to the commit target
-deploy:
-	@echo "==> Deploying to current branch..."
-	@if [ -z "$(MSG)" ]; then \
-		echo "Error: Please provide a commit message with MSG='your message'"; \
-		exit 1; \
-	fi
-	@$(MAKE) commit MSG="$(MSG)"
-	@$(MAKE) push
-
-# Deploy to dev branch
-# This target ensures we're on the dev branch before deploying
-# If we're on a different branch, it switches to dev first
-# This prevents accidentally deploying to the wrong branch
-deploy-dev:
-	@echo "==> Deploying to dev branch..."
-	@CURRENT=$$(git branch --show-current); \
-	if [ "$$CURRENT" != "dev" ]; then \
-		echo "==> Switching to dev branch..."; \
-		git checkout dev; \
-	fi
-	@if [ -z "$(MSG)" ]; then \
-		echo "Error: Please provide a commit message with MSG='your message'"; \
-		exit 1; \
-	fi
-	@$(MAKE) commit MSG="$(MSG)"
-	@$(MAKE) push
-	@echo "==> Successfully deployed to dev branch"
-
-# Deploy to production branch
-# Same as deploy-dev but for production
-# Production is the branch GitHub Pages serves from
-deploy-prod:
-	@echo "==> Deploying to production branch..."
-	@CURRENT=$$(git branch --show-current); \
-	if [ "$$CURRENT" != "production" ]; then \
-		echo "==> Switching to production branch..."; \
-		git checkout production; \
-	fi
-	@if [ -z "$(MSG)" ]; then \
-		echo "Error: Please provide a commit message with MSG='your message'"; \
-		exit 1; \
-	fi
-	@$(MAKE) commit MSG="$(MSG)"
-	@$(MAKE) push
-	@echo "==> Successfully deployed to production branch"
-
-# Deploy to all branches
-# This is a complex target that:
-# 1. Saves current branch
-# 2. Deploys to dev
-# 3. Deploys to production
-# 4. Returns to original branch
-# The && operator chains commands - if one fails, the rest don't run
-deploy-all:
-	@echo "==> Deploying to all branches (dev + production)..."
-	@if [ -z "$(MSG)" ]; then \
-		echo "Error: Please provide a commit message with MSG='your message'"; \
-		exit 1; \
-	fi
-	@ORIGINAL=$$(git branch --show-current); \
-	echo "==> Current branch: $$ORIGINAL"; \
-	echo ""; \
-	echo "==> Deploying to dev..."; \
-	git checkout dev && \
-	git add . && \
-	git commit -m "$(MSG)" || true && \
-	git push origin dev && \
-	echo ""; \
-	echo "==> Deploying to production..."; \
-	git checkout production && \
-	git add . && \
-	git commit -m "$(MSG)" || true && \
-	git push origin production && \
-	echo ""; \
-	echo "==> Returning to original branch: $$ORIGINAL"; \
-	git checkout $$ORIGINAL && \
-	echo ""; \
-	echo "==> Successfully deployed to all branches!"
-
-# ==============================================================================
-# TESTING & PREVIEW
-# ==============================================================================
-
-# Test HTML files locally
-# This is a simple validation that checks for DOCTYPE declarations
-# For more thorough validation, consider using html5validator or similar
-test:
-	@echo "==> Testing HTML files..."
-	@echo "==> Checking for HTML syntax errors..."
-	@for file in *.html; do \
-		echo "Checking $$file..."; \
-		if ! grep -q "<!DOCTYPE html>" $$file; then \
-			echo "Warning: $$file missing DOCTYPE"; \
-		fi; \
-	done
-	@echo "==> HTML files checked"
+	@echo "⚠️  CRITICAL PUBLISHING NOTES:"
+	@echo "  • 'make deploy' does NOT automatically publish"
+	@echo "  • You must manually commit and push after 'make deploy'"
+	@echo "  • Always run 'make test' before publishing"
+	@echo "  • Website goes live immediately after 'git push'"
+	@echo "  • Use 'production' branch for live site"
 	@echo ""
-	@echo "To preview locally, run:"
-	@echo "  make preview        (Python)"
-	@echo "  make preview-docker (Docker)"
+	@echo "🌐 ACCESS POINTS:"
+	@echo "  • Local development: http://localhost:8000"
+	@echo "  • Live website: https://waltdundore.github.io"
+	@echo "  • Status page: https://waltdundore.github.io/status.html"
+	@echo ""
+	@echo "⏱️  ESTIMATED TIMES:"
+	@echo "  • Full test suite: 2-3 minutes"
+	@echo "  • HTML/CSS validation: 30 seconds"
+	@echo "  • Link checking: 1-2 minutes"
+	@echo "  • Accessibility testing: 1 minute"
 
-# Preview site locally with Python
-# Python's http.server module provides a simple web server
-# This is quick and easy but not suitable for production
-# Press Ctrl+C to stop the server
-preview:
-	@echo "==> Starting local preview server..."
-	@echo "==> Visit: http://localhost:8000"
-	@echo "==> Press Ctrl+C to stop"
-	@python3 -m http.server 8000
+validate: test-html test-css
+	$(call SHOW_COMMAND,validation complete,Ensure HTML and CSS meet Ahab standards)
+	@echo "✓ All validation checks passed"
 
-# Preview site in Docker container (Container-First principle)
-# This follows our "python-in-docker" principle - always use containers
-# Uses nginx:alpine for a lightweight, production-like environment
-# -v mounts current directory as read-only (:ro)
-# -p maps container port 80 to host port 8000
-# --rm automatically removes container when stopped
-preview-docker:
-	@echo "==> Starting Docker preview server..."
-	@echo "==> Visit: http://localhost:8000"
-	@echo "==> Press Ctrl+C to stop"
-	@docker run --rm \
-		-v $$(pwd):/usr/share/nginx/html:ro \
-		-p 8000:80 \
-		nginx:alpine
+test-html:
+	$(call VALIDATE_HTML)
 
-# ==============================================================================
-# MAINTENANCE
-# ==============================================================================
+test-css:
+	$(call VALIDATE_CSS)
 
-# Clean up temporary files
-# find command searches for files matching patterns
-# -name ".DS_Store" finds macOS metadata files
-# -delete removes them
-# This keeps the repository clean
+test-accessibility:
+	$(call RUN_SHELL_TEST,./tests/test-accessibility.sh,WCAG 2.1 AA compliance and screen reader compatibility)
+
+test-links:
+	$(call CHECK_LINKS)
+
+test-performance:
+	$(call RUN_SHELL_TEST,./tests/test-performance.sh,Ensure pages load in < 3 seconds)
+
+test-secrets:
+	$(call RUN_SHELL_TEST,./tests/test-secrets.sh,Comprehensive scan for sensitive content (may have false positives))
+
+test-secrets-simple:
+	$(call SCAN_SECRETS)
+
+test-progressive-disclosure:
+	$(call RUN_SHELL_TEST,./tests/test-progressive-disclosure.sh,Validate progressive disclosure UX principles (elevator principle))
+
+setup-secrets:
+	$(call RUN_SHELL_TEST,./scripts/setup-secrets-detection.sh,One-time setup of secrets detection patterns (run once))
+
+test: validate test-accessibility test-links test-performance test-progressive-disclosure test-secrets-simple
+	@echo "→ Running: complete test suite"
+	@echo "   Purpose: Comprehensive validation of website compliance"
+	@echo "✓ All tests passed - website meets Ahab standards and is safe to publish"
+
+deploy: test
+	@echo "→ Running: PREPARATION ONLY - does NOT commit or push"
+	@echo "   Purpose: Run tests and stage files, but requires manual commit/push"
+	@echo ""
+	@echo "⚠️  WARNING: 'make deploy' does NOT actually deploy!"
+	@echo "⚠️  It only PREPARES for deployment by:"
+	@echo "   1. Running comprehensive tests"
+	@echo "   2. Staging files with 'git add .'"
+	@echo "   3. Showing you what needs to be committed"
+	@echo ""
+	@echo "📋 Preparing deployment..."
+	@git add .
+	@git status
+	@echo ""
+	@echo "🚀 TO ACTUALLY DEPLOY:"
+	@echo "   git commit -m \"your commit message\""
+	@echo "   git push origin main"
+	@echo ""
+	@echo "💡 TIP: This two-step process prevents accidental deployments"
+
+serve:
+	@echo "→ Running: docker run --rm -p 8000:8000 -v \$$(pwd):/app:ro -w /app python:3.11-slim python3 -m http.server 8000"
+	@echo "   Purpose: Start local development server in Docker container (secure, isolated)"
+	@echo "   Access at: http://localhost:8000"
+	@echo "   Press Ctrl+C to stop"
+	@docker run --rm -p 8000:8000 -v $$(pwd):/app:ro -w /app python:3.11-slim python3 -m http.server 8000
+
+compliance-report:
+	@echo "→ Running: compliance status report generation"
+	@echo "   Purpose: Generate comprehensive compliance status report"
+	@echo ""
+	@echo "=== AHAB WEBSITE COMPLIANCE REPORT ==="
+	@echo "Generated: $$(date)"
+	@echo ""
+	@echo "Progressive Disclosure Compliance:"
+	@./tests/test-progressive-disclosure.sh | grep -E "(✓|ERROR|WARNING)" || true
+	@echo ""
+	@echo "Technical Standards Compliance:"
+	@./tests/test-html.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@./tests/test-css.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@echo ""
+	@echo "Security Compliance:"
+	@./tests/test-secrets-simple.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@echo ""
+	@echo "Accessibility Compliance:"
+	@./tests/test-accessibility.sh | grep -E "(✓|ERROR|WARNING)" | head -3 || true
+	@echo ""
+	@echo "Full compliance details: see COMPLIANCE_STATUS.md"
+	@echo "✓ Compliance report complete"
+
+update-status:
+	@echo "→ Running: ./scripts/update-status.sh"
+	@echo "   Purpose: Update status page with real data from ahab system"
+	@./scripts/update-status.sh
+
+pre-push:
+	$(call SHOW_COMMAND,./scripts/pre-push-workflow.sh,Complete pre-push workflow - fix issues, run tests, update docs, prepare for deployment)
+	@./scripts/pre-push-workflow.sh
+
 clean:
-	@echo "==> Cleaning up temporary files..."
-	@find . -name ".DS_Store" -delete
-	@find . -name "*.swp" -delete
-	@find . -name "*~" -delete
-	@echo "==> Cleanup complete"
-
-# ==============================================================================
-# END OF MAKEFILE
-# ==============================================================================
-# Questions? Read the comments above or run `make help`
-# Want to learn more about Make? Visit https://makefiletutorial.com/
+	@echo "→ Running: cleanup temporary files"
+	@echo "   Purpose: Remove test artifacts and temporary files"
+	@rm -f *.tmp
+	@rm -f tests/*.log
+	@rm -f *.backup
+	@echo "✓ Cleanup complete"
