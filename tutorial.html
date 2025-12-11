@@ -49,13 +49,30 @@
             </div>
         </section>
 
+        <!-- Prerequisites Warning (FIRST) -->
+        <section id="prereq-warning" class="tutorial-section">
+            <div class="prereq-callout">
+                <div class="prereq-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>STOP: Install Prerequisites First</strong>
+                </div>
+                <p>Before running <code>make install</code>, you MUST have <strong>Git</strong>, <strong>Vagrant</strong>, and <strong>VirtualBox</strong> installed.</p>
+                <a href="#installation" class="btn btn-secondary">Install Prerequisites Now →</a>
+            </div>
+        </section>
+
         <!-- Quick Start (NEW) -->
         <section id="quick-start" class="tutorial-section highlight-section">
             <h2><i class="fas fa-rocket"></i> Quick Start (Already Have Prerequisites?)</h2>
             
             <div class="quick-start-box">
-                <h3>Three Commands to Your First Deployment</h3>
+                <h3>Four Commands to Your First Deployment</h3>
                 <div class="command-showcase">
+                    <div class="command-step">
+                        <div class="step-num">0</div>
+                        <code>brew install git vagrant virtualbox</code>
+                        <p>Install prerequisites (macOS)</p>
+                    </div>
                     <div class="command-step">
                         <div class="step-num">1</div>
                         <code>git clone https://github.com/waltdundore/ahab.git && cd ahab</code>
@@ -244,11 +261,16 @@ make install apache
         </section>
 
         <!-- Installation -->
-        <section id="installation" class="tutorial-section">
-            <h2>Installation</h2>
+        <section id="installation" class="tutorial-section highlight-section">
+            <h2><i class="fas fa-download"></i> Installation</h2>
+
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Critical:</strong> You MUST install these three tools before running <code>make install</code>. Without them, Ahab will not work.
+            </div>
 
             <h3>Step 1: Install Prerequisites</h3>
-            <p>Ahab needs three tools: Git, Vagrant, and VirtualBox.</p>
+            <p><strong>Ahab requires exactly three tools:</strong> Git, Vagrant, and VirtualBox. All are free.</p>
 
             <div class="tab-container">
                 <div class="tabs">
@@ -318,8 +340,12 @@ sudo dnf install -y vagrant</code></pre>
                 </div>
             </div>
 
-            <h3>Step 2: Verify Installation</h3>
-            <p>Open a terminal and verify everything is installed:</p>
+            <h3>Step 2: Verify Installation (REQUIRED)</h3>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Do NOT skip this step!</strong> Run these commands to verify everything is installed correctly:
+            </div>
+            
             <div class="code-block">
                 <pre><code># Check Git
 git --version
@@ -336,7 +362,17 @@ VBoxManage --version
 
             <div class="success-box">
                 <i class="fas fa-check-circle"></i>
-                <strong>Success!</strong> If all three commands show version numbers, you're ready to continue.
+                <strong>All three commands show version numbers?</strong> Perfect! You're ready to continue.
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4><i class="fas fa-wrench"></i> If Any Command Fails</h4>
+                <ul>
+                    <li><strong>Command not found:</strong> That tool isn't installed. Go back and install it.</li>
+                    <li><strong>Permission denied:</strong> You may need to restart your terminal or computer.</li>
+                    <li><strong>VirtualBox issues:</strong> Check System Preferences → Security & Privacy (macOS) or enable virtualization in BIOS.</li>
+                </ul>
+                <p><strong>Don't proceed until all three commands work!</strong> <code>make install</code> will fail without them.</p>
             </div>
 
             <h3>Step 3: Clone Ahab Repository</h3>
@@ -1015,6 +1051,18 @@ code ahab/Makefile</code></pre>
         </main>
         
         <!-- Footer -->
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
         </main>
         
         </main>

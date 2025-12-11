@@ -35,6 +35,8 @@ help:
 	@echo "  deploy         - PREPARE for deployment (runs tests, stages files)"
 	@echo "                   ⚠️  Does NOT commit or push - you must do that manually!"
 	@echo "                   After 'make deploy', run: git commit -m \"msg\" && git push origin main"
+	@echo "  pre-push       - Complete pre-push workflow (fix issues, test, update docs)"
+	@echo "                   Comprehensive validation and preparation before publishing"
 	@echo ""
 	@echo "  clean          - Clean temporary files"
 
@@ -128,6 +130,10 @@ update-status:
 	@echo "→ Running: ./scripts/update-status.sh"
 	@echo "   Purpose: Update status page with real data from ahab system"
 	@./scripts/update-status.sh
+
+pre-push:
+	$(call SHOW_COMMAND,./scripts/pre-push-workflow.sh,Complete pre-push workflow - fix issues, run tests, update docs, prepare for deployment)
+	@./scripts/pre-push-workflow.sh
 
 clean:
 	@echo "→ Running: cleanup temporary files"

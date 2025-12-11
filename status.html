@@ -11,119 +11,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <style>
-        :root {
-            --ahab-blue: #0066cc;
-            --ahab-navy: #003d7a;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --info: #17a2b8;
-        }
-        
-        .navbar-brand img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        .status-card {
-            border-left: 4px solid var(--ahab-blue);
-            transition: transform 0.2s;
-        }
-        
-        .status-card:hover {
-            transform: translateY(-2px);
-        }
-        
-        .status-passing {
-            border-left-color: var(--success);
-        }
-        
-        .status-warning {
-            border-left-color: var(--warning);
-        }
-        
-        .status-failing {
-            border-left-color: var(--danger);
-        }
-        
-        .status-info {
-            border-left-color: var(--info);
-        }
-        
-        .milestone-progress {
-            height: 20px;
-            background: #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .milestone-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--success) 0%, var(--info) 100%);
-            transition: width 0.3s ease;
-        }
-        
-        .commit-hash {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        
-        .timeline-item {
-            border-left: 2px solid var(--ahab-blue);
-            padding-left: 20px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--ahab-blue);
-        }
-        
-        .timeline-item.completed::before {
-            background: var(--success);
-        }
-        
-        .timeline-item.in-progress::before {
-            background: var(--warning);
-        }
-        
-        .timeline-item.pending::before {
-            background: #6c757d;
-        }
-        
-        .last-updated {
-            font-size: 0.9em;
-            color: #6c757d;
-        }
-        
-        .confidence-meter {
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .confidence-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--danger) 0%, var(--warning) 50%, var(--success) 100%);
-            transition: width 0.3s ease;
-        }
-    </style>
 </head>
 <body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--ahab-navy);">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="images/ahab-logo.png" alt="Ahab Logo">
@@ -170,7 +63,7 @@
                 <div class="col-md-4 text-md-end">
                     <div class="last-updated">
                         <i class="fas fa-clock"></i>
-                        Last Updated: 2025-12-11 13:37:09 UTC<span id="lastUpdated">December 11, 2025 13:14 UTC</span>
+                        Last Updated: 2025-12-11 14:02:56 UTC<span id="lastUpdated">2025-12-11 14:02:56 UTC</span>
                     </div>
                 </div>
             </div>
@@ -242,7 +135,7 @@
                                 <span>0% Complete</span>
                             </div>
                             <div class="milestone-progress">
-                                <div class="milestone-bar" style="width: 0%"></div>
+                                <div class="milestone-bar"></div>
                             </div>
                         </div>
                         
@@ -320,13 +213,13 @@
                         <h6>Current Version</h6>
                         <p class="mb-2">
                             <strong>Commit:</strong> 
-                            <span class="commit-hash">f3030ed</span>
+                            <span class="commit-hash">f32464f</span>
                         </p>
                         <p class="mb-2">
-                            <strong>Branch:</strong> dev
+                            <strong>Branch:</strong> milestone-system-v1
                         </p>
                         <p class="mb-0">
-                            <strong>Last Test:</strong> 2025-12-11 08:36:27 UTC
+                            <strong>Last Test:</strong> 2025-12-11 09:01:28 UTC
                         </p>
                     </div>
                 </div>
@@ -342,7 +235,7 @@
                                 <span>95%</span>
                             </div>
                             <div class="confidence-meter">
-                                <div class="confidence-fill" style="width: 95%"></div>
+                                <div class="confidence-fill"></div>
                             </div>
                         </div>
                         
@@ -352,7 +245,7 @@
                                 <span>90%</span>
                             </div>
                             <div class="confidence-meter">
-                                <div class="confidence-fill" style="width: 90%"></div>
+                                <div class="confidence-fill"></div>
                             </div>
                         </div>
                         
@@ -362,7 +255,7 @@
                                 <span>80%</span>
                             </div>
                             <div class="confidence-meter">
-                                <div class="confidence-fill" style="width: 90%"></div>
+                                <div class="confidence-fill"></div>
                             </div>
                         </div>
                         
@@ -372,7 +265,7 @@
                                 <span>85%</span>
                             </div>
                             <div class="confidence-meter">
-                                <div class="confidence-fill" style="width: 90%"></div>
+                                <div class="confidence-fill"></div>
                             </div>
                         </div>
                     </div>

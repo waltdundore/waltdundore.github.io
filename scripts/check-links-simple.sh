@@ -45,6 +45,29 @@ check_url() {
         return 0
     fi
     
+    # Handle anchor links (file.html#anchor)
+    if [[ "$url" =~ ^([^#]+)#(.+)$ ]]; then
+        local file_part="${BASH_REMATCH[1]}"
+        local anchor_part="${BASH_REMATCH[2]}"
+        
+        # Check if the file exists
+        if [[ -f "$file_part" ]]; then
+            # Check if the anchor exists in the file
+            if grep -q "id=\"$anchor_part\"" "$file_part" 2>/dev/null; then
+                echo -e "${GREEN}✓${NC} Internal anchor: $url (in $source_file)"
+                return 0
+            else
+                echo -e "${RED}✗${NC} Broken anchor link: $url (anchor #$anchor_part not found in $file_part)"
+                BROKEN_LINKS=$((BROKEN_LINKS + 1))
+                return 1
+            fi
+        else
+            echo -e "${RED}✗${NC} Broken anchor link: $url (file $file_part not found)"
+            BROKEN_LINKS=$((BROKEN_LINKS + 1))
+            return 1
+        fi
+    fi
+    
     # Skip localhost links (these are examples for local development)
     if [[ "$url" =~ ^https?://localhost ]]; then
         echo "🏠 Skipping localhost: $url"
@@ -110,12 +133,13 @@ for css_file in *.css css/*.css; do
         echo "📄 Checking links in $css_file..."
         
         {
-            # URLs from url() functions
-            grep -o 'url([^)]*)' "$css_file" 2>/dev/null | sed 's/url(//;s/)//;s/["\x27]//g;s/^ *//;s/ *$//' || true
-            # @import URLs
-            grep -o '@import[^;]*' "$css_file" 2>/dev/null | sed 's/@import *//;s/["\x27]//g;s/ *url(//;s/) *//;s/;.*//' || true
+            # URLs from url() functions - handle multiline URLs
+            grep -o 'url([^)]*)' "$css_file" 2>/dev/null | sed 's/url(//;s/)//;s/["\x27]//g;s/^ *//;s/ *$//;s/\n//g' || true
+            # @import URLs - handle multiline imports
+            grep -o '@import[^;]*' "$css_file" 2>/dev/null | sed 's/@import *//;s/["\x27]//g;s/ *url(//;s/) *//;s/;.*//;s/\n//g' || true
         } | while read -r link; do
-            if [[ -n "$link" && ! "$link" =~ ^data: ]]; then
+            # Skip empty links, data URLs, and malformed URLs
+            if [[ -n "$link" && ! "$link" =~ ^data: && ! "$link" =~ [[:space:]] ]]; then
                 check_url "$link" "$css_file"
             fi
         done
