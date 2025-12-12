@@ -444,6 +444,11 @@ setup-github-pages:
 	@echo "   • Our production branch has all the corruption fixes"
 	@echo "   • This is the traditional GitHub Pages deployment method"
 
+fix-deployment:
+	@echo "→ Running: ./scripts/force-deployment.sh"
+	@echo "   Purpose: Force GitHub Pages deployment by creating trigger commits and waiting for deployment"
+	@./scripts/force-deployment.sh
+
 emergency-deploy:
 	@echo "→ Running: Emergency deployment bypass"
 	@echo "   Purpose: Deploy immediately using branch method instead of failing GitHub Actions"
