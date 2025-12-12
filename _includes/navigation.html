@@ -1,0 +1,28 @@
+<nav class="tutorial-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+        <img src="{{ '/images/ahab-logo.png' | relative_url }}" alt="Ahab Logo" class="nav-logo">
+        <span>{{ site.title }}</span>
+    </div>
+    <div class="nav-links">
+        {% for item in site.navigation %}
+            {% if item.external %}
+                <a href="{{ item.url }}" target="_blank" rel="noopener"{% if item.title == "GitHub" %} class="github-link"{% endif %}>
+                    {% if item.title == "Status" %}<i class="fas fa-chart-line" aria-hidden="true"></i> {% endif %}
+                    {% if item.title == "GitHub" %}<i class="fab fa-github" aria-hidden="true"></i> {% endif %}
+                    {{ item.title }}
+                </a>
+            {% else %}
+                {% assign current_page = false %}
+                {% if page.url == item.url or (item.url != "/" and page.url contains item.url) %}
+                    {% assign current_page = true %}
+                {% endif %}
+                <a href="{{ item.url | relative_url }}" 
+                   data-page="{{ item.title | downcase }}"
+                   {% if current_page %}class="active" aria-current="page"{% endif %}>
+                    {% if item.title == "Status" %}<i class="fas fa-chart-line" aria-hidden="true"></i> {% endif %}
+                    {{ item.title }}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</nav>

@@ -1,0 +1,84 @@
+# Jekyll Configuration for Ahab Project Website
+title: "Ahab Project"
+description: "Infrastructure automation for K-12 schools and non-profits"
+url: "https://waltdundore.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - scripts/
+  - tests/
+  - "*.backup"
+  - "*.bak"
+  - "*.md"
+  - Makefile
+  - LICENSE
+
+# Include files that start with underscore
+include:
+  - _pages
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Site metadata
+author: "Walt Dundore"
+email: "walt@dundore.org"
+github_username: "waltdundore"
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Tutorial"
+    url: "/tutorial.html"
+  - title: "Learn More"
+    url: "/learn.html"
+  - title: "For Teachers"
+    url: "/teachers.html"
+  - title: "Status"
+    url: "/status.html"
+  - title: "GitHub"
+    url: "https://github.com/waltdundore/ahab"
+    external: true
+
+# Project info
+project:
+  version: "v0.2.0-alpha"
+  build_hash: "e276735"
+  last_updated: "December 12, 2025 18:00 UTC"
+  last_updated: "December 12, 2025"
+  status: "Alpha Development"

@@ -1,0 +1,8 @@
+{% if page.breadcrumb != false %}
+<nav class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    {% if page.url != "/" %}
+        → <span aria-current="page">{{ page.title | default: "Page" }}</span>
+    {% endif %}
+</nav>
+{% endif %}
