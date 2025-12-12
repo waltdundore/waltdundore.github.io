@@ -66,26 +66,16 @@ fix_html_file() {
     temp_file=$(mktemp)
     trap "rm -f $temp_file" EXIT
     
-    # Fix the file by keeping only the first main tag
-    local in_main_section=false
-    local main_found=false
-    
-    while IFS= read -r line; do
-        if [[ "$line" =~ \<main\ id=\"main\"\> ]]; then
-            if [[ "$main_found" == false ]]; then
-                # First main tag - keep it
-                echo "$line" >> "$temp_file"
-                main_found=true
-                in_main_section=true
-            else
-                # Duplicate main tag - skip it
-                print_info "Removing duplicate main tag"
-            fi
-        else
-            # Not a main tag line - keep it
-            echo "$line" >> "$temp_file"
-        fi
-    done < "$file"
+    # Fix the file by removing duplicate main tags
+    # Use sed to remove duplicate consecutive main tags
+    sed '/^[[:space:]]*<main id="main">$/{
+        # If this is a main tag line
+        N
+        # If the next line is also a main tag, delete the first one
+        /\n[[:space:]]*<main id="main">$/{
+            s/.*\n//
+        }
+    }' "$file" > "$temp_file"
     
     # Verify the fix
     local result_count
