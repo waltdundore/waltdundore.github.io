@@ -256,6 +256,11 @@ add-version-tracking:
 	@echo "   Purpose: Add version tracking to HTML files for deployment monitoring"
 	@./scripts/add-version-tracking.sh
 
+monitor-deployment:
+	@echo "→ Running: ./scripts/monitor-deployment.sh"
+	@echo "   Purpose: Check GitHub Pages deployment status and corruption fix progress"
+	@./scripts/monitor-deployment.sh
+
 clean:
 	@echo "→ Running: cleanup temporary files"
 	@echo "   Purpose: Remove test artifacts and temporary files"
@@ -373,6 +378,31 @@ publish-sync:
 	@git checkout main
 	@git pull origin main || echo "⚠️  No remote main branch or conflicts"
 	@echo "✅ Sync complete"
+deploy-fixes:
+	@echo "→ Running: Deploy corruption fixes from main to production branch"
+	@echo "   Purpose: Deploy our HTML corruption fixes to GitHub Pages (production branch)"
+	@echo ""
+	@echo "📋 Deployment Steps:"
+	@echo "  1. Switch to production branch"
+	@echo "  2. Merge main branch fixes"
+	@echo "  3. Push to GitHub (triggers GitHub Pages deployment)"
+	@echo ""
+	@# Ensure we have latest changes
+	@git fetch origin
+	@echo "→ Switching to production branch"
+	@git checkout production
+	@echo "→ Merging main branch fixes into production"
+	@git merge main --no-edit || (echo "❌ Merge failed - resolve conflicts manually" && exit 1)
+	@echo "→ Pushing production branch to GitHub (triggers GitHub Pages deployment)"
+	@git push origin production
+	@echo ""
+	@echo "✅ Corruption fixes deployed successfully!"
+	@echo "🌐 Live site: https://waltdundore.github.io/"
+	@echo "📊 Status page: https://waltdundore.github.io/status.html"
+	@echo ""
+	@echo "⏱️  GitHub Pages deployment typically takes 1-2 minutes"
+	@echo "🔄 Monitor deployment: make monitor-deployment"
+
 # Handle branch names as arguments to publish command
 %:
 	@:
