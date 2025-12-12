@@ -60,6 +60,10 @@ help:
 	@echo "                              • Progressive disclosure compliance"
 	@echo "                              • Context-aware navigation"
 	@echo "                              • Elevator principle adherence"
+	@echo "  make test-live-sync       → Live site synchronization check"
+	@echo "                              • Compares local files with GitHub Pages"
+	@echo "                              • Verifies deployment status"
+	@echo "                              • Detects content drift"
 	@echo ""
 	@echo "🔧 DEVELOPMENT & UTILITIES:"
 	@echo "  make serve                → Start local development server"
@@ -179,6 +183,9 @@ test-secrets-simple:
 test-progressive-disclosure:
 	$(call RUN_SHELL_TEST,./tests/test-progressive-disclosure.sh,Validate progressive disclosure UX principles (elevator principle))
 
+test-live-sync:
+	$(call RUN_SHELL_TEST,./tests/test-live-site-sync.sh,Verify live GitHub Pages site matches local repository content)
+
 setup-secrets:
 	$(call RUN_SHELL_TEST,./scripts/setup-secrets-detection.sh,One-time setup of secrets detection patterns (run once))
 
@@ -186,6 +193,11 @@ test: validate test-accessibility test-links test-performance test-progressive-d
 	@echo "→ Running: complete test suite"
 	@echo "   Purpose: Comprehensive validation of website compliance"
 	@echo "✓ All tests passed - website meets Ahab standards and is safe to publish"
+
+test-full: test test-live-sync
+	@echo "→ Running: complete test suite with live site synchronization"
+	@echo "   Purpose: Comprehensive validation including live site comparison"
+	@echo "✓ All tests passed - website meets Ahab standards and is synchronized with live site"
 
 deploy: test
 	@echo "→ Running: PREPARATION ONLY - does NOT commit or push"
@@ -407,26 +419,53 @@ setup-github-pages:
 	@echo "→ Running: GitHub Pages configuration setup"
 	@echo "   Purpose: Configure repository for GitHub Pages deployment"
 	@echo ""
-	@echo "📋 GitHub Pages Setup Instructions:"
+	@echo "📋 CRITICAL: GitHub Actions workflow was failing and blocking deployment"
+	@echo "📋 We've temporarily disabled the workflow to allow manual deployment"
 	@echo ""
+	@echo "🚨 IMMEDIATE ACTION REQUIRED:"
 	@echo "1. 🌐 Open GitHub repository settings:"
 	@echo "   https://github.com/waltdundore/waltdundore.github.io/settings/pages"
 	@echo ""
-	@echo "2. ⚙️  Configure GitHub Pages:"
-	@echo "   • Source: Deploy from a branch"
+	@echo "2. ⚙️  Configure GitHub Pages for BRANCH deployment:"
+	@echo "   • Source: Deploy from a branch (NOT GitHub Actions)"
 	@echo "   • Branch: production"
 	@echo "   • Folder: / (root)"
+	@echo "   • Click Save"
 	@echo ""
-	@echo "3. 🔄 Alternative: Use GitHub Actions (recommended):"
-	@echo "   • Source: GitHub Actions"
-	@echo "   • Our workflow will handle deployment automatically"
+	@echo "3. ✅ This will immediately deploy our corruption fixes"
 	@echo ""
-	@echo "4. ✅ Save settings and wait for deployment"
-	@echo ""
-	@echo "💡 After configuration:"
-	@echo "   • Run 'make deploy-fixes' to deploy corruption fixes"
+	@echo "4. 🔄 After deployment works:"
 	@echo "   • Monitor with 'make monitor-deployment'"
 	@echo "   • Site will be live at https://waltdundore.github.io/"
+	@echo "   • We can fix the GitHub Actions workflow later"
+	@echo ""
+	@echo "💡 Why this works:"
+	@echo "   • Branch deployment bypasses the failing GitHub Actions"
+	@echo "   • Our production branch has all the corruption fixes"
+	@echo "   • This is the traditional GitHub Pages deployment method"
+
+emergency-deploy:
+	@echo "→ Running: Emergency deployment bypass"
+	@echo "   Purpose: Deploy immediately using branch method instead of failing GitHub Actions"
+	@echo ""
+	@echo "🚨 EMERGENCY DEPLOYMENT PROCEDURE:"
+	@echo ""
+	@echo "The GitHub Actions workflow is failing and blocking deployment."
+	@echo "We need to switch to branch-based deployment immediately."
+	@echo ""
+	@echo "📋 Steps to complete deployment:"
+	@echo "1. Go to: https://github.com/waltdundore/waltdundore.github.io/settings/pages"
+	@echo "2. Change Source from 'GitHub Actions' to 'Deploy from a branch'"
+	@echo "3. Select Branch: production"
+	@echo "4. Select Folder: / (root)"
+	@echo "5. Click Save"
+	@echo ""
+	@echo "✅ This will immediately deploy the corruption fixes!"
+	@echo ""
+	@echo "🔍 Verify deployment:"
+	@echo "   make monitor-deployment"
+	@echo ""
+	@echo "🔧 After deployment works, we can fix the GitHub Actions workflow"
 
 publish-all-branches:
 	@echo "→ Running: Publish all branches with latest changes"
