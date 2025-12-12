@@ -60,6 +60,10 @@ help:
 	@echo "                              • Progressive disclosure compliance"
 	@echo "                              • Context-aware navigation"
 	@echo "                              • Elevator principle adherence"
+	@echo "  make test-live-sync       → Live site synchronization check"
+	@echo "                              • Compares local files with GitHub Pages"
+	@echo "                              • Verifies deployment status"
+	@echo "                              • Detects content drift"
 	@echo ""
 	@echo "🔧 DEVELOPMENT & UTILITIES:"
 	@echo "  make serve                → Start local development server"
@@ -179,6 +183,9 @@ test-secrets-simple:
 test-progressive-disclosure:
 	$(call RUN_SHELL_TEST,./tests/test-progressive-disclosure.sh,Validate progressive disclosure UX principles (elevator principle))
 
+test-live-sync:
+	$(call RUN_SHELL_TEST,./tests/test-live-site-sync.sh,Verify live GitHub Pages site matches local repository content)
+
 setup-secrets:
 	$(call RUN_SHELL_TEST,./scripts/setup-secrets-detection.sh,One-time setup of secrets detection patterns (run once))
 
@@ -186,6 +193,11 @@ test: validate test-accessibility test-links test-performance test-progressive-d
 	@echo "→ Running: complete test suite"
 	@echo "   Purpose: Comprehensive validation of website compliance"
 	@echo "✓ All tests passed - website meets Ahab standards and is safe to publish"
+
+test-full: test test-live-sync
+	@echo "→ Running: complete test suite with live site synchronization"
+	@echo "   Purpose: Comprehensive validation including live site comparison"
+	@echo "✓ All tests passed - website meets Ahab standards and is synchronized with live site"
 
 deploy: test
 	@echo "→ Running: PREPARATION ONLY - does NOT commit or push"
