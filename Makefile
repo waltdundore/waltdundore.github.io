@@ -403,6 +403,31 @@ deploy-fixes:
 	@echo "⏱️  GitHub Pages deployment typically takes 1-2 minutes"
 	@echo "🔄 Monitor deployment: make monitor-deployment"
 
+setup-github-pages:
+	@echo "→ Running: GitHub Pages configuration setup"
+	@echo "   Purpose: Configure repository for GitHub Pages deployment"
+	@echo ""
+	@echo "📋 GitHub Pages Setup Instructions:"
+	@echo ""
+	@echo "1. 🌐 Open GitHub repository settings:"
+	@echo "   https://github.com/waltdundore/waltdundore.github.io/settings/pages"
+	@echo ""
+	@echo "2. ⚙️  Configure GitHub Pages:"
+	@echo "   • Source: Deploy from a branch"
+	@echo "   • Branch: production"
+	@echo "   • Folder: / (root)"
+	@echo ""
+	@echo "3. 🔄 Alternative: Use GitHub Actions (recommended):"
+	@echo "   • Source: GitHub Actions"
+	@echo "   • Our workflow will handle deployment automatically"
+	@echo ""
+	@echo "4. ✅ Save settings and wait for deployment"
+	@echo ""
+	@echo "💡 After configuration:"
+	@echo "   • Run 'make deploy-fixes' to deploy corruption fixes"
+	@echo "   • Monitor with 'make monitor-deployment'"
+	@echo "   • Site will be live at https://waltdundore.github.io/"
+
 # Handle branch names as arguments to publish command
 %:
 	@:
