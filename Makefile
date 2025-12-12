@@ -246,6 +246,11 @@ pre-push:
 	$(call SHOW_COMMAND,./scripts/pre-push-workflow.sh,Complete pre-push workflow - fix issues, run tests, update docs, prepare for deployment)
 	@./scripts/pre-push-workflow.sh
 
+fix-corruption:
+	@echo "→ Running: ./scripts/fix-html-corruption.sh"
+	@echo "   Purpose: Fix HTML corruption by removing duplicate main tags"
+	@./scripts/fix-html-corruption.sh
+
 clean:
 	@echo "→ Running: cleanup temporary files"
 	@echo "   Purpose: Remove test artifacts and temporary files"
