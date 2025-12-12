@@ -428,6 +428,47 @@ setup-github-pages:
 	@echo "   • Monitor with 'make monitor-deployment'"
 	@echo "   • Site will be live at https://waltdundore.github.io/"
 
+publish-all-branches:
+	@echo "→ Running: Publish all branches with latest changes"
+	@echo "   Purpose: Deploy complete corruption recovery and all updates to GitHub"
+	@echo ""
+	@echo "📋 Publishing All Branches:"
+	@echo "  1. Push production branch (corruption fixes + tools)"
+	@echo "  2. Merge production → main (GitHub Pages deployment)"
+	@echo "  3. Push main branch (triggers GitHub Pages)"
+	@echo "  4. Push dev branch (development updates)"
+	@echo ""
+	@# Ensure we have all latest changes
+	@git fetch origin
+	@echo "→ Step 1: Publishing production branch"
+	@git checkout production
+	@git push origin production
+	@echo ""
+	@echo "→ Step 2: Merging production → main"
+	@git checkout main
+	@git merge production --no-edit || (echo "❌ Merge failed - resolve conflicts manually" && exit 1)
+	@echo ""
+	@echo "→ Step 3: Publishing main branch (triggers GitHub Pages)"
+	@git push origin main
+	@echo ""
+	@echo "→ Step 4: Publishing dev branch"
+	@git checkout dev 2>/dev/null || git checkout -b dev
+	@git merge production --no-edit || echo "⚠️  Dev branch merge conflicts - manual resolution needed"
+	@git push origin dev || echo "⚠️  Dev branch push failed - may need manual setup"
+	@echo ""
+	@echo "✅ All branches published successfully!"
+	@echo ""
+	@echo "📊 Branch Status:"
+	@echo "  • production: Latest corruption fixes and recovery tools"
+	@echo "  • main: GitHub Pages deployment source (live site)"
+	@echo "  • dev: Development branch with all updates"
+	@echo ""
+	@echo "🌐 Live Site: https://waltdundore.github.io/"
+	@echo "📊 Status Page: https://waltdundore.github.io/status.html"
+	@echo "🔄 Monitor deployment: make monitor-deployment"
+	@echo ""
+	@echo "⏱️  GitHub Pages deployment typically takes 1-2 minutes"
+
 # Handle branch names as arguments to publish command
 %:
 	@:
