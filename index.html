@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- VERSION_TRACKING: 2025-12-12 15:15 UTC | aa4ccc3 | main -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Ahab - Infrastructure Automation for Schools & Non-Profits</title>
+    <meta name="description" content="Simple, transparent infrastructure automation for K-12 schools and non-profits. Deploy services with one command. Built with AI, tested in homelabs, designed for education.">
+    <meta name="keywords" content="infrastructure automation, ansible, docker, k-12 schools, non-profit, education technology, devops, AI-assisted development">
+</head>
+<body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="tutorial-nav">
+        <div class="nav-brand">
+            <img src="https://raw.githubusercontent.com/waltdundore/ansible-control/refs/heads/prod/docs/images/ahab-logo.png" alt="Ahab Logo" class="nav-logo">
+            <span>Ahab</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active" aria-current="page">Home</a>
+            <a href="tutorial.html">Tutorial</a>
+            <a href="learn.html">Learn More</a>
+            <a href="teachers.html">For Teachers</a>
+            <a href="status.html" class="status-link"><i class="fas fa-chart-line"></i> Status</a>
+            <a href="https://github.com/waltdundore/ahab" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <span aria-current="page">Home</span>
+    </nav>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <main id="main">
+        <section class="hero">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/waltdundore/ansible-control/refs/heads/prod/docs/images/ahab-logo.png" alt="Ahab Logo" class="logo">
+            </div>
+            <h1 class="tagline">Infrastructure Automation for Schools</h1>
+            <p class="subtitle">Simple commands. Transparent code. Built for education.</p>
+            <div class="hero-cta">
+                <a href="#quickstart" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/waltdundore/ansible-control" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+            <div class="status-badge">
+                <span class="badge alpha">Alpha Software</span>
+                <span class="badge homelab">Homelab Testing</span>
+                <span class="badge ai">AI-Built</span>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="value-prop">
+            <h2>Why Ahab?</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Lower Costs</h3>
+                    <p>Free for schools and non-profits. No expensive consultants needed for basic operations.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Educational</h3>
+                    <p>Learn real DevOps skills. Every command teaches. Documentation designed for learning.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Transparent</h3>
+                    <p>See the code. Review before running. No black boxes. We document failures and successes.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI-Assisted</h3>
+                    <p>Built with AI from human requirements. Demonstrates what's possible with AI-driven development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You Can Do -->
+        <section class="use-cases">
+            <h2>What Can You Deploy?</h2>
+            <div class="use-case-grid">
+                <div class="use-case">
+                    <i class="fas fa-server"></i>
+                    <h3>Web Servers</h3>
+                    <p>Apache, Nginx - One command deployment</p>
+                    <code>make install apache</code>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-database"></i>
+                    <h3>Databases</h3>
+                    <p>MySQL, PostgreSQL - Coming soon</p>
+                    <code>make install mysql</code>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Workstations</h3>
+                    <p>Development environments with Docker & Ansible</p>
+                    <code>make install</code>
+                </div>
+                <div class="use-case">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Your Ideas</h3>
+                    <p>Modular system - add your own services</p>
+                    <code>make install yourservice</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section class="quickstart" id="quickstart">
+            <h2>Quick Start (15 Minutes)</h2>
+            <div class="quickstart-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Install Prerequisites</h3>
+                        <div class="code-block">
+                            <pre><code># On Mac
+brew install git vagrant virtualbox
+
+# On Linux (Ubuntu/Debian)
+sudo apt install git vagrant virtualbox</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Clone Repository</h3>
+                        <div class="code-block">
+                            <pre><code>git clone https://github.com/waltdundore/ansible-control.git
+cd ansible-control</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Deploy</h3>
+                        <div class="code-block">
+                            <pre><code># Create workstation VM
+make install
+
+# Deploy Apache web server
+make install apache
+
+# Access at http://localhost:8080</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="architecture">
+                <div class="arch-step">
+                    <i class="fas fa-terminal"></i>
+                    <h3>Simple Commands</h3>
+                    <p>Type <code>make install apache</code></p>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Ansible Automation</h3>
+                    <p>Playbooks configure everything</p>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <i class="fab fa-docker"></i>
+                    <h3>Docker Containers</h3>
+                    <p>Services run isolated and portable</p>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Working Service</h3>
+                    <p>Access your deployed application</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- For Students -->
+        <section class="for-students">
+            <h2>For Students & Teachers</h2>
+            <div class="student-content">
+                <div class="student-feature">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Learn by Doing</h3>
+                    <p>Deploy real services. See how infrastructure works. Build portfolio projects.</p>
+                </div>
+                <div class="student-feature">
+                    <i class="fas fa-code"></i>
+                    <h3>Real Tools</h3>
+                    <p>Same tools used at Google, Amazon, Netflix. Ansible, Docker, Git, Linux.</p>
+                </div>
+                <div class="student-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe to Experiment</h3>
+                    <p>Virtual machines mean you can't break anything. Delete and recreate anytime.</p>
+                </div>
+            </div>
+            <div class="cta-box">
+                <h3>Student README Available</h3>
+                <p>Step-by-step guide designed for high school students learning computer science.</p>
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/README-STUDENTS.md" target="_blank" class="btn">
+                    Read Student Guide
+                </a>
+            </div>
+        </section>
+
+        <!-- Transparency Section -->
+        <section class="transparency">
+            <h2>Radical Transparency</h2>
+            <div class="transparency-grid">
+                <div class="transparency-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI-Built Code</h3>
+                    <p>This project is built by AI (Kiro/Claude) from human requirements. We're transparent about how modern software is created.</p>
+                </div>
+                <div class="transparency-item">
+                    <i class="fas fa-flask"></i>
+                    <h3>Homelab Testing</h3>
+                    <p>We test in homelabs, not production. We're building toward production use and documenting the journey.</p>
+                </div>
+                <div class="transparency-item">
+                    <i class="fas fa-bug"></i>
+                    <h3>We Document Failures</h3>
+                    <p>See our <a href="https://github.com/waltdundore/ansible-control/blob/dev/LESSONS_LEARNED.md" target="_blank">Lessons Learned</a>. We don't hide mistakes.</p>
+                </div>
+                <div class="transparency-item">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Open Source</h3>
+                    <p>Review the code. Modify it. Learn from it. Free for education under CC BY-NC-SA 4.0.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation -->
+        <section class="documentation">
+            <h2>Documentation</h2>
+            <div class="doc-grid">
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/README.md" target="_blank" class="doc-card">
+                    <i class="fas fa-book"></i>
+                    <h3>README</h3>
+                    <p>Getting started guide and overview</p>
+                </a>
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/README-STUDENTS.md" target="_blank" class="doc-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Student Guide</h3>
+                    <p>For high school CS students</p>
+                </a>
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/EXECUTIVE_SUMMARY.md" target="_blank" class="doc-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Executive Summary</h3>
+                    <p>For school administrators</p>
+                </a>
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/LESSONS_LEARNED.md" target="_blank" class="doc-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Lessons Learned</h3>
+                    <p>What we've learned from real use</p>
+                </a>
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/TROUBLESHOOTING.md" target="_blank" class="doc-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Troubleshooting</h3>
+                    <p>Common issues and solutions</p>
+                </a>
+                <a href="https://github.com/waltdundore/ansible-control/blob/dev/ABOUT.md" target="_blank" class="doc-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>About</h3>
+                    <p>Mission, philosophy, and roadmap</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Repository Links -->
+        <section class="repositories">
+            <h2>GitHub Repository</h2>
+            <div class="repo-highlight">
+                <div class="repo-main">
+                    <i class="fab fa-github"></i>
+                    <h3>ansible-control</h3>
+                    <p>Main repository with all code, playbooks, modules, and documentation</p>
+                    <div class="repo-stats">
+                        <span><i class="fas fa-star"></i> Star on GitHub</span>
+                        <span><i class="fas fa-code-branch"></i> Fork & Contribute</span>
+                        <span><i class="fas fa-bug"></i> Report Issues</span>
+                    </div>
+                    <a href="https://github.com/waltdundore/ansible-control" target="_blank" class="btn btn-large">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Is this production-ready?</h3>
+                    <p>No. This is alpha software being tested in homelabs. We're building toward production use for schools and documenting the process.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is it really free for schools?</h3>
+                    <p>Yes. Free for K-12 schools, non-profits, and educational institutions under CC BY-NC-SA 4.0 license. For-profit entities need to negotiate commercial terms.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I find a bug?</h3>
+                    <p>Report it on <a href="https://github.com/waltdundore/ansible-control/issues" target="_blank">GitHub Issues</a>. We document all issues transparently.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I contribute?</h3>
+                    <p>Yes! Fork the repository, make changes, submit pull requests. See <a href="https://github.com/waltdundore/ansible-control/blob/dev/DEVELOPMENT_RULES.md" target="_blank">Development Rules</a>.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why is it called Ahab?</h3>
+                    <p>Automated Host Administration & Build. Also, we're chasing the white whale of perfect infrastructure automation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ahab Software, LLC</h3>
+                    <p>Infrastructure Automation for Education</p>
+                    <p class="tagline-footer">Simple. Transparent. Educational.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="https://github.com/waltdundore/ansible-control" target="_blank">Documentation</a>
+                    <a href="https://github.com/waltdundore/ansible-control/blob/dev/README-STUDENTS.md" target="_blank">Student Guide</a>
+                    <a href="https://github.com/waltdundore/ansible-control/blob/dev/EXECUTIVE_SUMMARY.md" target="_blank">For Administrators</a>
+                    <a href="https://github.com/waltdundore/ansible-control/issues" target="_blank">Report Issues</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/waltdundore" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dundore/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="contact-note">Questions? Open an issue on GitHub</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ahab Software, LLC. Licensed under CC BY-NC-SA 4.0 for educational use.</p>
+                <p class="footer-note">Built with AI • Tested in Homelabs • Designed for Education</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
