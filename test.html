@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Ahab Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="tutorial-nav">
+        <div class="nav-brand">
+            <img src="images/ahab-logo.png" alt="Ahab Logo" class="nav-logo">
+            <span>Ahab</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tutorial.html">Tutorial</a>
+            <a href="learn.html">Learn More</a>
+            <a href="teachers.html">For Teachers</a>
+            <a href="status.html" class="status-link"><i class="fas fa-chart-line"></i> Status</a>
+            <a href="test.html" class="active" aria-current="page"><i class="fas fa-flask"></i> Test</a>
+            <a href="https://github.com/waltdundore/ahab" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> → <span aria-current="page">Test Page</span>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main">
+        <section class="hero">
+            <div class="logo-container">
+                <img src="images/ahab-logo.png" alt="Ahab logo - whale tail symbol" class="logo">
+            </div>
+            <h1><i class="fas fa-flask"></i> Test Page</h1>
+            <p class="subtitle">Testing GitHub Pages deployment and functionality</p>
+            <div class="status-meta">
+                <span><i class="fas fa-clock"></i> Last Updated: <span class="last-updated">December 12, 2025</span></span>
+                <span><i class="fas fa-code-branch"></i> Branch: prod</span>
+                <span><i class="fas fa-check-circle"></i> Status: Active</span>
+            </div>
+        </section>
+
+        <!-- Test Results Section -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-check-circle"></i> Deployment Test Results</h2>
+            <div class="card">
+                <h3>GitHub Pages Deployment Status</h3>
+                <div class="status-grid">
+                    <div class="status-card status-passing">
+                        <i class="fas fa-globe"></i>
+                        <h4>Live Site</h4>
+                        <p>✅ Successfully Deployed</p>
+                        <small>GitHub Pages is serving from prod branch</small>
+                    </div>
+                    
+                    <div class="status-card status-passing">
+                        <i class="fas fa-code"></i>
+                        <h4>HTML Structure</h4>
+                        <p>✅ Valid HTML5</p>
+                        <small>Single main element, proper semantic structure</small>
+                    </div>
+                    
+                    <div class="status-card status-passing">
+                        <i class="fas fa-paint-brush"></i>
+                        <h4>CSS Styling</h4>
+                        <p>✅ Styles Loading</p>
+                        <small>Brand colors and responsive design active</small>
+                    </div>
+                    
+                    <div class="status-card status-passing">
+                        <i class="fas fa-universal-access"></i>
+                        <h4>Accessibility</h4>
+                        <p>✅ WCAG Compliant</p>
+                        <small>Skip links, ARIA labels, keyboard navigation</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Information -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-info-circle"></i> Test Information</h2>
+            <div class="info-box">
+                <h4>Purpose of This Test Page</h4>
+                <p>This page serves as a deployment verification tool to ensure:</p>
+                <ul>
+                    <li>GitHub Pages is correctly serving from the prod branch</li>
+                    <li>HTML structure is valid and corruption-free</li>
+                    <li>CSS and JavaScript resources are loading properly</li>
+                    <li>Navigation and accessibility features work correctly</li>
+                    <li>The site is ready for production use</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Technical Details</h3>
+                <div class="code-block">
+                    <code># Deployment Information:</code><br>
+                    <code>Repository: waltdundore/waltdundore.github.io</code><br>
+                    <code>Branch: prod</code><br>
+                    <code>Deployment Method: GitHub Pages (Branch)</code><br>
+                    <code>Live URL: https://waltdundore.github.io/test.html</code><br>
+                    <code>Last Deploy: December 12, 2025</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Test -->
+        <section class="tutorial-section">
+            <h2><i class="fas fa-compass"></i> Navigation Test</h2>
+            <div class="card">
+                <h3>Site Navigation Links</h3>
+                <p>Test all navigation links to ensure they work correctly:</p>
+                <div class="nav-test-grid">
+                    <a href="index.html" class="nav-test-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home Page</span>
+                    </a>
+                    <a href="tutorial.html" class="nav-test-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Tutorial</span>
+                    </a>
+                    <a href="learn.html" class="nav-test-link">
+                        <i class="fas fa-book"></i>
+                        <span>Learn More</span>
+                    </a>
+                    <a href="teachers.html" class="nav-test-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>For Teachers</span>
+                    </a>
+                    <a href="status.html" class="nav-test-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Status Page</span>
+                    </a>
+                    <a href="https://github.com/waltdundore/ahab" target="_blank" class="nav-test-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Repository</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Message -->
+        <section class="tutorial-section">
+            <div class="success-box">
+                <h3><i class="fas fa-check-circle"></i> ✅ Test Page Successfully Deployed!</h3>
+                <p><strong>Result:</strong> GitHub Pages deployment is working correctly</p>
+                <p><strong>Status:</strong> All systems operational</p>
+                <p><strong>Next Steps:</strong> The site is ready for production use</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="tutorial-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Ahab Project</h4>
+                <p>Infrastructure automation for schools and non-profits</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://github.com/waltdundore/ahab">GitHub Repository</a></li>
+                    <li><a href="status.html">Project Status</a></li>
+                    <li><a href="tutorial.html">Getting Started</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ahab Project. Open source infrastructure automation.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/components.js"></script>
+</body>
+</html>
