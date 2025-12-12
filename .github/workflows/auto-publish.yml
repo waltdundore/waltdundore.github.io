@@ -3,16 +3,11 @@
 
 name: Deploy to GitHub Pages
 
-# TEMPORARILY DISABLED - Workflow was failing and blocking deployment
-# on:
-#   push:
-#     branches: [ production ]
-#   
-#   # Allow manual trigger
-#   workflow_dispatch:
-
-# Manual trigger only while we fix the workflow
 on:
+  push:
+    branches: [ main, dev ]
+  
+  # Allow manual trigger
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -34,8 +29,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: production
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
