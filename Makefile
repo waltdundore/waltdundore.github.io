@@ -251,6 +251,11 @@ fix-corruption:
 	@echo "   Purpose: Fix HTML corruption by removing duplicate main tags"
 	@./scripts/fix-html-corruption.sh
 
+add-version-tracking:
+	@echo "→ Running: ./scripts/add-version-tracking.sh"
+	@echo "   Purpose: Add version tracking to HTML files for deployment monitoring"
+	@./scripts/add-version-tracking.sh
+
 clean:
 	@echo "→ Running: cleanup temporary files"
 	@echo "   Purpose: Remove test artifacts and temporary files"
