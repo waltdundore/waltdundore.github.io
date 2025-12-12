@@ -67,7 +67,7 @@ check_semantic_elements() {
     local issues=0
     
     # Check for main element
-    if ! grep -q '<main>' "$file"; then
+    if ! grep -q '<main' "$file"; then
         echo "ERROR: Missing <main> element in $file"
         ((issues++))
     fi
