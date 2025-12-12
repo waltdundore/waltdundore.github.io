@@ -82,11 +82,20 @@ help:
 	@echo "                              • Clears cached data"
 	@echo ""
 	@echo "🚀 PUBLISHING WORKFLOW:"
-	@echo "  make deploy               → PREPARE for publishing (does NOT publish!)"
+	@echo "  make publish              → Publish to live website (GitHub Pages)"
 	@echo "                              • Runs complete test suite"
-	@echo "                              • Stages files for deployment"
-	@echo "                              • ⚠️  Does NOT commit or push automatically"
-	@echo "                              • You maintain full control"
+	@echo "                              • Merges production → main"
+	@echo "                              • Pushes to GitHub (triggers deployment)"
+	@echo "                              • Live at https://waltdundore.github.io/"
+	@echo "  make publish-production   → Update production branch (staging)"
+	@echo "                              • Push changes to production branch"
+	@echo "                              • Prepare for main deployment"
+	@echo "  make publish-status       → Show publishing status"
+	@echo "                              • Branch sync status"
+	@echo "                              • Deployment information"
+	@echo "  make deploy               → PREPARE for publishing (legacy)"
+	@echo "                              • Runs tests and stages files"
+	@echo "                              • Does NOT automatically publish"
 	@echo "  make pre-push             → Complete pre-publication workflow"
 	@echo "                              • Comprehensive validation"
 	@echo "                              • Documentation updates"
@@ -228,30 +237,115 @@ clean:
 	@rm -f *.backup
 	@echo "✓ Cleanup complete"
 # ==============================================================================
-# Git Publishing Commands
+# GitHub Pages Publishing Commands
 # ==============================================================================
 
-.PHONY: publish publish-all publish-status publish-sync
+.PHONY: publish publish-production publish-main publish-status publish-sync
 
-publish:
-	@echo "→ Running: ./scripts/git-publish $(filter-out publish,$(MAKECMDGOALS))"
-	@echo "   Purpose: Publish branch to GitHub for live website deployment"
-	@./scripts/git-publish $(filter-out publish,$(MAKECMDGOALS))
+# Main publish command - handles GitHub Pages deployment workflow
+publish: test
+	$(call SHOW_SECTION,Publishing Website to GitHub Pages)
+	@echo "→ Running: GitHub Pages deployment workflow"
+	@echo "   Purpose: Deploy enhanced status page and website updates to live site"
+	@echo ""
+	@echo "📋 Deployment Steps:"
+	@echo "  1. Merge production → main (GitHub Pages source)"
+	@echo "  2. Push main to GitHub"
+	@echo "  3. Verify deployment status"
+	@echo ""
+	@# Ensure we're on production branch with latest changes
+	@if [ "$$(git branch --show-current)" != "production" ]; then \
+		echo "→ Switching to production branch"; \
+		git checkout production; \
+	fi
+	@echo "→ Merging production changes to main branch"
+	@git checkout main
+	@git merge production --no-edit || (echo "❌ Merge failed - resolve conflicts manually" && exit 1)
+	@echo "→ Pushing main branch to GitHub (triggers GitHub Pages deployment)"
+	@git push origin main
+	@echo ""
+	@echo "✅ Website published successfully!"
+	@echo "🌐 Live at: https://waltdundore.github.io/"
+	@echo "📊 Status: https://waltdundore.github.io/status.html"
+	@echo ""
+	@echo "⏱️  GitHub Pages deployment typically takes 1-2 minutes"
+	@echo "🔄 Check deployment status: https://github.com/waltdundore/waltdundore.github.io/actions"
 
-publish-all:
-	@echo "→ Running: ./scripts/git-publish all"
-	@echo "   Purpose: Publish all configured branches to GitHub"
-	@./scripts/git-publish all
+# Publish to production branch (staging)
+publish-production:
+	$(call SHOW_SECTION,Publishing to Production Branch)
+	@echo "→ Running: git push origin production"
+	@echo "   Purpose: Update production branch (staging for main)"
+	@git push origin production
+	@echo "✅ Production branch updated"
+	@echo "💡 Run 'make publish' to deploy to live site"
 
+# Direct publish to main (emergency use)
+publish-main: test
+	$(call SHOW_SECTION,Emergency Publish to Main)
+	@echo "⚠️  WARNING: Direct publish to main branch"
+	@echo "   This bypasses the production → main workflow"
+	@echo "   Only use for emergency fixes"
+	@echo ""
+	@read -p "Continue with direct main publish? (y/N): " confirm && [ "$$confirm" = "y" ]
+	@git checkout main
+	@git push origin main
+	@echo "✅ Emergency publish complete"
+
+# Show publishing status
 publish-status:
-	@echo "→ Running: ./scripts/git-publish status"
-	@echo "   Purpose: Show current git publishing status and branch sync state"
-	@./scripts/git-publish status
+	$(call SHOW_SECTION,GitHub Pages Publishing Status)
+	@echo "📊 Repository Status:"
+	@echo "  Current branch: $$(git branch --show-current)"
+	@echo "  Last commit: $$(git log -1 --format='%h - %s (%cr)')"
+	@echo ""
+	@echo "📋 Branch Status:"
+	@# Check production branch
+	@if git show-ref --verify --quiet refs/heads/production; then \
+		echo "  ✅ production: $$(git log production -1 --format='%h - %s (%cr)')"; \
+	else \
+		echo "  ❌ production: Branch not found"; \
+	fi
+	@# Check main branch  
+	@if git show-ref --verify --quiet refs/heads/main; then \
+		echo "  ✅ main: $$(git log main -1 --format='%h - %s (%cr)')"; \
+	else \
+		echo "  ❌ main: Branch not found"; \
+	fi
+	@echo ""
+	@echo "🔄 Sync Status:"
+	@# Check if production is ahead of main
+	@if git show-ref --verify --quiet refs/heads/production && git show-ref --verify --quiet refs/heads/main; then \
+		ahead=$$(git rev-list --count main..production); \
+		behind=$$(git rev-list --count production..main); \
+		if [ "$$ahead" -eq 0 ] && [ "$$behind" -eq 0 ]; then \
+			echo "  ✅ production and main are in sync"; \
+		elif [ "$$ahead" -gt 0 ]; then \
+			echo "  📤 production is $$ahead commits ahead of main"; \
+			echo "     Run 'make publish' to deploy changes"; \
+		elif [ "$$behind" -gt 0 ]; then \
+			echo "  📥 main is $$behind commits ahead of production"; \
+			echo "     This is unusual - check for direct main commits"; \
+		fi; \
+	fi
+	@echo ""
+	@echo "🌐 Live Site: https://waltdundore.github.io/"
+	@echo "📊 Status Page: https://waltdundore.github.io/status.html"
+	@echo "🔄 Deployment Actions: https://github.com/waltdundore/waltdundore.github.io/actions"
 
+# Sync branches
 publish-sync:
-	@echo "→ Running: ./scripts/git-publish sync"
-	@echo "   Purpose: Sync main branch with remote changes before publishing"
-	@./scripts/git-publish sync
+	$(call SHOW_SECTION,Syncing Repository Branches)
+	@echo "→ Running: git fetch --all"
+	@echo "   Purpose: Fetch latest changes from GitHub"
+	@git fetch --all
+	@echo "→ Syncing production branch"
+	@git checkout production
+	@git pull origin production || echo "⚠️  No remote production branch or conflicts"
+	@echo "→ Syncing main branch"  
+	@git checkout main
+	@git pull origin main || echo "⚠️  No remote main branch or conflicts"
+	@echo "✅ Sync complete"
 # Handle branch names as arguments to publish command
 %:
 	@:
